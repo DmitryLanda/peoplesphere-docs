@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+    aglio:
+        build: docker
+        container_name: blueprint-aglio
+        working_dir: /application
+        volumes:
+            - .:/application:delegated
+        command: -i ./src/index.md -o ./public/index.html
