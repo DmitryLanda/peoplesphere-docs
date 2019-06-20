@@ -1,20 +1,33 @@
 # Data Structures
 
+## `date-time` (string)
+
+## date (string)
+
+## mixed (string)
+
 ## Translatable Text (object)
-+ en: Some text for en locale (required, string)
-+ fr: Some text for fr locale (required, string)
-+ de: Some text for de locale (required, string)
-+ es: Some text for es locale (required, string)
++ en: Some text (required, string)
++ fr: Du texte (required, string)
++ de: Setwas Text (required, string)
++ es: Algún texto (required, string)
 
 ## Meta (object)
-+ pagination (Pagination)
++ pagination (Pagination, required, fixed-type)
 
 ## Pagination (object)
-+ total: 238 (number)
-+ count: 25 (number)
-+ per_page: 25 (number)
-+ current_page: 2 (number)
-+ total_pages: 10 (number)
++ total: 238 (number, required)
++ count: 25 (number, required)
++ per_page: 25 (number, required)
++ current_page: 2 (number, required)
++ total_pages: 10 (number, required)
++ links (object, required)
+    + previous: `http://example.com/api/<endpoint>?page=1` (string, required)
+    + next: `http://example.com/api/<endpoint>?page=3` (string, required)
+
+## Response 400 (object)
++ message: Short description of error reason (string)
++ status_code: 400 (number)
 
 ## Response 401 (object)
 + message: Short description of error reason (string)
