@@ -54,3 +54,7 @@
 ## Response 500 (object)
 + message: Internal Error (string)
 + status_code: 500 (number)
+
+## Entity ID (object)
++ id: 123 (number)
++ alias: can_be_null (string, optional)
