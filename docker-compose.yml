@@ -7,4 +7,4 @@ services:
         working_dir: /application
         volumes:
             - .:/application:delegated
-        command: -i ./src/index.md -o ./public/index.html
+        command: -i ./src/index.md --theme-full-width -o ./public/index.html

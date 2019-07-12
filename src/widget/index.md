@@ -18,6 +18,7 @@ Widget specific permissions:
 ## HTML Widgets [/widgets]
 
 <!-- include(list.md) -->
+<!-- include(personal_list.md) -->
 <!-- include(show.md) -->
 <!-- include(create.md) -->
 <!-- include(update.md) -->

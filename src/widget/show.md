@@ -1,10 +1,9 @@
-### Show [GET /widgets/{id}]
+### Show [GET /widgets/{alias}]
 
-Get details for selected widget
+## **Get details for selected widget**
 
 + Parameters
-    + id: 5 (required, number) 
-        Id of the widget
+    + alias: my_widget (required, string) - alias of the widget
 
 
 + Request

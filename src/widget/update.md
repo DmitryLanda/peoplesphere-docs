@@ -1,10 +1,9 @@
-### Update [PATCH /widgets/{id}]
+### Update [PATCH /widgets/{alias}]
 
-Update the widget
+## **Update the widget**
 
 + Parameters
-    + id: 5 (required, number) 
-        Id of the widget
+    + alias: my_widget (required, string) - alias of the widget
 
 
 + Request

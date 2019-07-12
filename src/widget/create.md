@@ -1,6 +1,14 @@
 ### Create [POST /widgets]
 
-Create new widget
+## **Create new widget**
+On creation alias for widget will be generated automatically
+
+Also for each new widget will be generated permission
+
+Permission schema: `widget.<alias>.view`
+
+By default users has no access to new widgets. To grant access widget permission must be added to the target role 
+trough Roles API
 
 + Request
     + Headers
