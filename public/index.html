@@ -3947,8 +3947,8 @@ trough Roles API</p>
             {
               "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"condition"</span></span>,
               "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"usr_email"</span></span>,
-              "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span></span>,
-              "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span>
+              "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span></span>,
+              "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span>
             </span>}
           ]
         </span>}
@@ -3957,7 +3957,21 @@ trough Roles API</p>
         {
           "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"notification"</span></span>,
-          "<span class="hljs-attribute">population</span>": <span class="hljs-value">[]</span>,
+          "<span class="hljs-attribute">population</span>": <span class="hljs-value">[
+            {
+              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+              "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+                "<span class="hljs-attribute">includes</span>": <span class="hljs-value">[
+                  <span class="hljs-string">"group_a"</span>
+                ]</span>,
+                "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">[
+                  <span class="hljs-string">"group_b"</span>,
+                  <span class="hljs-string">"group_c"</span>
+                ]
+              </span>}
+            </span>}
+          ]</span>,
           "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{}
         </span>}
       ]
@@ -4025,16 +4039,26 @@ trough Roles API</p>
               "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
                   "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be only group"</span>
+                  "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                    <span class="hljs-string">"group"</span>
+                  ]
                 </span>}</span>,
                 "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value">{
                   "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be one of: or, and"</span>
+                  "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                    <span class="hljs-string">"and"</span>,
+                    <span class="hljs-string">"or"</span>
+                  ]
                 </span>}</span>,
                 "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
                   "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
                 </span>}
-              </span>}
+              </span>}</span>,
+              "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                <span class="hljs-string">"type"</span>,
+                <span class="hljs-string">"combine_with"</span>,
+                <span class="hljs-string">"conditions"</span>
+              ]
             </span>}
           </span>}</span>,
           "<span class="hljs-attribute">handlers</span>": <span class="hljs-value">{
@@ -4055,17 +4079,67 @@ trough Roles API</p>
                     <span class="hljs-string">"form_assignment"</span>
                   ]
                 </span>}</span>,
-                "<span class="hljs-attribute">population</span>": <span class="hljs-value">{}</span>,
+                "<span class="hljs-attribute">population</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+                  "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+                    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+                    "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                        "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                          <span class="hljs-string">"all"</span>,
+                          <span class="hljs-string">"group"</span>,
+                          <span class="hljs-string">"pso"</span>,
+                          <span class="hljs-string">"relation"</span>
+                        ]
+                      </span>}</span>,
+                      "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+                        "<span class="hljs-attribute">anyOf</span>": <span class="hljs-value">[
+                          {
+                            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+                            "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                              "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value">{
+                                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+                              </span>}</span>,
+                              "<span class="hljs-attribute">includes</span>": <span class="hljs-value">{
+                                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                              </span>}</span>,
+                              "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">{
+                                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                              </span>}
+                            </span>}</span>,
+                            "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                              <span class="hljs-string">"dynamic"</span>,
+                              <span class="hljs-string">"includes"</span>,
+                              <span class="hljs-string">"excludes"</span>
+                            ]
+                          </span>},
+                          {
+                            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+                            "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                              [],
+                              []
+                            ]
+                          </span>}
+                        ]</span>,
+                        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"null"</span>
+                      </span>}
+                    </span>}</span>,
+                    "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                      <span class="hljs-string">"type"</span>,
+                      <span class="hljs-string">"details"</span>
+                    ]
+                  </span>}
+                </span>}</span>,
                 "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
                   "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-                  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}
+                  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}</span>,
+                  "<span class="hljs-attribute">additionalProperties</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
                 </span>}
               </span>}</span>,
               "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
                 <span class="hljs-string">"id"</span>,
-                <span class="hljs-string">"type"</span>,
-                <span class="hljs-string">"population"</span>,
-                <span class="hljs-string">"payload"</span>
+                <span class="hljs-string">"type"</span>
               ]
             </span>}
           </span>}
@@ -4230,7 +4304,7 @@ trough Roles API</p>
   </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="triggers-triggers-post" class="action post"><h4 class="action-heading"><div class="name">Create</div><a href="#triggers-triggers-post" class="method post">POST</a><code class="uri">/triggers</code></h4><h2 id="header-create-new-trigger-entry">Create new trigger entry <a class="permalink" href="#header-create-new-trigger-entry" aria-hidden="true">¶</a></h2>
 <p>Most part of properties are simple and described in JSON schema.
-But there are 2 properties (<strong>conditions</strong> and <strong>handlers</strong>) that need to be explained</p>
+But there are 2 properties (<strong>conditions</strong> and <strong>handlers</strong>) that need to be explained.</p>
 <h3 id="header-conditions">Conditions <a class="permalink" href="#header-conditions" aria-hidden="true">¶</a></h3>
 <p>Condition uses to describe rules that will be applied as filers on trigger execution.</p>
 <p>Condition can be  of 2 types - <strong>group</strong> and <strong>condition</strong> itself</p>
@@ -4323,6 +4397,84 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
 <p>payload (additional info that depends on <strong>type</strong>)</p>
 </li>
 </ul>
+<h4 id="header-handler-population">Handler population <a class="permalink" href="#header-handler-population" aria-hidden="true">¶</a></h4>
+<p>Population is array of different populations. Each kind of population item defined by <strong>type</strong> property.
+Available types:</p>
+<ul>
+<li>
+<p>all (all active PSOs of given type - see <strong>pso_type</strong> in main section)</p>
+</li>
+<li>
+<p>group (specified groups)</p>
+</li>
+<li>
+<p>pso (specific PSOs)</p>
+</li>
+<li>
+<p>relation (self or alias of field with relation type)</p>
+</li>
+</ul>
+<p>Population items can be combined. So in population array we may have few entries with different types</p>
+<p>Examples:
+For <strong>all</strong> type:</p>
+<pre><code class="language-json">[
+    {
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"all"</span></span>,
+        "<span class="hljs-attribute">details</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+    </span>}
+]</code></pre>
+<p>For <strong>group</strong> type:</p>
+<pre><code class="language-json">[
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+      "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+        "<span class="hljs-attribute">includes</span>": <span class="hljs-value">[<span class="hljs-string">"group_a"</span>, <span class="hljs-string">"group_b"</span>]</span>,
+        "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">[<span class="hljs-string">"group_c"</span>, <span class="hljs-string">"group_d"</span>]
+      </span>}
+    </span>}
+]</code></pre>
+<p>For <strong>pso</strong> type:</p>
+<pre><code class="language-json">[
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"pso"</span></span>,
+      "<span class="hljs-attribute">details</span>": <span class="hljs-value">[<span class="hljs-number">123</span>, <span class="hljs-number">456</span>]
+    </span>}
+]</code></pre>
+<p>For <strong>relation</strong> type:</p>
+<pre><code class="language-json">[
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"relation"</span></span>,
+      "<span class="hljs-attribute">details</span>": <span class="hljs-value">[
+        <span class="hljs-string">"self"</span>,
+        <span class="hljs-string">"manager"</span>,
+        <span class="hljs-string">"..."</span>
+      ]
+    </span>}
+]</code></pre>
+<p>Mixed types:</p>
+<pre><code class="language-json">[
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+      "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+        "<span class="hljs-attribute">includes</span>": <span class="hljs-value">[<span class="hljs-string">"group_a"</span>, <span class="hljs-string">"group_b"</span>]</span>,
+        "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">[<span class="hljs-string">"group_c"</span>, <span class="hljs-string">"group_d"</span>]
+      </span>}
+    </span>},
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"pso"</span></span>,
+      "<span class="hljs-attribute">details</span>": <span class="hljs-value">[<span class="hljs-number">123</span>, <span class="hljs-number">456</span>]
+    </span>},
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"relation"</span></span>,
+      "<span class="hljs-attribute">details</span>": <span class="hljs-value">[
+        <span class="hljs-string">"self"</span>,
+        <span class="hljs-string">"manager"</span>,
+        <span class="hljs-string">"..."</span>
+      ]
+    </span>}
+]</code></pre>
 <h4 id="header-handler-payload-examples">Handler payload examples <a class="permalink" href="#header-handler-payload-examples" aria-hidden="true">¶</a></h4>
 <p>For <strong>notification</strong> type</p>
 <pre><code class="language-json">{
@@ -4341,6 +4493,10 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
     "<span class="hljs-attribute">channels</span>": <span class="hljs-value">[
         <span class="hljs-string">"web"</span>,
         <span class="hljs-string">"email"</span>
+    ]</span>,
+    "<span class="hljs-attribute">raw_recipients</span>": <span class="hljs-value">[
+        <span class="hljs-string">"aaa@email.com"</span>,
+        <span class="hljs-string">"bbb@email.com"</span>
     ]
 </span>}</code></pre>
 <p>For <strong>action_todo</strong> type</p>
@@ -4399,8 +4555,8 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
         "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"permanent|unique|periodic"</span></span>,
         "<span class="hljs-attribute">settings</span>": <span class="hljs-value">[
             {
-            "<span class="hljs-attribute">alias</span>": <span class="hljs-value"><span class="hljs-string">"start_date"</span></span>,
-            "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"Y-m-d H:i:s"</span>
+                "<span class="hljs-attribute">alias</span>": <span class="hljs-value"><span class="hljs-string">"start_date"</span></span>,
+                "<span class="hljs-attribute">value</span>": <span class="hljs-value"><span class="hljs-string">"Y-m-d H:i:s"</span>
             </span>}
         ]
     </span>}
@@ -4431,8 +4587,8 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
         {
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"condition"</span></span>,
           "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"usr_email"</span></span>,
-          "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span></span>,
-          "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span>
+          "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span></span>,
+          "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span>
         </span>}
       ]
     </span>}
@@ -4441,7 +4597,21 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
     {
       "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"notification"</span></span>,
-      "<span class="hljs-attribute">population</span>": <span class="hljs-value">[]</span>,
+      "<span class="hljs-attribute">population</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+          "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+            "<span class="hljs-attribute">includes</span>": <span class="hljs-value">[
+              <span class="hljs-string">"group_a"</span>
+            ]</span>,
+            "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">[
+              <span class="hljs-string">"group_b"</span>,
+              <span class="hljs-string">"group_c"</span>
+            ]
+          </span>}
+        </span>}
+      ]</span>,
       "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{}
     </span>}
   ]
@@ -4520,16 +4690,26 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
         "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be only group"</span>
+            "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+              <span class="hljs-string">"group"</span>
+            ]
           </span>}</span>,
           "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be one of: or, and"</span>
+            "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+              <span class="hljs-string">"and"</span>,
+              <span class="hljs-string">"or"</span>
+            ]
           </span>}</span>,
           "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
           </span>}
-        </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+          <span class="hljs-string">"type"</span>,
+          <span class="hljs-string">"combine_with"</span>,
+          <span class="hljs-string">"conditions"</span>
+        ]
       </span>}
     </span>}</span>,
     "<span class="hljs-attribute">handlers</span>": <span class="hljs-value">{
@@ -4550,17 +4730,67 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
               <span class="hljs-string">"form_assignment"</span>
             ]
           </span>}</span>,
-          "<span class="hljs-attribute">population</span>": <span class="hljs-value">{}</span>,
+          "<span class="hljs-attribute">population</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+            "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+              "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                  "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                    <span class="hljs-string">"all"</span>,
+                    <span class="hljs-string">"group"</span>,
+                    <span class="hljs-string">"pso"</span>,
+                    <span class="hljs-string">"relation"</span>
+                  ]
+                </span>}</span>,
+                "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">anyOf</span>": <span class="hljs-value">[
+                    {
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+                      "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                        "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value">{
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+                        </span>}</span>,
+                        "<span class="hljs-attribute">includes</span>": <span class="hljs-value">{
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                        </span>}</span>,
+                        "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">{
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                        </span>}
+                      </span>}</span>,
+                      "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                        <span class="hljs-string">"dynamic"</span>,
+                        <span class="hljs-string">"includes"</span>,
+                        <span class="hljs-string">"excludes"</span>
+                      ]
+                    </span>},
+                    {
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+                      "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                        [],
+                        []
+                      ]
+                    </span>}
+                  ]</span>,
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"null"</span>
+                </span>}
+              </span>}</span>,
+              "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                <span class="hljs-string">"type"</span>,
+                <span class="hljs-string">"details"</span>
+              ]
+            </span>}
+          </span>}</span>,
           "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-            "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}
+            "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}</span>,
+            "<span class="hljs-attribute">additionalProperties</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
           </span>}
         </span>}</span>,
         "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
           <span class="hljs-string">"id"</span>,
-          <span class="hljs-string">"type"</span>,
-          <span class="hljs-string">"population"</span>,
-          <span class="hljs-string">"payload"</span>
+          <span class="hljs-string">"type"</span>
         ]
       </span>}
     </span>}
@@ -4593,8 +4823,8 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
           {
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"condition"</span></span>,
             "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"usr_email"</span></span>,
-            "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span></span>,
-            "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span>
+            "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span></span>,
+            "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span>
           </span>}
         ]
       </span>}
@@ -4603,7 +4833,21 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
       {
         "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
         "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"notification"</span></span>,
-        "<span class="hljs-attribute">population</span>": <span class="hljs-value">[]</span>,
+        "<span class="hljs-attribute">population</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+            "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+              "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+              "<span class="hljs-attribute">includes</span>": <span class="hljs-value">[
+                <span class="hljs-string">"group_a"</span>
+              ]</span>,
+              "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">[
+                <span class="hljs-string">"group_b"</span>,
+                <span class="hljs-string">"group_c"</span>
+              ]
+            </span>}
+          </span>}
+        ]</span>,
         "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{}
       </span>}
     ]
@@ -4655,16 +4899,26 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
             "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
               "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be only group"</span>
+                "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                  <span class="hljs-string">"group"</span>
+                ]
               </span>}</span>,
               "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be one of: or, and"</span>
+                "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                  <span class="hljs-string">"and"</span>,
+                  <span class="hljs-string">"or"</span>
+                ]
               </span>}</span>,
               "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
               </span>}
-            </span>}
+            </span>}</span>,
+            "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+              <span class="hljs-string">"type"</span>,
+              <span class="hljs-string">"combine_with"</span>,
+              <span class="hljs-string">"conditions"</span>
+            ]
           </span>}
         </span>}</span>,
         "<span class="hljs-attribute">handlers</span>": <span class="hljs-value">{
@@ -4685,17 +4939,67 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
                   <span class="hljs-string">"form_assignment"</span>
                 ]
               </span>}</span>,
-              "<span class="hljs-attribute">population</span>": <span class="hljs-value">{}</span>,
+              "<span class="hljs-attribute">population</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+                "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+                  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                    "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                      "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                        <span class="hljs-string">"all"</span>,
+                        <span class="hljs-string">"group"</span>,
+                        <span class="hljs-string">"pso"</span>,
+                        <span class="hljs-string">"relation"</span>
+                      ]
+                    </span>}</span>,
+                    "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+                      "<span class="hljs-attribute">anyOf</span>": <span class="hljs-value">[
+                        {
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+                          "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                            "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value">{
+                              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+                            </span>}</span>,
+                            "<span class="hljs-attribute">includes</span>": <span class="hljs-value">{
+                              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                            </span>}</span>,
+                            "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">{
+                              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                            </span>}
+                          </span>}</span>,
+                          "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                            <span class="hljs-string">"dynamic"</span>,
+                            <span class="hljs-string">"includes"</span>,
+                            <span class="hljs-string">"excludes"</span>
+                          ]
+                        </span>},
+                        {
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+                          "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                            [],
+                            []
+                          ]
+                        </span>}
+                      ]</span>,
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"null"</span>
+                    </span>}
+                  </span>}</span>,
+                  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                    <span class="hljs-string">"type"</span>,
+                    <span class="hljs-string">"details"</span>
+                  ]
+                </span>}
+              </span>}</span>,
               "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-                "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}
+                "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}</span>,
+                "<span class="hljs-attribute">additionalProperties</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
               </span>}
             </span>}</span>,
             "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
               <span class="hljs-string">"id"</span>,
-              <span class="hljs-string">"type"</span>,
-              <span class="hljs-string">"population"</span>,
-              <span class="hljs-string">"payload"</span>
+              <span class="hljs-string">"type"</span>
             ]
           </span>}
         </span>}
@@ -4845,8 +5149,8 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
           {
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"condition"</span></span>,
             "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"usr_email"</span></span>,
-            "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span></span>,
-            "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span>
+            "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span></span>,
+            "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span>
           </span>}
         ]
       </span>}
@@ -4855,7 +5159,21 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
       {
         "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
         "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"notification"</span></span>,
-        "<span class="hljs-attribute">population</span>": <span class="hljs-value">[]</span>,
+        "<span class="hljs-attribute">population</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+            "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+              "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+              "<span class="hljs-attribute">includes</span>": <span class="hljs-value">[
+                <span class="hljs-string">"group_a"</span>
+              ]</span>,
+              "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">[
+                <span class="hljs-string">"group_b"</span>,
+                <span class="hljs-string">"group_c"</span>
+              ]
+            </span>}
+          </span>}
+        ]</span>,
         "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{}
       </span>}
     ]
@@ -4907,16 +5225,26 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
             "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
               "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be only group"</span>
+                "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                  <span class="hljs-string">"group"</span>
+                ]
               </span>}</span>,
               "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be one of: or, and"</span>
+                "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                  <span class="hljs-string">"and"</span>,
+                  <span class="hljs-string">"or"</span>
+                ]
               </span>}</span>,
               "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
               </span>}
-            </span>}
+            </span>}</span>,
+            "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+              <span class="hljs-string">"type"</span>,
+              <span class="hljs-string">"combine_with"</span>,
+              <span class="hljs-string">"conditions"</span>
+            ]
           </span>}
         </span>}</span>,
         "<span class="hljs-attribute">handlers</span>": <span class="hljs-value">{
@@ -4937,17 +5265,67 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
                   <span class="hljs-string">"form_assignment"</span>
                 ]
               </span>}</span>,
-              "<span class="hljs-attribute">population</span>": <span class="hljs-value">{}</span>,
+              "<span class="hljs-attribute">population</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+                "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+                  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                    "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                      "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                        <span class="hljs-string">"all"</span>,
+                        <span class="hljs-string">"group"</span>,
+                        <span class="hljs-string">"pso"</span>,
+                        <span class="hljs-string">"relation"</span>
+                      ]
+                    </span>}</span>,
+                    "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+                      "<span class="hljs-attribute">anyOf</span>": <span class="hljs-value">[
+                        {
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+                          "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                            "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value">{
+                              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+                            </span>}</span>,
+                            "<span class="hljs-attribute">includes</span>": <span class="hljs-value">{
+                              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                            </span>}</span>,
+                            "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">{
+                              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                            </span>}
+                          </span>}</span>,
+                          "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                            <span class="hljs-string">"dynamic"</span>,
+                            <span class="hljs-string">"includes"</span>,
+                            <span class="hljs-string">"excludes"</span>
+                          ]
+                        </span>},
+                        {
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+                          "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                            [],
+                            []
+                          ]
+                        </span>}
+                      ]</span>,
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"null"</span>
+                    </span>}
+                  </span>}</span>,
+                  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                    <span class="hljs-string">"type"</span>,
+                    <span class="hljs-string">"details"</span>
+                  ]
+                </span>}
+              </span>}</span>,
               "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-                "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}
+                "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}</span>,
+                "<span class="hljs-attribute">additionalProperties</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
               </span>}
             </span>}</span>,
             "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
               <span class="hljs-string">"id"</span>,
-              <span class="hljs-string">"type"</span>,
-              <span class="hljs-string">"population"</span>,
-              <span class="hljs-string">"payload"</span>
+              <span class="hljs-string">"type"</span>
             ]
           </span>}
         </span>}
@@ -5180,8 +5558,8 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
         {
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"condition"</span></span>,
           "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"usr_email"</span></span>,
-          "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span></span>,
-          "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span>
+          "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span></span>,
+          "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span>
         </span>}
       ]
     </span>}
@@ -5190,7 +5568,21 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
     {
       "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"notification"</span></span>,
-      "<span class="hljs-attribute">population</span>": <span class="hljs-value">[]</span>,
+      "<span class="hljs-attribute">population</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+          "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+            "<span class="hljs-attribute">includes</span>": <span class="hljs-value">[
+              <span class="hljs-string">"group_a"</span>
+            ]</span>,
+            "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">[
+              <span class="hljs-string">"group_b"</span>,
+              <span class="hljs-string">"group_c"</span>
+            ]
+          </span>}
+        </span>}
+      ]</span>,
       "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{}
     </span>}
   ]
@@ -5269,16 +5661,26 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
         "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be only group"</span>
+            "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+              <span class="hljs-string">"group"</span>
+            ]
           </span>}</span>,
           "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-            "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be one of: or, and"</span>
+            "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+              <span class="hljs-string">"and"</span>,
+              <span class="hljs-string">"or"</span>
+            ]
           </span>}</span>,
           "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
           </span>}
-        </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+          <span class="hljs-string">"type"</span>,
+          <span class="hljs-string">"combine_with"</span>,
+          <span class="hljs-string">"conditions"</span>
+        ]
       </span>}
     </span>}</span>,
     "<span class="hljs-attribute">handlers</span>": <span class="hljs-value">{
@@ -5299,17 +5701,67 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
               <span class="hljs-string">"form_assignment"</span>
             ]
           </span>}</span>,
-          "<span class="hljs-attribute">population</span>": <span class="hljs-value">{}</span>,
+          "<span class="hljs-attribute">population</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+            "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+              "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                  "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                    <span class="hljs-string">"all"</span>,
+                    <span class="hljs-string">"group"</span>,
+                    <span class="hljs-string">"pso"</span>,
+                    <span class="hljs-string">"relation"</span>
+                  ]
+                </span>}</span>,
+                "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">anyOf</span>": <span class="hljs-value">[
+                    {
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+                      "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                        "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value">{
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+                        </span>}</span>,
+                        "<span class="hljs-attribute">includes</span>": <span class="hljs-value">{
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                        </span>}</span>,
+                        "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">{
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                        </span>}
+                      </span>}</span>,
+                      "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                        <span class="hljs-string">"dynamic"</span>,
+                        <span class="hljs-string">"includes"</span>,
+                        <span class="hljs-string">"excludes"</span>
+                      ]
+                    </span>},
+                    {
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+                      "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                        [],
+                        []
+                      ]
+                    </span>}
+                  ]</span>,
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"null"</span>
+                </span>}
+              </span>}</span>,
+              "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                <span class="hljs-string">"type"</span>,
+                <span class="hljs-string">"details"</span>
+              ]
+            </span>}
+          </span>}</span>,
           "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-            "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}
+            "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}</span>,
+            "<span class="hljs-attribute">additionalProperties</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
           </span>}
         </span>}</span>,
         "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
           <span class="hljs-string">"id"</span>,
-          <span class="hljs-string">"type"</span>,
-          <span class="hljs-string">"population"</span>,
-          <span class="hljs-string">"payload"</span>
+          <span class="hljs-string">"type"</span>
         ]
       </span>}
     </span>}
@@ -5335,8 +5787,8 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
           {
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"condition"</span></span>,
             "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"usr_email"</span></span>,
-            "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span></span>,
-            "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span>
+            "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span></span>,
+            "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span>
           </span>}
         ]
       </span>}
@@ -5345,7 +5797,21 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
       {
         "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
         "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"notification"</span></span>,
-        "<span class="hljs-attribute">population</span>": <span class="hljs-value">[]</span>,
+        "<span class="hljs-attribute">population</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+            "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+              "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+              "<span class="hljs-attribute">includes</span>": <span class="hljs-value">[
+                <span class="hljs-string">"group_a"</span>
+              ]</span>,
+              "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">[
+                <span class="hljs-string">"group_b"</span>,
+                <span class="hljs-string">"group_c"</span>
+              ]
+            </span>}
+          </span>}
+        ]</span>,
         "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{}
       </span>}
     ]
@@ -5397,16 +5863,26 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
             "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
               "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be only group"</span>
+                "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                  <span class="hljs-string">"group"</span>
+                ]
               </span>}</span>,
               "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"can be one of: or, and"</span>
+                "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                  <span class="hljs-string">"and"</span>,
+                  <span class="hljs-string">"or"</span>
+                ]
               </span>}</span>,
               "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
               </span>}
-            </span>}
+            </span>}</span>,
+            "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+              <span class="hljs-string">"type"</span>,
+              <span class="hljs-string">"combine_with"</span>,
+              <span class="hljs-string">"conditions"</span>
+            ]
           </span>}
         </span>}</span>,
         "<span class="hljs-attribute">handlers</span>": <span class="hljs-value">{
@@ -5427,17 +5903,67 @@ But there are 2 properties (<strong>conditions</strong> and <strong>handlers</st
                   <span class="hljs-string">"form_assignment"</span>
                 ]
               </span>}</span>,
-              "<span class="hljs-attribute">population</span>": <span class="hljs-value">{}</span>,
+              "<span class="hljs-attribute">population</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+                "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+                  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                    "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                      "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                        <span class="hljs-string">"all"</span>,
+                        <span class="hljs-string">"group"</span>,
+                        <span class="hljs-string">"pso"</span>,
+                        <span class="hljs-string">"relation"</span>
+                      ]
+                    </span>}</span>,
+                    "<span class="hljs-attribute">details</span>": <span class="hljs-value">{
+                      "<span class="hljs-attribute">anyOf</span>": <span class="hljs-value">[
+                        {
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+                          "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                            "<span class="hljs-attribute">dynamic</span>": <span class="hljs-value">{
+                              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+                            </span>}</span>,
+                            "<span class="hljs-attribute">includes</span>": <span class="hljs-value">{
+                              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                            </span>}</span>,
+                            "<span class="hljs-attribute">excludes</span>": <span class="hljs-value">{
+                              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                            </span>}
+                          </span>}</span>,
+                          "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                            <span class="hljs-string">"dynamic"</span>,
+                            <span class="hljs-string">"includes"</span>,
+                            <span class="hljs-string">"excludes"</span>
+                          ]
+                        </span>},
+                        {
+                          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+                          "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                            [],
+                            []
+                          ]
+                        </span>}
+                      ]</span>,
+                      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"null"</span>
+                    </span>}
+                  </span>}</span>,
+                  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                    <span class="hljs-string">"type"</span>,
+                    <span class="hljs-string">"details"</span>
+                  ]
+                </span>}
+              </span>}</span>,
               "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
                 "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-                "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}
+                "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}</span>,
+                "<span class="hljs-attribute">additionalProperties</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
               </span>}
             </span>}</span>,
             "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
               <span class="hljs-string">"id"</span>,
-              <span class="hljs-string">"type"</span>,
-              <span class="hljs-string">"population"</span>,
-              <span class="hljs-string">"payload"</span>
+              <span class="hljs-string">"type"</span>
             ]
           </span>}
         </span>}

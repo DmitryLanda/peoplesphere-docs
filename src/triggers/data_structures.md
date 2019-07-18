@@ -37,17 +37,50 @@
 + conditions (array[Group Condition], fixed-type)
 + handlers (array[Handler], fixed-type)
 
+## Group Condition (object)
++ type: group (enum[string], required)
+    - group
++ combine_with: and (enum[string], required)
+    - and
+    - or
++ conditions (array[Condition], required)
+
 ## Condition (object)
-+ type: condition (string) - can be only condition 
++ type: condition (enum[string], required)
+    - condition
 + field: usr_email (string)
-+ operator: `==` (string) - can be one of >,<,>=,<=,==,!=,empty,not_empty,today,anniversary_today,not_in,in,above,above_or_equal,below,below_or_equal,starts_with,ends_with,contains,not_contains,last_days,last_weeks,last_months,next_days,next_weeks,next_months,changed_after,is_changed
 + raw_value: `john.doe@example.com` (string, optional)
 + field_value: usr_additional_email (string, optional)
-
-## Group Condition (object)
-+ type: group (string) - can be only group 
-+ combine_with: and (string) - can be one of: or, and
-+ conditions (array[Condition])
++ operator: `==` (enum[string]) - more details can be found in **Operators API** section
+    - >
+    - >
+    - < 
+    - >=
+    - <=
+    - ==
+    - !=
+    - empty
+    - not_empty
+    - today
+    - anniversary_today
+    - not_in
+    - in
+    - above
+    - above_or_equal
+    - below
+    - below_or_equal
+    - starts_with
+    - ends_with
+    - contains
+    - not_contains
+    - days_before
+    - weeks_before
+    - months_before
+    - days_after
+    - weeks_after
+    - months_after
+    - changed_after
+    - is_changed
 
 ## Handler (object)
 + id: 1 (number, required)
@@ -57,5 +90,19 @@
     - action_schedule
     - field_modification
     - form_assignment 
-+ population (array, required) 
-+ payload (object, required)
++ population (array[Population Item], fixed-type) 
++ payload (object, fixed-type)
+
+## Population Item (object)
++ type: group (enum[string], required)
+    - all
+    - group
+    - pso
+    - relation
++ details (enum, nullable, required)
+    - (object)
+        - dynamic (boolean, required)
+        - includes: group_a (array[string], required)
+        - excludes: group_b, group_c (array[string], required)
+    - (array[number])
+    - (array[string])

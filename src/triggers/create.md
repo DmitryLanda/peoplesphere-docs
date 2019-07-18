@@ -2,7 +2,7 @@
 
 ## Create new trigger entry
  Most part of properties are simple and described in JSON schema. 
- But there are 2 properties (**conditions** and **handlers**) that need to be explained 
+ But there are 2 properties (**conditions** and **handlers**) that need to be explained.  
 
 ### Conditions
 Condition uses to describe rules that will be applied as filers on trigger execution.
@@ -106,6 +106,91 @@ Each **handler** entry has:
  - population (describes PSO that will be used as population\recipient once trigger executed)
  - payload (additional info that depends on **type**)
 
+#### Handler population
+Population is array of different populations. Each kind of population item defined by **type** property.
+Available types:
+ - all (all active PSOs of given type - see **pso_type** in main section)
+ - group (specified groups)
+ - pso (specific PSOs)
+ - relation (self or alias of field with relation type)
+ 
+Population items can be combined. So in population array we may have few entries with different types
+
+Examples:
+For **all** type:
+```json
+[
+    {
+        "type": "all",
+        "details": null
+    }
+]
+```
+
+For **group** type:
+```json
+[
+    {
+      "type": "group",
+      "details": {
+        "dynamic": true,
+        "includes": ["group_a", "group_b"],
+        "excludes": ["group_c", "group_d"]
+      }
+    }
+]
+```
+
+For **pso** type:
+```json
+[
+    {
+      "type": "pso",
+      "details": [123, 456]
+    }
+]
+```
+
+For **relation** type:
+```json
+[
+    {
+      "type": "relation",
+      "details": [
+        "self",
+        "manager",
+        "..."
+      ]
+    }
+]
+```
+
+Mixed types:
+```json
+[
+    {
+      "type": "group",
+      "details": {
+        "dynamic": true,
+        "includes": ["group_a", "group_b"],
+        "excludes": ["group_c", "group_d"]
+      }
+    },
+    {
+      "type": "pso",
+      "details": [123, 456]
+    },
+    {
+      "type": "relation",
+      "details": [
+        "self",
+        "manager",
+        "..."
+      ]
+    }
+]
+```
+
 #### Handler payload examples
 
 For **notification** type
@@ -126,6 +211,10 @@ For **notification** type
     "channels": [
         "web",
         "email"
+    ],
+    "raw_recipients": [
+        "aaa@email.com",
+        "bbb@email.com"
     ]
 }
 ```
@@ -196,8 +285,8 @@ For **form_assignment** type
         "type": "permanent|unique|periodic",
         "settings": [
             {
-            "alias": "start_date",
-            "value": "Y-m-d H:i:s"
+                "alias": "start_date",
+                "value": "Y-m-d H:i:s"
             }
         ]
     }
