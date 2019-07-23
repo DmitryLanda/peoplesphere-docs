@@ -1,4 +1,4 @@
-### Common List [GET /widgets{?sort-by,sort-direction,active,query,view-mode}]
+### Common List [GET /widgets{?sort-by,sort-direction,active,query,view-mode,page,per-page,no-pagination}]
 
 ## **Get list of widgets matches specified filters**
 
@@ -8,6 +8,7 @@
     + active: true (boolean)
     + query: Widget name to search on (string)
     + `view-mode`: tab (enum[inline, tab])
+    <!-- include(../pagination_parameters.md) -->
 
 + Request
     + Headers

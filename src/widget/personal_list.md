@@ -1,4 +1,4 @@
-### Personalized List [GET /me/widgets{?view-mode}]
+### Personalized List [GET /me/widgets{?view-mode,page,per-page,no-pagination}]
 
 ## **Get list of widgets that authorized user has access to** 
 
@@ -10,6 +10,7 @@ The widget list will be filtered based on permissions (Features) user has access
 
 + Parameters
     + `view-mode`: tab (enum[inline, tab])
+    <!-- include(../pagination_parameters.md) -->
 
 
 + Request

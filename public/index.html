@@ -2863,14 +2863,21 @@ This content controlled by customer and can be any: plain text, html or even ifr
 <ul>
 <li><code>widget.&lt;name&gt;.view</code> - Allows to get specific widget. Should be used on Welcome Page only</li>
 </ul>
-<div id="html-widgets-html-widgets" class="resource"><h3 class="resource-heading">HTML Widgets <a href="#html-widgets-html-widgets" class="permalink">&nbsp;&para;</a></h3><div id="html-widgets-html-widgets-get" class="action get"><h4 class="action-heading"><div class="name">Common List</div><a href="#html-widgets-html-widgets-get" class="method get">GET</a><code class="uri">/widgets{?sort-by,sort-direction,active,query,view-mode}</code></h4><h2 id="header-get-list-of-widgets-matches-specified-filters"><strong>Get list of widgets matches specified filters</strong> <a class="permalink" href="#header-get-list-of-widgets-matches-specified-filters" aria-hidden="true">¶</a></h2>
-<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://rest.monportailrh.com</span>/widgets?<span class="hljs-attribute">sort-by=</span><span class="hljs-literal">name</span>&<span class="hljs-attribute">sort-direction=</span><span class="hljs-literal">asc</span>&<span class="hljs-attribute">active=</span><span class="hljs-literal">true</span>&<span class="hljs-attribute">query=</span><span class="hljs-literal">Widget name to search on</span>&<span class="hljs-attribute">view-mode=</span><span class="hljs-literal">tab</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>sort-by</dt><dd><code>name, created_at</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>name</span></span></dd><dt>sort-direction</dt><dd><code>asc, desc</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>asc</span></span></dd><dt>active</dt><dd><code>boolean</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>true</span></span></dd><dt>query</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>Widget name to search on</span></span></dd><dt>view-mode</dt><dd><code>inline, tab</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>tab</span></span></dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">X-Application-Version</span>: <span class="hljs-string">&lt;client-name&gt;/&lt;version&gt;</span><br><span class="hljs-attribute">X-App-features</span>: <span class="hljs-string">&lt;target permission&gt;</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+<div id="html-widgets-html-widgets" class="resource"><h3 class="resource-heading">HTML Widgets <a href="#html-widgets-html-widgets" class="permalink">&nbsp;&para;</a></h3><div id="html-widgets-html-widgets-get" class="action get"><h4 class="action-heading"><div class="name">Common List</div><a href="#html-widgets-html-widgets-get" class="method get">GET</a><code class="uri">/widgets{?sort-by,sort-direction,active,query,view-mode,page,per-page,no-pagination}</code></h4><h2 id="header-get-list-of-widgets-matches-specified-filters"><strong>Get list of widgets matches specified filters</strong> <a class="permalink" href="#header-get-list-of-widgets-matches-specified-filters" aria-hidden="true">¶</a></h2>
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://rest.monportailrh.com</span>/widgets?<span class="hljs-attribute">sort-by=</span><span class="hljs-literal">name</span>&<span class="hljs-attribute">sort-direction=</span><span class="hljs-literal">asc</span>&<span class="hljs-attribute">active=</span><span class="hljs-literal">true</span>&<span class="hljs-attribute">query=</span><span class="hljs-literal">Widget name to search on</span>&<span class="hljs-attribute">view-mode=</span><span class="hljs-literal">tab</span>&<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">per-page=</span><span class="hljs-literal">10</span>&<span class="hljs-attribute">no-pagination=</span><span class="hljs-literal">false</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>sort-by</dt><dd><code>name, created_at</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>name</span></span></dd><dt>sort-direction</dt><dd><code>asc, desc</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>asc</span></span></dd><dt>active</dt><dd><code>boolean</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>true</span></span></dd><dt>query</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>Widget name to search on</span></span></dd><dt>view-mode</dt><dd><code>inline, tab</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>tab</span></span></dd><dt>page</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>Page number. <code>1</code> by default</p>
+</dd><dt>per-page</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10</span></span><p>Number of items per page, <code>25</code> by default</p>
+</dd><dt>no-pagination</dt><dd><code>boolean</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>if presented and positive <strong>pagination will not be applied</strong>.
+All available items will be returned.</p>
+<p><strong>Note: it may have significant impact on the performance</strong></p>
+<p><strong>Note: once this option positive and presented - <code>meta</code> attribute with pagination data will be omit in response</strong></p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">X-Application-Version</span>: <span class="hljs-string">&lt;client-name&gt;/&lt;version&gt;</span><br><span class="hljs-attribute">X-App-features</span>: <span class="hljs-string">&lt;target permission&gt;</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
     {
       "<span class="hljs-attribute">alias</span>": <span class="hljs-value"><span class="hljs-string">"my_widget"</span></span>,
       "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Widget Name"</span></span>,
       "<span class="hljs-attribute">view_mode</span>": <span class="hljs-value"><span class="hljs-string">"inline"</span></span>,
       "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"Widget content, can has html tags"</span></span>,
+      "<span class="hljs-attribute">is_active</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
       "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-01 23:34:40"</span></span>,
       "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-01 23:34:40"</span>
     </span>}
@@ -2910,6 +2917,9 @@ This content controlled by customer and can be any: plain text, html or even ifr
           "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
           </span>}</span>,
+          "<span class="hljs-attribute">is_active</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+          </span>}</span>,
           "<span class="hljs-attribute">created_at</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
           </span>}</span>,
@@ -2921,7 +2931,10 @@ This content controlled by customer and can be any: plain text, html or even ifr
           <span class="hljs-string">"alias"</span>,
           <span class="hljs-string">"name"</span>,
           <span class="hljs-string">"view_mode"</span>,
-          <span class="hljs-string">"content"</span>
+          <span class="hljs-string">"content"</span>,
+          <span class="hljs-string">"is_active"</span>,
+          <span class="hljs-string">"created_at"</span>,
+          <span class="hljs-string">"updated_at"</span>
         ]
       </span>}
     </span>}</span>,
@@ -3068,17 +3081,24 @@ This content controlled by customer and can be any: plain text, html or even ifr
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
     </span>}
   </span>}
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="html-widgets-html-widgets-get-1" class="action get"><h4 class="action-heading"><div class="name">Personalized List</div><a href="#html-widgets-html-widgets-get-1" class="method get">GET</a><code class="uri">/me/widgets{?view-mode}</code></h4><h2 id="header-get-list-of-widgets-that-authorized-user-has-access-to"><strong>Get list of widgets that authorized user has access to</strong> <a class="permalink" href="#header-get-list-of-widgets-that-authorized-user-has-access-to" aria-hidden="true">¶</a></h2>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="html-widgets-html-widgets-get-1" class="action get"><h4 class="action-heading"><div class="name">Personalized List</div><a href="#html-widgets-html-widgets-get-1" class="method get">GET</a><code class="uri">/me/widgets{?view-mode,page,per-page,no-pagination}</code></h4><h2 id="header-get-list-of-widgets-that-authorized-user-has-access-to"><strong>Get list of widgets that authorized user has access to</strong> <a class="permalink" href="#header-get-list-of-widgets-that-authorized-user-has-access-to" aria-hidden="true">¶</a></h2>
 <p><strong>ONLY active widgets that current user has access to will be provided</strong></p>
 <p>The widget list will be filtered based on permissions (Features) user has access to</p>
 <p><strong>Note</strong>: Each widget managed by it’s own permission</p>
-<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://rest.monportailrh.com</span>/me/widgets?<span class="hljs-attribute">view-mode=</span><span class="hljs-literal">tab</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>view-mode</dt><dd><code>inline, tab</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>tab</span></span></dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">X-Application-Version</span>: <span class="hljs-string">&lt;client-name&gt;/&lt;version&gt;</span><br><span class="hljs-attribute">X-App-features</span>: <span class="hljs-string">&lt;target permission&gt;</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+<h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://rest.monportailrh.com</span>/me/widgets?<span class="hljs-attribute">view-mode=</span><span class="hljs-literal">tab</span>&<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">per-page=</span><span class="hljs-literal">10</span>&<span class="hljs-attribute">no-pagination=</span><span class="hljs-literal">false</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>view-mode</dt><dd><code>inline, tab</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>tab</span></span></dd><dt>page</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>Page number. <code>1</code> by default</p>
+</dd><dt>per-page</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10</span></span><p>Number of items per page, <code>25</code> by default</p>
+</dd><dt>no-pagination</dt><dd><code>boolean</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>if presented and positive <strong>pagination will not be applied</strong>.
+All available items will be returned.</p>
+<p><strong>Note: it may have significant impact on the performance</strong></p>
+<p><strong>Note: once this option positive and presented - <code>meta</code> attribute with pagination data will be omit in response</strong></p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">X-Application-Version</span>: <span class="hljs-string">&lt;client-name&gt;/&lt;version&gt;</span><br><span class="hljs-attribute">X-App-features</span>: <span class="hljs-string">&lt;target permission&gt;</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
     {
       "<span class="hljs-attribute">alias</span>": <span class="hljs-value"><span class="hljs-string">"my_widget"</span></span>,
       "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Widget Name"</span></span>,
       "<span class="hljs-attribute">view_mode</span>": <span class="hljs-value"><span class="hljs-string">"inline"</span></span>,
       "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"Widget content, can has html tags"</span></span>,
+      "<span class="hljs-attribute">is_active</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
       "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-01 23:34:40"</span></span>,
       "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-01 23:34:40"</span>
     </span>}
@@ -3118,6 +3138,9 @@ This content controlled by customer and can be any: plain text, html or even ifr
           "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
           </span>}</span>,
+          "<span class="hljs-attribute">is_active</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+          </span>}</span>,
           "<span class="hljs-attribute">created_at</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
           </span>}</span>,
@@ -3129,7 +3152,10 @@ This content controlled by customer and can be any: plain text, html or even ifr
           <span class="hljs-string">"alias"</span>,
           <span class="hljs-string">"name"</span>,
           <span class="hljs-string">"view_mode"</span>,
-          <span class="hljs-string">"content"</span>
+          <span class="hljs-string">"content"</span>,
+          <span class="hljs-string">"is_active"</span>,
+          <span class="hljs-string">"created_at"</span>,
+          <span class="hljs-string">"updated_at"</span>
         ]
       </span>}
     </span>}</span>,
@@ -3284,6 +3310,7 @@ This content controlled by customer and can be any: plain text, html or even ifr
     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Widget Name"</span></span>,
     "<span class="hljs-attribute">view_mode</span>": <span class="hljs-value"><span class="hljs-string">"inline"</span></span>,
     "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"Widget content, can has html tags"</span></span>,
+    "<span class="hljs-attribute">is_active</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
     "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-01 23:34:40"</span></span>,
     "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-01 23:34:40"</span>
   </span>}
@@ -3307,6 +3334,9 @@ This content controlled by customer and can be any: plain text, html or even ifr
         "<span class="hljs-attribute">content</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
         </span>}</span>,
+        "<span class="hljs-attribute">is_active</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+        </span>}</span>,
         "<span class="hljs-attribute">created_at</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
         </span>}</span>,
@@ -3318,7 +3348,10 @@ This content controlled by customer and can be any: plain text, html or even ifr
         <span class="hljs-string">"alias"</span>,
         <span class="hljs-string">"name"</span>,
         <span class="hljs-string">"view_mode"</span>,
-        <span class="hljs-string">"content"</span>
+        <span class="hljs-string">"content"</span>,
+        <span class="hljs-string">"is_active"</span>,
+        <span class="hljs-string">"created_at"</span>,
+        <span class="hljs-string">"updated_at"</span>
       ]
     </span>}
   </span>}
@@ -3431,7 +3464,8 @@ trough Roles API</p>
     "<span class="hljs-attribute">de</span>": <span class="hljs-value"><span class="hljs-string">"Setwas Text"</span></span>,
     "<span class="hljs-attribute">es</span>": <span class="hljs-value"><span class="hljs-string">"Algún texto"</span>
   </span>}</span>,
-  "<span class="hljs-attribute">view_mode</span>": <span class="hljs-value"><span class="hljs-string">"tab"</span>
+  "<span class="hljs-attribute">view_mode</span>": <span class="hljs-value"><span class="hljs-string">"tab"</span></span>,
+  "<span class="hljs-attribute">is_active</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
   "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
   "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
@@ -3485,12 +3519,16 @@ trough Roles API</p>
     "<span class="hljs-attribute">view_mode</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
       "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"inline and tab are possible values"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">is_active</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
     </span>}
   </span>}</span>,
   "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
     <span class="hljs-string">"name"</span>,
     <span class="hljs-string">"content"</span>,
-    <span class="hljs-string">"view_mode"</span>
+    <span class="hljs-string">"view_mode"</span>,
+    <span class="hljs-string">"is_active"</span>
   ]
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
@@ -3636,7 +3674,8 @@ trough Roles API</p>
     "<span class="hljs-attribute">de</span>": <span class="hljs-value"><span class="hljs-string">"Setwas Text"</span></span>,
     "<span class="hljs-attribute">es</span>": <span class="hljs-value"><span class="hljs-string">"Algún texto"</span>
   </span>}</span>,
-  "<span class="hljs-attribute">view_mode</span>": <span class="hljs-value"><span class="hljs-string">"inline"</span>
+  "<span class="hljs-attribute">view_mode</span>": <span class="hljs-value"><span class="hljs-string">"inline"</span></span>,
+  "<span class="hljs-attribute">is_active</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
   "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
   "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
@@ -3690,6 +3729,9 @@ trough Roles API</p>
     "<span class="hljs-attribute">view_mode</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
       "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"inline and tab are possible values"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">is_active</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
     </span>}
   </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
@@ -6105,8 +6147,9 @@ For <strong>all</strong> type:</p>
       ]</span>,
       "<span class="hljs-attribute">arithmetic_operators</span>": <span class="hljs-value">[
         {
-          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Plus"</span></span>,
-          "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"+"</span>
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Is equal to"</span></span>,
+          "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"binary"</span>
         </span>}
       ]
     </span>}
@@ -6158,6 +6201,13 @@ For <strong>all</strong> type:</p>
                 </span>}</span>,
                 "<span class="hljs-attribute">operator</span>": <span class="hljs-value">{
                   "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                  "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                    <span class="hljs-string">"binary"</span>,
+                    <span class="hljs-string">"unary"</span>
+                  ]
                 </span>}
               </span>}</span>,
               "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
@@ -6263,7 +6313,7 @@ For <strong>all</strong> type:</p>
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
     </span>}
   </span>}
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 18 Jul 2019</p><script>/* eslint-env browser */
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 23 Jul 2019</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
