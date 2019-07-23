@@ -58,3 +58,27 @@
 ## Entity ID (object)
 + id: 123 (number)
 + alias: can_be_null (string, optional)
+
+## Population Item (object)
++ type: group (enum[string], required)
+    - all
+    - group
+    - pso
+    - relation
++ details (enum, nullable, required)
+    - (object)
+        - dynamic (boolean, required)
+        - includes: group_a (array[string], required)
+        - excludes: group_b, group_c (array[string], required)
+    - (array[number])
+    - (array[string])
+    
+## User (object)
++ id: 1 (number, required)
++ first_name: John (string, required)
++ last_name: Snow (string, required)
++ professional_email: `jsnow@example.com` (string, required)
++ role: bastard, king (array[string], required)
++ is_active: true (boolean, required)
++ status: remote (string, required)
++ user_photo: `http://example.com/images/1.jpg` (string, required)

@@ -92,17 +92,3 @@
     - form_assignment 
 + population (array[Population Item], fixed-type) 
 + payload (object, fixed-type)
-
-## Population Item (object)
-+ type: group (enum[string], required)
-    - all
-    - group
-    - pso
-    - relation
-+ details (enum, nullable, required)
-    - (object)
-        - dynamic (boolean, required)
-        - includes: group_a (array[string], required)
-        - excludes: group_b, group_c (array[string], required)
-    - (array[number])
-    - (array[string])

@@ -35,13 +35,3 @@
 + is_promote_as_top: true (boolean, required)
 + publish_at: `2019-04-24 11:47:47` (string, required)
 + editable: true (boolean, required)
-
-## User (object)
-+ id: 1 (number, required)
-+ first_name: John (string, required)
-+ last_name: Snow (string, required)
-+ professional_email: `jsnow@example.com` (string, required)
-+ role: bastard, king (array[string], required)
-+ is_active: true (boolean, required)
-+ status: remote (string, required)
-+ user_photo: `http://example.com/images/1.jpg` (string, required)
