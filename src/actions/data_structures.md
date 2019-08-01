@@ -65,13 +65,9 @@
     - failed
     - rejected
 + icon: `http://example.com/image.png` (string)
-+ relation: usr_custom_manager (string)
-    if presented action will be created for the PSO mentioned as specified relation for `user_id` 
 + payload (object)
 + effective_date: `2019-01-24 15:34:58` (date-time)
 + expires_at: `2019-03-21 09:34:58` (date-time)
-+ comment: Any free text (string) - required if status changed to `rejected`. In other cases it is optional
-+ population (array[Population Item], fixed-type)
 
 ## Approve Action (object)
 + comment: Any free text (string)
