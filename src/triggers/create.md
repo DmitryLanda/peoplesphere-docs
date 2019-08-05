@@ -24,13 +24,23 @@ Example
 #### Condition
 It should be used to describe the field based rule (filter)
 
-Example
+Compare field value with raw value example
 ```json
 {
     "type": "condition",
     "field": "usr_email",
     "operator": "==",
     "raw_value": "john.doe@example.com"
+}
+``` 
+
+Compare two field values example
+```json
+{
+    "type": "condition",
+    "field": "usr_first_name",
+    "operator": "==",
+    "field_value": "usr_last_name"
 }
 ``` 
 
