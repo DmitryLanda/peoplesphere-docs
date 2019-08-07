@@ -12,7 +12,7 @@ Available types:
  - all (all active PSOs of given type - see **pso_type** in main section)
  - group (specified groups)
  - pso (specific PSOs)
- - relation (self or alias of field with relation type)
+ - relation (user or alias of field with relation type)
  
 Population items can be combined. So in population array we may have few entries with different types
 
@@ -57,7 +57,7 @@ For **relation** type:
     {
       "type": "relation",
       "details": [
-        "self",
+        "user",
         "manager",
         "..."
       ]
