@@ -137,6 +137,16 @@ For **all** type:
 ]
 ```
 
+For **self** type:
+```json
+[
+    {
+        "type": "self",
+        "details": null
+    }
+]
+```
+
 For **group** type:
 ```json
 [
@@ -167,7 +177,7 @@ For **relation** type:
     {
       "type": "relation",
       "details": [
-        "self",
+        "user",
         "manager",
         "..."
       ]
