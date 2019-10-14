@@ -82,3 +82,8 @@
 + is_active: true (boolean, required)
 + status: remote (string, required)
 + user_photo: `http://example.com/images/1.jpg` (string, required)
+
+# Language (object)
++ id: 1 (number, required)
++ alias: en (string, required)
++ name: English (string, required)
