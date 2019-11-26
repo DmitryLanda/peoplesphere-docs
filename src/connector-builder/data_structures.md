@@ -14,12 +14,11 @@
 + mapping (array[Export Map], required, fixed-type)
 + language (required, Language)
 + permissions (object)
-    + edit: true (required, boolean)
-    + delete: false (required, boolean)
-    + deactivate: true (required, boolean)
+    + can_edit: true (required, boolean)
+    + can_delete: false (required, boolean)
+    + can_deactivate: true (required, boolean)
 + created_at: `2019-01-01 23:34:40` (date-time, required)
 + updated_at: `2019-01-01 23:34:40` (date-time, required)
-+ generated_at: `2019-01-01 23:34:40` (date-time, required)
 
 ## Create Export (object)
 + name (Translatable Text, required, fixed-type)
@@ -37,12 +36,12 @@
 + mapping (array[Export Map Request], optional, fixed-type)
 
 ## Export Map (object)
-+ internal: field_alias (required, string)
++ internal: field_id (required, integer)
 + external: Active  (required, string)
 + root_field (Field, optional, fixed-type)
 
 ## Export Map Request (object)
-+ internal: field_alias (required, string)
++ internal: field_id (required, integer)
 + external: Active  (required, string)
 
 ## Export Log (object)
