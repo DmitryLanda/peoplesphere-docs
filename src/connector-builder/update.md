@@ -13,7 +13,7 @@ By default all PSO objects from system will be exported using given mapping. The
  
 + Parameters
     + alias: usr_report (required, string) 
-        Id of the Export Mapping.
+        Alias of the Export Mapping.
 
 + Request
     + Headers

@@ -28,3 +28,4 @@ More details about export process can be got by using `Export Logs` endpoint
 <!-- include(export-logs.md) -->
 <!-- include(create.md) -->
 <!-- include(update.md) -->
+<!-- include(delete.md) -->
