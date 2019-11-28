@@ -23,7 +23,7 @@ By default all PSO objects from system will be exported using given mapping. The
             X-Application-Version: <client-name>/<version>
             X-App-features: <target features>
           
-    + Attributes(Create Export)
+    + Attributes(Update Export)
 
 
 + Response 200 (application/json)
