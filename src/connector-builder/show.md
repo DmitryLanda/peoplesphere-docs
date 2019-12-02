@@ -4,7 +4,7 @@
 
 + Parameters
     + alias: usr_report (required, string) 
-        Id of the Export Mapping.
+        Alias of the Export Mapping.
     + include: pso_type,language (optional, enum[pso_type, mapping, mapping.root_field, language])
         The way to include relations in the response. Target relations can be comma separated if you want to get few of them
 
