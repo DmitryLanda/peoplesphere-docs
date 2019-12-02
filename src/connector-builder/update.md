@@ -1,6 +1,6 @@
 ### Update [PATCH /connector-builder/exports/{alias}]
 
-## Create new export map
+## Update export map
 On creation alias for mapping will be generated automatically
 
 By default all PSO objects from system will be exported using given mapping. There are few limitations:
@@ -27,6 +27,10 @@ By default all PSO objects from system will be exported using given mapping. The
 
 
 + Response 200 (application/json)
+
+    + Attributes
+        
+        + data (Entity ID, fixed-type)
     
 + Response 400 (application/json)
               
