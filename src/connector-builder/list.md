@@ -7,6 +7,8 @@
         Search by name. Non strict, case-insensitive.
     + `pso-type`: usr
         Pso Type trigram to filter export maps for
+    + `active`: true (optional, boolean)
+        Field for filter exports by `is_active` column
     + sort: title (optional, enum[pso-type, name])
         Field to sort export maps by. 
         + Default: name
