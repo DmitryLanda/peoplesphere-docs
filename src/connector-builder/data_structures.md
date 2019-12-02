@@ -36,12 +36,12 @@
 + mapping (array[Export Map Request], optional, fixed-type)
 
 ## Export Map (object)
-+ internal: field_id (required, integer)
++ internal: 123 (required, number)
 + external: Active  (required, string)
 + root_field (Field, optional, fixed-type)
 
 ## Export Map Request (object)
-+ internal: field_id (required, integer)
++ internal: 123 (required, number)
 + external: Active  (required, string)
 
 ## Export Log (object)
