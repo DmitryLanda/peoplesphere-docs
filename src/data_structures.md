@@ -75,12 +75,17 @@
     
 ## User (object)
 + id: 1 (number, required)
++ external_id: 1 (number, required)
 + first_name: John (string, required)
 + last_name: Snow (string, required)
++ username: john_snow (string, required)
 + professional_email: `jsnow@example.com` (string, required)
++ professional_mobile_phone: `00 33 1 40 00 00 00` (string, required)
++ professional_phone: `00 33 1 40 00 00 00` (string, required)
 + role: bastard, king (array[string], required)
 + is_active: true (boolean, required)
 + status: remote (string, required)
++ settings: [] (array, required)
 + user_photo: `http://example.com/images/1.jpg` (string, required)
 
 # Language (object)

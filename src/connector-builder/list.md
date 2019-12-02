@@ -1,4 +1,4 @@
-### List [GET /connector-builder/exports{?name,pso-type,sort,order,include}]
+### List [GET /connector-builder/exports{?name,pso-type,active,sort,order,include}]
 
 ## Fetch list of export maps
 
