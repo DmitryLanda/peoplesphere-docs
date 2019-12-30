@@ -1,10 +1,12 @@
-### Download Exported data [POST /connector-builder/exports/{alias}/download]
+### Download Exported data [GET /connector-builder/exports/{alias}/download/{filename}]
 
 ## Download latest export result for specified mapping
 
 + Parameters
     + alias: usr_report (required, string) 
-        Id of the Export Mapping.
+        Alias of the Export Mapping.
+    + filename: user_report-27_12_2019_15_20_35.csv
+        Report filename for download
 
 + Request
     + Headers
