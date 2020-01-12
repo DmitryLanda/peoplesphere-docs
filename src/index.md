@@ -3,6 +3,7 @@ HOST: https://rest.monportailrh.com
 
 <!-- include(introduction.md) -->
 
+<!-- include(company/index.md) -->
 <!-- include(category/index.md) -->
 <!-- include(sensitivity/index.md) -->
 <!-- include(domain/index.md) -->
