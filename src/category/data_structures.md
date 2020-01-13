@@ -1,5 +1,26 @@
 # Data Structures
 
+## Category Create (object)
++ pso_type: usr (string, required)
++ name (Translatable Text, required)
++ description (Translatable Text, optional)
++ is_active: true (boolean, optional)
++ alias: usr_global (string, optional)
++ position: 5 (number, required)
++ is_active: true (boolean, required)
++ is_public: true (boolean, required)
+
+## Category Update (object)
++ name (Translatable Text, optional)
++ description (Translatable Text, optional)
++ position: 5 (number, optional)
++ system_required: true (boolean, optional)
++ position: 5 (number, required)
++ is_active: true (boolean, optional)
++ alias: usr_global (string, optional)
++ is_active: true (boolean, required)
++ is_public: true (boolean, required)
+
 ## Category (object)
 + id: 32 (number, required)
 + alias: usr_identity (string, required)
