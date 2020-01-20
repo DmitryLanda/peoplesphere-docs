@@ -1,8 +1,10 @@
-### List [GET /news{?title,sort,order}]
+### List [GET /news{?title,published-only,sort,order}]
 
 Fetch list of news
 
 + Parameters
+    + `published-only`: Filter by state (optional, boolean) 
+        Get only published News. Filtering use publish-date attribute.
     + title: News to search (optional, string) 
         Search by new title. Non strict, case-insensitive.
     + sort: title (optional, enum[publish-date, title])
