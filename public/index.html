@@ -12334,6 +12334,7 @@ More details about export process can be got by using <code>Export Logs</code> e
 </dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">X-Application-Version</span>: <span class="hljs-string">&lt;client-name&gt;/&lt;version&gt;</span><br><span class="hljs-attribute">X-App-features</span>: <span class="hljs-string">&lt;target feature&gt;</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
     {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">132</span></span>,
       "<span class="hljs-attribute">alias</span>": <span class="hljs-value"><span class="hljs-string">"my_widget"</span></span>,
       "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Export mapping Name"</span></span>,
       "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Some description"</span></span>,
@@ -12348,7 +12349,9 @@ More details about export process can be got by using <code>Export Logs</code> e
         "<span class="hljs-attribute">profile_form_instance_id</span>": <span class="hljs-value"><span class="hljs-number">1</span>
       </span>}</span>,
       "<span class="hljs-attribute">is_active</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+      "<span class="hljs-attribute">is_locked</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
       "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"new"</span></span>,
+      "<span class="hljs-attribute">report_file</span>": <span class="hljs-value"><span class="hljs-string">"filename.csv"</span></span>,
       "<span class="hljs-attribute">mapping</span>": <span class="hljs-value">[
         {
           "<span class="hljs-attribute">internal</span>": <span class="hljs-value"><span class="hljs-number">123</span></span>,
@@ -12486,6 +12489,9 @@ More details about export process can be got by using <code>Export Logs</code> e
       "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
         "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
         "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
+          </span>}</span>,
           "<span class="hljs-attribute">alias</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
           </span>}</span>,
@@ -12538,6 +12544,9 @@ More details about export process can be got by using <code>Export Logs</code> e
           "<span class="hljs-attribute">is_active</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
           </span>}</span>,
+          "<span class="hljs-attribute">is_locked</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+          </span>}</span>,
           "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
             "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
@@ -12546,6 +12555,9 @@ More details about export process can be got by using <code>Export Logs</code> e
               <span class="hljs-string">"done"</span>,
               <span class="hljs-string">"failed"</span>
             ]
+          </span>}</span>,
+          "<span class="hljs-attribute">report_file</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
           </span>}</span>,
           "<span class="hljs-attribute">mapping</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
@@ -13147,6 +13159,7 @@ More details about export process can be got by using <code>Export Logs</code> e
 </dd><dt>include</dt><dd><code>pso_type, mapping, mapping.root_field, language</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>pso_type,language</span></span><p>The way to include relations in the response. Target relations can be comma separated if you want to get few of them</p>
 </dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">X-Application-Version</span>: <span class="hljs-string">&lt;client-name&gt;/&lt;version&gt;</span><br><span class="hljs-attribute">X-App-features</span>: <span class="hljs-string">&lt;comma separated features&gt;</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">132</span></span>,
     "<span class="hljs-attribute">alias</span>": <span class="hljs-value"><span class="hljs-string">"my_widget"</span></span>,
     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Export mapping Name"</span></span>,
     "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Some description"</span></span>,
@@ -13161,7 +13174,9 @@ More details about export process can be got by using <code>Export Logs</code> e
       "<span class="hljs-attribute">profile_form_instance_id</span>": <span class="hljs-value"><span class="hljs-number">1</span>
     </span>}</span>,
     "<span class="hljs-attribute">is_active</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+    "<span class="hljs-attribute">is_locked</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
     "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"new"</span></span>,
+    "<span class="hljs-attribute">report_file</span>": <span class="hljs-value"><span class="hljs-string">"filename.csv"</span></span>,
     "<span class="hljs-attribute">mapping</span>": <span class="hljs-value">[
       {
         "<span class="hljs-attribute">internal</span>": <span class="hljs-value"><span class="hljs-number">123</span></span>,
@@ -13283,6 +13298,9 @@ More details about export process can be got by using <code>Export Logs</code> e
     "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
       "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
+        </span>}</span>,
         "<span class="hljs-attribute">alias</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
         </span>}</span>,
@@ -13335,6 +13353,9 @@ More details about export process can be got by using <code>Export Logs</code> e
         "<span class="hljs-attribute">is_active</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
         </span>}</span>,
+        "<span class="hljs-attribute">is_locked</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"boolean"</span>
+        </span>}</span>,
         "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
           "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
@@ -13343,6 +13364,9 @@ More details about export process can be got by using <code>Export Logs</code> e
             <span class="hljs-string">"done"</span>,
             <span class="hljs-string">"failed"</span>
           ]
+        </span>}</span>,
+        "<span class="hljs-attribute">report_file</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
         </span>}</span>,
         "<span class="hljs-attribute">mapping</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
@@ -13784,11 +13808,14 @@ More details about export process can be got by using <code>Export Logs</code> e
         </span>}
       </span>}</span>,
       "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+        <span class="hljs-string">"id"</span>,
         <span class="hljs-string">"alias"</span>,
         <span class="hljs-string">"name"</span>,
         <span class="hljs-string">"description"</span>,
         <span class="hljs-string">"is_active"</span>,
+        <span class="hljs-string">"is_locked"</span>,
         <span class="hljs-string">"status"</span>,
+        <span class="hljs-string">"report_file"</span>,
         <span class="hljs-string">"mapping"</span>,
         <span class="hljs-string">"language"</span>,
         <span class="hljs-string">"permissions"</span>,
@@ -15021,7 +15048,7 @@ Report filename for download</p>
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
     </span>}
   </span>}
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 21 Jan 2020</p><script>/* eslint-env browser */
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 24 Jan 2020</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 

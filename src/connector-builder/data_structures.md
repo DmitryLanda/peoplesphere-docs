@@ -1,16 +1,19 @@
 # Data Structures
 
 ## Export (object)
++ id: 132 (number)
 + alias: my_widget (string, required)
 + name: Export mapping Name (string, required)
 + description: Some description (string, required)
 + pso_type (Pso Type, optional, fixed-type)
 + is_active: true (boolean, required)
++ is_locked: false (boolean)
 + status: new (enum[string], required)
     - new
     - processing
     - done
     - failed
++ report_file: filename.csv (string)    
 + mapping (array[Export Map], required, fixed-type)
 + language (required, Language)
 + permissions (object)
@@ -51,8 +54,8 @@
 + result: ok (required, enum[string])
     - ok
     - failed
-+ `log_file`: http://localhost/files/reports/123/20190325_150845.log (string, required)
-+ `report_file`: http://localhost/files/reports/123/20190325_150845.csv (string, optional)
++ `log_file`: logs/numeric_scale-181220190931.log (string, required)
++ `report_file`: numeric_scale-181220190931.csv (string, optional)
 + user (User, required)
 
 ## Run Export (object)
