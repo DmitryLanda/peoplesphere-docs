@@ -12,7 +12,7 @@
 + list: false (boolean, required) - whether field can handle collection of values
 + read_only: false (boolean, required) - whether field value can be changed
 + required: true (boolean, required) - whether field value required by system
-+ type (DataType, optional, fixed-type)
++ type (Data Type, optional, fixed-type)
 + category (Category, optional, fixed-type)
 + domains (array[Domain], optional, fixed-type)
 + privacy_level (Sensitivity, optional, fixed-type)
