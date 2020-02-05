@@ -113,6 +113,7 @@ Each **handler** entry has:
      - action_schedule
      - field_modification
      - form_assignment
+     - pso_deletion
  - population (describes PSO that will be used as population\recipient once trigger executed)
  - payload (additional info that depends on **type**)
 
@@ -312,6 +313,11 @@ For **form_assignment** type
     }
 }
 ```
+
+For **pso_deletion** type
+
+
+*Should be `null` or even omitted*
 
 + Request
     + Headers
