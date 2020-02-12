@@ -9636,8 +9636,23 @@ For <strong>all</strong> type:</p>
       ]
     </span>}
 ]</code></pre>
+<h4 id="header-handler-substitutions">Handler substitutions <a class="permalink" href="#header-handler-substitutions" aria-hidden="true">¶</a></h4>
+<p>Supports only for <code>notification</code>, <code>action_todo</code>, <code>action_schedule</code> handler types.</p>
+<p>Substitutions is an array of variables that presented in <code>title</code> and <code>message</code> fields. And used to replace these variables in the text to data from trigger recipients (they described at <code>Population</code> section) or from psos found through conditions.</p>
+<p>Variables from recipients:</p>
+<p>syntax: {$&lt;field_alias&gt;}.</p>
+<p>Variables from psos found through conditions:</p>
+<p>syntax: {@usr_first_name}.</p>
+<p>Example:</p>
+<pre><code class="language-json">[
+  <span class="hljs-string">"{$usr_first_name}"</span>,
+  <span class="hljs-string">"{$usr_last_name}"</span> 
+]</code></pre>
 <h4 id="header-handler-payload-examples">Handler payload examples <a class="permalink" href="#header-handler-payload-examples" aria-hidden="true">¶</a></h4>
 <p>For <strong>notification</strong> type</p>
+<p>If the trigger has conditions and {@} variables in <code>substitutions</code> array.</p>
+<p>All recipients are getting as many notifications as psos had found through conditions.</p>
+<p>If no {@} variable in <code>substitutions</code> array, recipients are getting only one notification.</p>
 <pre><code class="language-json">{
     "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
         "<span class="hljs-attribute">en</span>": <span class="hljs-value"><span class="hljs-string">"..."</span></span>,
@@ -9658,9 +9673,17 @@ For <strong>all</strong> type:</p>
     "<span class="hljs-attribute">raw_recipients</span>": <span class="hljs-value">[
         <span class="hljs-string">"aaa@email.com"</span>,
         <span class="hljs-string">"bbb@email.com"</span>
+    ]</span>,
+    "<span class="hljs-attribute">substitutions</span>": <span class="hljs-value">[
+        <span class="hljs-string">"{$usr_first_name}"</span>,
+        <span class="hljs-string">"{$usr_last_name}"</span>,
+        <span class="hljs-string">"{@usr_first_name}"</span>,
     ]
 </span>}</code></pre>
 <p>For <strong>action_todo</strong> type</p>
+<p>If the trigger has conditions and {@} variables in <code>substitutions</code> array.</p>
+<p>For each recipient will be created as many actions as psos had found through conditions.</p>
+<p>If no {@} variable in <code>substitutions</code> array, only one action will be created for each recipient</p>
 <pre><code class="language-json">{
     "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
         "<span class="hljs-attribute">en</span>": <span class="hljs-value"><span class="hljs-string">"..."</span></span>,
@@ -9674,9 +9697,16 @@ For <strong>all</strong> type:</p>
         "<span class="hljs-attribute">de</span>": <span class="hljs-value"><span class="hljs-string">"..."</span></span>,
         "<span class="hljs-attribute">fr</span>": <span class="hljs-value"><span class="hljs-string">"..."</span>
     </span>}</span>,
-    "<span class="hljs-attribute">due_date</span>": <span class="hljs-value"><span class="hljs-string">"2019-02-34 12:34:56"</span>
+    "<span class="hljs-attribute">due_date</span>": <span class="hljs-value"><span class="hljs-string">"2019-02-34 12:34:56"</span></span>,
+    "<span class="hljs-attribute">substitutions</span>": <span class="hljs-value">[
+        <span class="hljs-string">"{$usr_first_name}"</span>,
+        <span class="hljs-string">"{$usr_last_name}"</span>,
+        <span class="hljs-string">"{@usr_first_name}"</span>,
+    ]
 </span>}</code></pre>
-<p>For <strong>action_schedule</strong> type</p>
+<p>For <strong>action_schedule</strong> type
+If the trigger has conditions and {@} variables in <code>substitutions</code> array.
+For each recipient will be created as many actions as psos had found through conditions.  If no {@} variable in <code>substitutions</code> array, only one action will be created for each recipient</p>
 <pre><code class="language-json">{
     "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
         "<span class="hljs-attribute">en</span>": <span class="hljs-value"><span class="hljs-string">"..."</span></span>,
@@ -9690,7 +9720,12 @@ For <strong>all</strong> type:</p>
         "<span class="hljs-attribute">de</span>": <span class="hljs-value"><span class="hljs-string">"..."</span></span>,
         "<span class="hljs-attribute">fr</span>": <span class="hljs-value"><span class="hljs-string">"..."</span>
     </span>}</span>,
-    "<span class="hljs-attribute">due_date</span>": <span class="hljs-value"><span class="hljs-string">"2019-02-34 12:34:56"</span>
+    "<span class="hljs-attribute">due_date</span>": <span class="hljs-value"><span class="hljs-string">"2019-02-34 12:34:56"</span></span>,
+    "<span class="hljs-attribute">substitutions</span>": <span class="hljs-value">[
+        <span class="hljs-string">"{$usr_first_name}"</span>,
+        <span class="hljs-string">"{$usr_last_name}"</span>,
+        <span class="hljs-string">"{@usr_first_name}"</span>,
+    ]
 </span>}</code></pre>
 <p>For <strong>field_modification</strong> type</p>
 <pre><code class="language-json">{
@@ -11599,7 +11634,6 @@ All available items will be returned.</p>
       </span>}</span>,
       "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com"</span></span>,
       "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"active"</span></span>,
-      "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{}</span>,
       "<span class="hljs-attribute">icon</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image.png"</span></span>,
       "<span class="hljs-attribute">effective_date</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-24 15:34:58"</span></span>,
       "<span class="hljs-attribute">expires_at</span>": <span class="hljs-value"><span class="hljs-string">"2019-03-21 09:34:58"</span></span>,
@@ -11738,10 +11772,6 @@ All available items will be returned.</p>
               <span class="hljs-string">"failed"</span>,
               <span class="hljs-string">"rejected"</span>
             ]
-          </span>}</span>,
-          "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
-            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-            "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}
           </span>}</span>,
           "<span class="hljs-attribute">icon</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
@@ -11951,7 +11981,6 @@ All available items will be returned.</p>
     </span>}</span>,
     "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com"</span></span>,
     "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"active"</span></span>,
-    "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{}</span>,
     "<span class="hljs-attribute">icon</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image.png"</span></span>,
     "<span class="hljs-attribute">effective_date</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-24 15:34:58"</span></span>,
     "<span class="hljs-attribute">expires_at</span>": <span class="hljs-value"><span class="hljs-string">"2019-03-21 09:34:58"</span></span>,
@@ -12074,10 +12103,6 @@ All available items will be returned.</p>
             <span class="hljs-string">"failed"</span>,
             <span class="hljs-string">"rejected"</span>
           ]
-        </span>}</span>,
-        "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
-          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-          "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}
         </span>}</span>,
         "<span class="hljs-attribute">icon</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
@@ -12431,6 +12456,15 @@ For <strong>all</strong> type:</p>
       ]
     </span>}
 ]</code></pre>
+<h3 id="header-action-substitutions">Action substitutions <a class="permalink" href="#header-action-substitutions" aria-hidden="true">¶</a></h3>
+<p>Substitutions is an array of variables that presented in <code>title</code>, <code>subtitle</code> and <code>details</code> fields. And used to replace these variables in the text to data from Action recipients (they described at <code>Population</code> section).
+In this case only <code>{$&lt;field_alias&gt;}</code> syntax supported, because this route doesn’t support any conditions.</p>
+<p>Example:</p>
+<pre><code class="language-json">[
+  <span class="hljs-string">"{$usr_first_name}"</span>,
+  <span class="hljs-string">"{$usr_last_name}"</span> 
+]</code></pre>
+<p><strong>warning</strong> Substitutions supports only in create request.</p>
 <h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://rest.monportailrh.com</span>/actions</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">X-Application-Version</span>: <span class="hljs-string">&lt;client-name&gt;/&lt;version&gt;</span><br><span class="hljs-attribute">X-App-features</span>: <span class="hljs-string">&lt;target feature&gt;</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">author_id</span>": <span class="hljs-value"><span class="hljs-number">123</span></span>,
   "<span class="hljs-attribute">title</span>": <span class="hljs-value">{
@@ -12451,12 +12485,11 @@ For <strong>all</strong> type:</p>
     "<span class="hljs-attribute">de</span>": <span class="hljs-value"><span class="hljs-string">"Setwas Text"</span></span>,
     "<span class="hljs-attribute">es</span>": <span class="hljs-value"><span class="hljs-string">"Algún texto"</span>
   </span>}</span>,
-  "<span class="hljs-attribute">type_id 45</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">type_id</span>": <span class="hljs-value"><span class="hljs-number">45</span></span>,
   "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com"</span></span>,
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"active"</span></span>,
   "<span class="hljs-attribute">icon</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image.png"</span></span>,
   "<span class="hljs-attribute">relation</span>": <span class="hljs-value"><span class="hljs-string">"usr_custom_manager"</span></span>,
-  "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{}</span>,
   "<span class="hljs-attribute">effective_date</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-24 15:34:58"</span></span>,
   "<span class="hljs-attribute">expires_at</span>": <span class="hljs-value"><span class="hljs-string">"2019-03-21 09:34:58"</span></span>,
   "<span class="hljs-attribute">population</span>": <span class="hljs-value">[
@@ -12473,6 +12506,10 @@ For <strong>all</strong> type:</p>
         ]
       </span>}
     </span>}
+  ]</span>,
+  "<span class="hljs-attribute">substitutions</span>": <span class="hljs-value">[
+    <span class="hljs-string">"{$usr_first_name}"</span>,
+    <span class="hljs-string">"{$usr_last_name}"</span>
   ]
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
   "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
@@ -12552,7 +12589,7 @@ For <strong>all</strong> type:</p>
         <span class="hljs-string">"es"</span>
       ]
     </span>}</span>,
-    "<span class="hljs-attribute">type_id 45</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type_id</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
     </span>}</span>,
     "<span class="hljs-attribute">link</span>": <span class="hljs-value">{
@@ -12576,10 +12613,6 @@ For <strong>all</strong> type:</p>
     "<span class="hljs-attribute">relation</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
       "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"if presented action will be created for the PSO mentioned as specified relation for `user_id` "</span>
-    </span>}</span>,
-    "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-      "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}
     </span>}</span>,
     "<span class="hljs-attribute">effective_date</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
@@ -12638,10 +12671,13 @@ For <strong>all</strong> type:</p>
           <span class="hljs-string">"details"</span>
         ]
       </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">substitutions</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
     </span>}
   </span>}</span>,
   "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-    <span class="hljs-string">"type_id 45"</span>,
+    <span class="hljs-string">"type_id"</span>,
     <span class="hljs-string">"status"</span>,
     <span class="hljs-string">"effective_date"</span>,
     <span class="hljs-string">"expires_at"</span>
@@ -12812,7 +12848,6 @@ This text will be used on notification that will be sent to the action creator</
   "<span class="hljs-attribute">link</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com"</span></span>,
   "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"active"</span></span>,
   "<span class="hljs-attribute">icon</span>": <span class="hljs-value"><span class="hljs-string">"http://example.com/image.png"</span></span>,
-  "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{}</span>,
   "<span class="hljs-attribute">effective_date</span>": <span class="hljs-value"><span class="hljs-string">"2019-01-24 15:34:58"</span></span>,
   "<span class="hljs-attribute">expires_at</span>": <span class="hljs-value"><span class="hljs-string">"2019-03-21 09:34:58"</span>
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
@@ -12908,10 +12943,6 @@ This text will be used on notification that will be sent to the action creator</
     </span>}</span>,
     "<span class="hljs-attribute">icon</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
-    </span>}</span>,
-    "<span class="hljs-attribute">payload</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-      "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{}
     </span>}</span>,
     "<span class="hljs-attribute">effective_date</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
@@ -15185,6 +15216,20 @@ More details about export process can be got by using <code>Export Logs</code> e
         "<span class="hljs-attribute">alias</span>": <span class="hljs-value"><span class="hljs-string">"en"</span></span>,
         "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"English"</span>
       </span>}</span>,
+      "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+          "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value"><span class="hljs-string">"and"</span></span>,
+          "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">[
+            {
+              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"condition"</span></span>,
+              "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"usr_email"</span></span>,
+              "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span></span>,
+              "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span>
+            </span>}
+          ]
+        </span>}
+      ]</span>,
       "<span class="hljs-attribute">permissions</span>": <span class="hljs-value">{
         "<span class="hljs-attribute">can_edit</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
         "<span class="hljs-attribute">can_delete</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
@@ -15711,6 +15756,35 @@ More details about export process can be got by using <code>Export Logs</code> e
               <span class="hljs-string">"name"</span>
             ]
           </span>}</span>,
+          "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+            "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+              "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+              "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                  "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                    <span class="hljs-string">"group"</span>
+                  ]
+                </span>}</span>,
+                "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                  "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                    <span class="hljs-string">"and"</span>,
+                    <span class="hljs-string">"or"</span>
+                  ]
+                </span>}</span>,
+                "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+                </span>}
+              </span>}</span>,
+              "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+                <span class="hljs-string">"type"</span>,
+                <span class="hljs-string">"combine_with"</span>,
+                <span class="hljs-string">"conditions"</span>
+              ]
+            </span>}
+          </span>}</span>,
           "<span class="hljs-attribute">permissions</span>": <span class="hljs-value">{
             "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
             "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
@@ -16025,6 +16099,20 @@ More details about export process can be got by using <code>Export Logs</code> e
       "<span class="hljs-attribute">alias</span>": <span class="hljs-value"><span class="hljs-string">"en"</span></span>,
       "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"English"</span>
     </span>}</span>,
+    "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+        "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value"><span class="hljs-string">"and"</span></span>,
+        "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"condition"</span></span>,
+            "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"usr_email"</span></span>,
+            "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span></span>,
+            "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"=="</span>
+          </span>}
+        ]
+      </span>}
+    ]</span>,
     "<span class="hljs-attribute">permissions</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">can_edit</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
       "<span class="hljs-attribute">can_delete</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
@@ -16535,6 +16623,35 @@ More details about export process can be got by using <code>Export Logs</code> e
             <span class="hljs-string">"name"</span>
           ]
         </span>}</span>,
+        "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+          "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+            "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+              "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                  <span class="hljs-string">"group"</span>
+                ]
+              </span>}</span>,
+              "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+                  <span class="hljs-string">"and"</span>,
+                  <span class="hljs-string">"or"</span>
+                ]
+              </span>}</span>,
+              "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
+                "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+              </span>}
+            </span>}</span>,
+            "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+              <span class="hljs-string">"type"</span>,
+              <span class="hljs-string">"combine_with"</span>,
+              <span class="hljs-string">"conditions"</span>
+            ]
+          </span>}
+        </span>}</span>,
         "<span class="hljs-attribute">permissions</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
           "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
@@ -16572,6 +16689,7 @@ More details about export process can be got by using <code>Export Logs</code> e
         <span class="hljs-string">"report_file"</span>,
         <span class="hljs-string">"mapping"</span>,
         <span class="hljs-string">"language"</span>,
+        <span class="hljs-string">"conditions"</span>,
         <span class="hljs-string">"permissions"</span>,
         <span class="hljs-string">"created_at"</span>,
         <span class="hljs-string">"updated_at"</span>
@@ -17223,6 +17341,21 @@ Report filename for download</p>
       "<span class="hljs-attribute">internal</span>": <span class="hljs-value"><span class="hljs-number">123</span></span>,
       "<span class="hljs-attribute">external</span>": <span class="hljs-value"><span class="hljs-string">"Active"</span>
     </span>}
+  ]</span>,
+  "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+      "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value"><span class="hljs-string">"and"</span></span>,
+      "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"condition"</span></span>,
+          "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"usr_email"</span></span>,
+          "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span></span>,
+          "<span class="hljs-attribute">field_value: usr_additional_email</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+          "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span>
+        </span>}
+      ]
+    </span>}
   ]
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
   "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
@@ -17300,6 +17433,35 @@ Report filename for download</p>
         "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
           <span class="hljs-string">"internal"</span>,
           <span class="hljs-string">"external"</span>
+        ]
+      </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+        "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+              <span class="hljs-string">"group"</span>
+            ]
+          </span>}</span>,
+          "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+              <span class="hljs-string">"and"</span>,
+              <span class="hljs-string">"or"</span>
+            ]
+          </span>}</span>,
+          "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+          </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+          <span class="hljs-string">"type"</span>,
+          <span class="hljs-string">"combine_with"</span>,
+          <span class="hljs-string">"conditions"</span>
         ]
       </span>}
     </span>}
@@ -17475,6 +17637,21 @@ Report filename for download</p>
       "<span class="hljs-attribute">internal</span>": <span class="hljs-value"><span class="hljs-number">123</span></span>,
       "<span class="hljs-attribute">external</span>": <span class="hljs-value"><span class="hljs-string">"Active"</span>
     </span>}
+  ]</span>,
+  "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"group"</span></span>,
+      "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value"><span class="hljs-string">"and"</span></span>,
+      "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"condition"</span></span>,
+          "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"usr_email"</span></span>,
+          "<span class="hljs-attribute">raw_value</span>": <span class="hljs-value"><span class="hljs-string">"john.doe@example.com"</span></span>,
+          "<span class="hljs-attribute">field_value: usr_additional_email</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+          "<span class="hljs-attribute">operator</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span>
+        </span>}
+      ]
+    </span>}
   ]
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
   "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
@@ -17549,6 +17726,35 @@ Report filename for download</p>
         "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
           <span class="hljs-string">"internal"</span>,
           <span class="hljs-string">"external"</span>
+        ]
+      </span>}
+    </span>}</span>,
+    "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+      "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+        "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+              <span class="hljs-string">"group"</span>
+            ]
+          </span>}</span>,
+          "<span class="hljs-attribute">combine_with</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+            "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
+              <span class="hljs-string">"and"</span>,
+              <span class="hljs-string">"or"</span>
+            ]
+          </span>}</span>,
+          "<span class="hljs-attribute">conditions</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+          </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+          <span class="hljs-string">"type"</span>,
+          <span class="hljs-string">"combine_with"</span>,
+          <span class="hljs-string">"conditions"</span>
         ]
       </span>}
     </span>}
@@ -17803,7 +18009,7 @@ Report filename for download</p>
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
     </span>}
   </span>}
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 05 Feb 2020</p><script>/* eslint-env browser */
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 12 Feb 2020</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 

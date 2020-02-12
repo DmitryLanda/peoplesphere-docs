@@ -20,7 +20,6 @@
     - done
     - failed
     - rejected
-+ payload (object)
 + icon: `http://example.com/image.png` (string)
 + effective_date: `2019-01-24 15:34:58` (date-time, required)
 + expires_at: `2019-03-21 09:34:58` (date-time, required)
@@ -32,7 +31,7 @@
 + title (Translatable Text, fixed-type)
 + subtitle (Translatable Text)
 + details (Translatable Text)
-+ type_id 45 (number, required)
++ type_id: 45 (number, required)
 + link: `http://example.com` (string)
 + status: active (enum[string], required)
     - new
@@ -45,10 +44,10 @@
 + icon: `http://example.com/image.png` (string)
 + relation: usr_custom_manager (string)
     if presented action will be created for the PSO mentioned as specified relation for `user_id` 
-+ payload (object)
 + effective_date: `2019-01-24 15:34:58` (date-time, required)
 + expires_at: `2019-03-21 09:34:58` (date-time, required)
 + population (array[Population Item], fixed-type)
++ substitutions: {$usr_first_name}, {$usr_last_name} (array[string]) 
 
 ## Update Action (object)
 + title (Translatable Text)
@@ -65,7 +64,6 @@
     - failed
     - rejected
 + icon: `http://example.com/image.png` (string)
-+ payload (object)
 + effective_date: `2019-01-24 15:34:58` (date-time)
 + expires_at: `2019-03-21 09:34:58` (date-time)
 
