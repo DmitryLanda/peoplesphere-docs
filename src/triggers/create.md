@@ -114,6 +114,7 @@ Each **handler** entry has:
      - field_modification
      - form_assignment
      - pso_deletion
+     - data_deletion
  - population (describes PSO that will be used as population\recipient once trigger executed)
  - payload (additional info that depends on **type**)
 
@@ -316,8 +317,21 @@ For **form_assignment** type
 
 For **pso_deletion** type
 
+```
+Should be "null" or even omitted
+```
 
-*Should be `null` or even omitted*
+
+For **data_deletion** type
+```json
+{
+    "clear_history": clear_historyfalse,
+    "fields": [
+        'usr_field_a',
+        'usr_field_b'
+    ]
+}
+```
 
 + Request
     + Headers
