@@ -20,6 +20,7 @@
     - done
     - failed
     - rejected
++ payload (object)
 + icon: `http://example.com/image.png` (string)
 + effective_date: `2019-01-24 15:34:58` (date-time, required)
 + expires_at: `2019-03-21 09:34:58` (date-time, required)
@@ -44,6 +45,7 @@
 + icon: `http://example.com/image.png` (string)
 + relation: usr_custom_manager (string)
     if presented action will be created for the PSO mentioned as specified relation for `user_id` 
++ payload (object)
 + effective_date: `2019-01-24 15:34:58` (date-time, required)
 + expires_at: `2019-03-21 09:34:58` (date-time, required)
 + population (array[Population Item], fixed-type)
@@ -64,6 +66,7 @@
     - failed
     - rejected
 + icon: `http://example.com/image.png` (string)
++ payload (object)
 + effective_date: `2019-01-24 15:34:58` (date-time)
 + expires_at: `2019-03-21 09:34:58` (date-time)
 
