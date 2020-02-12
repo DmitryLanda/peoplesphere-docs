@@ -91,6 +91,20 @@ Mixed types:
 ]
 ```
 
+### Action substitutions
+
+Substitutions is an array of variables that presented in `title`, `subtitle` and `details` fields. And used to replace these variables in the text to data from Action recipients (they described at `Population` section).
+In this case only `{$<field_alias>}` syntax supported, because this route doesn't support any conditions.
+   
+Example: 
+```json
+[
+  "{$usr_first_name}",
+  "{$usr_last_name}" 
+]
+``` 
+**warning** Substitutions supports only in create request.
+
 + Request
     + Headers
 

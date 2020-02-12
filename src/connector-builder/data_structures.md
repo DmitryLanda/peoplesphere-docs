@@ -16,6 +16,7 @@
 + report_file: filename.csv (string)    
 + mapping (array[Export Map], required, fixed-type)
 + language (required, Language)
++ conditions (array[Group Condition], fixed-type)
 + permissions (object)
     + can_edit: true (required, boolean)
     + can_delete: false (required, boolean)
@@ -30,6 +31,7 @@
 + is_active: true (boolean, required)
 + language: en (required, string)
 + mapping (array[Export Map Request], required, fixed-type)
++ conditions (array[Group Condition], fixed-type)
 
 ## Update Export (object)
 + name (Translatable Text, optional, fixed-type)
@@ -37,6 +39,7 @@
 + is_active: true (boolean, required)
 + language: en (optional, string)
 + mapping (array[Export Map Request], optional, fixed-type)
++ conditions (array[Group Condition], fixed-type)
 
 ## Export Map (object)
 + internal: 123 (required, number)

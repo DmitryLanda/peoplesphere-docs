@@ -32,7 +32,7 @@
 + title (Translatable Text, fixed-type)
 + subtitle (Translatable Text)
 + details (Translatable Text)
-+ type_id 45 (number, required)
++ type_id: 45 (number, required)
 + link: `http://example.com` (string)
 + status: active (enum[string], required)
     - new
@@ -49,6 +49,7 @@
 + effective_date: `2019-01-24 15:34:58` (date-time, required)
 + expires_at: `2019-03-21 09:34:58` (date-time, required)
 + population (array[Population Item], fixed-type)
++ substitutions: {$usr_first_name}, {$usr_last_name} (array[string]) 
 
 ## Update Action (object)
 + title (Translatable Text)

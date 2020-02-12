@@ -213,9 +213,40 @@ Mixed types:
 ]
 ```
 
+
+#### Handler substitutions
+
+Supports only for `notification`, `action_todo`, `action_schedule` handler types.
+
+Substitutions is an array of variables that presented in `title` and `message` fields. And used to replace these variables in the text to data from trigger recipients (they described at `Population` section) or from psos found through conditions.
+
+Variables from recipients: 
+
+syntax: {$<field_alias>}. 
+
+Variables from psos found through conditions:
+
+syntax: {@usr_first_name}. 
+   
+Example: 
+```json
+[
+  "{$usr_first_name}",
+  "{$usr_last_name}" 
+]
+```
+
+
+
 #### Handler payload examples
 
 For **notification** type
+
+If the trigger has conditions and {@} variables in `substitutions` array. 
+
+All recipients are getting as many notifications as psos had found through conditions.
+
+If no {@} variable in `substitutions` array, recipients are getting only one notification. 
 ```json    
 {
     "title": {
@@ -237,11 +268,22 @@ For **notification** type
     "raw_recipients": [
         "aaa@email.com",
         "bbb@email.com"
+    ],
+    "substitutions": [
+        "{$usr_first_name}",
+        "{$usr_last_name}",
+        "{@usr_first_name}",
     ]
 }
 ```
 
 For **action_todo** type
+
+If the trigger has conditions and {@} variables in `substitutions` array.
+ 
+For each recipient will be created as many actions as psos had found through conditions.
+
+If no {@} variable in `substitutions` array, only one action will be created for each recipient
 ```json    
 {
     "title": {
@@ -256,11 +298,22 @@ For **action_todo** type
         "de": "...",
         "fr": "..."
     },
-    "due_date": "2019-02-34 12:34:56"
+    "due_date": "2019-02-34 12:34:56",
+    "substitutions": [
+        "{$usr_first_name}",
+        "{$usr_last_name}",
+        "{@usr_first_name}",
+    ]
 }
 ```
 
 For **action_schedule** type
+
+If the trigger has conditions and {@} variables in `substitutions` array.
+ 
+For each recipient will be created as many actions as psos had found through conditions.
+
+If no {@} variable in `substitutions` array, only one action will be created for each recipient
 ```json    
 {
     "title": {
@@ -275,7 +328,12 @@ For **action_schedule** type
         "de": "...",
         "fr": "..."
     },
-    "due_date": "2019-02-34 12:34:56"
+    "due_date": "2019-02-34 12:34:56",
+    "substitutions": [
+        "{$usr_first_name}",
+        "{$usr_last_name}",
+        "{@usr_first_name}",
+    ]
 }
 ```
 
