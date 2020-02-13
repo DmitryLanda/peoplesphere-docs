@@ -88,6 +88,13 @@
 + settings: [] (array, required)
 + user_photo: `http://example.com/images/1.jpg` (string, required)
 
+## Pso (object)
++ id: 1 (number, required)
++ first_name: John (string, required)
++ last_name: Snow (string, required)
++ active: true (boolean, required)
++ photo: `http://example.com/images/1.jpg` (string, required)
+
 # Language (object)
 + id: 1 (number, required)
 + alias: en (string, required)
