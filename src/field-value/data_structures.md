@@ -21,7 +21,7 @@
 + `field_alias`: usr_first_name (string, optional) - required without field_id
 + value: some value (string, optional) - empty value will clear answer
 + `answer_id`: 123 (number, optional) - needs if you try to update existed answer
-+ batch: `d9438793-ce22-483d-8a80-9250b7f341fd` (number, optional) - needs if you works with composite list of fields
++ batch: `d9438793-ce22-483d-8a80-9250b7f341fd` (string, optional) - needs if you works with composite list of fields
 + action: create (enum[string], required)
     - create
     - update
