@@ -25,6 +25,7 @@ HOST: https://rest.monportailrh.com
 <!-- include(chats/index.md) -->
 <!-- include(connector-builder/index.md) -->
 <!-- include(group/index.md) -->
+<!-- include(history/index.md) -->
 <!-- include(language/index.md) -->
 <!-- include(me/index.md) -->
 <!-- include(modules/index.md) -->
