@@ -3,11 +3,11 @@
 ## **Get list of widgets matches specified filters**
 
 + Parameters
-    + `sort-by`: name (enum[name, created_at])
-    + `sort-direction`: asc (enum[asc, desc])
     + active: true (boolean)
     + query: Widget name to search on (string)
     + `view-mode`: tab (enum[inline, tab])
+    + `sort-by`: name (enum[name, created_at])
+    + `sort-direction`: asc (enum[asc, desc])
     <!-- include(../pagination_parameters.md) -->
 
 + Request

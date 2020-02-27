@@ -16,7 +16,11 @@
           
     + Attributes(Update Widget)
 
-+ Response 200 (application/json)
++ Response 202 (application/json)
+    
+    + Attributes
+        
+        + data (Entity ID, fixed-type)
     
 + Response 400 (application/json)
               
