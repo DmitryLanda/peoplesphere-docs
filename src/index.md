@@ -20,6 +20,7 @@ HOST: https://rest.monportailrh.com
 <!-- include(news/index.md) -->
 <!-- include(notification/index.md) -->
 <!-- include(pso/index.md) -->
+<!-- include(poll/index.md) -->
 <!-- include(assignment-data/index.md) -->
 <!-- include(widget/index.md) -->
 <!-- include(triggers/index.md) -->
