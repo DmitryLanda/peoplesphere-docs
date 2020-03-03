@@ -16,6 +16,7 @@
 + report_file: filename.csv (string)    
 + mapping (array[Export Map], required, fixed-type)
 + language (required, Language)
++ owner (User, optional, fixed-type)
 + conditions (array[Group Condition], fixed-type)
 + permissions (object)
     + can_edit: true (required, boolean)
@@ -51,7 +52,7 @@
 + external: Active  (required, string)
 
 ## Export Log (object)
-+ id: 123 (number, required)
++ id: 123 (number, required)   
 + started_at: `2019-01-01 23:34:40` (date-time, required)
 + finished_at: `2019-01-01 23:34:40` (date-time, required)
 + result: ok (required, enum[string])
