@@ -3,12 +3,9 @@
 Get Form Data for specified `formInstance` that assigned to the `dataOwner`
 
 + Parameters
-    + dataOwner: 5 (required, number) 
-        Id of PSO Form Assignment assigned to.
-    + formInstance: 123 (required, number) 
-        Id of Form Assignment data related to.
-    + include: fields.type,settings (string, optional) 
-        Comma separated list of related resources that will be included into response.
+    + dataOwner: 5 (required, number) - Id of PSO Form Assignment assigned to.
+    + formInstance: 123 (required, number)- Id of Form Assignment data related to.
+    + include: fields.type,settings (string, optional)- Comma separated list of related resources that will be included into response.
         
         Possible values:
         + settings

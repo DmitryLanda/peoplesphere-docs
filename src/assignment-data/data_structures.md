@@ -24,6 +24,31 @@
 + removable: true (boolean, required)
 + can_edit: true (boolean, required)
 + effective_date: `2019-01-01 23:34:40` (date-time)
++ approval_scheduled_date: `2019-01-01 23:34:40` (date-time)
 + fields (array[AssignmentField], fixed-type)
 + settings (array[AssignmentFieldSetting], fixed-type)
+
+## AssignmentData Submit (object)
++ temporary: true (boolean, optional)
++ approval_scheduled_date: `2019-01-01 23:34:40` (date-time, optional)
++ data (array[Field Value Data Create], fixed-type)
+
+## AssignmentData Mass Edit (object)
++ form_instance (array[AssignmentData], fixed-type)
++ assignee (AssignmentData Mass Edit Assignee, fixed-type)
+
+## AssignmentData Mass Edit Assignee (object)
++ id: 1 (number)
++ first_name: Assignment Name (string, required)
++ last_name: Assignment Name (string, required)
++ pso_type: usr (string, required)
+
+## AssignmentData Mass Edit Submit (object)
++ temporary: true (boolean, optional)
++ approval_scheduled_date: `2019-01-01 23:34:40` (date-time, optional)
++ data (array[AssignmentData Mass Edit Submit Item], fixed-type)
+
+## AssignmentData Mass Edit Submit Item (object)
++ user_id: 1 (number, required)
++ data (array[Field Value Data Create], fixed-type)
 

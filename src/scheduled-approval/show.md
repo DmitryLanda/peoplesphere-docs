@@ -1,7 +1,6 @@
 ### Show [GET /scheduled-approvals/{uuid}/{id}{?include}]
 
 Fetch single trigger item.
-Unlike other forms with values array, "values" of composite will contain the structured tree of all subfields values.
 
 + Parameters
     + uuid: 123 (required, number) - Uuid of the Scheduled Approval batch.
@@ -11,7 +10,27 @@ Unlike other forms with values array, "values" of composite will contain the str
         Possible values:
         + author
         + form_instance
+        + scheduled_approvals.fields
+        + scheduled_approvals.fields.type
+        + scheduled_approvals.fields.category
+        + scheduled_approvals.fields.category.pso_type
+        + scheduled_approvals.fields.domains
+        + scheduled_approvals.fields.domains.pso_type
+        + scheduled_approvals.fields.pso_type
         + scheduled_approvals.fields.items
+        + scheduled_approvals.fields.options 
+        
+        Note that includes uses kind of inheritance. So if you put `include=scheduled_approvals.fields.items.type` 
+        it will also populate `items` property for all fields
+        
+        If you need to dive into and include related resources for sub-items you can use same options that `fields` property has. 
+        
+        For example: `include=scheduled_approvals.fields.items.type` will attach to the response all fields that assignment has.         
+        Every included `field` will have `items` property populated. Every item in `items` property will have `type` 
+        property populated
+
+        But, note: Unlike other forms with values array, "values" of composite will contain the structured tree of all subfields values.
+        
 
 + Request
     + Headers
