@@ -33,5 +33,6 @@ HOST: https://rest.monportailrh.com
 <!-- include(search/index.md) -->
 <!-- include(sensitivity/index.md) -->
 <!-- include(triggers/index.md) -->
+<!-- include(scheduled-approval/index.md) -->
 
 <!-- include(data_structures.md) -->
