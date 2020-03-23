@@ -1,4 +1,4 @@
-### List [GET /scheduled-approvals{?expired,sort-by,sort-direction,include}]
+### List [GET /scheduled-approvals{?expired,sort-by,sort-direction,include,page,per-page,no-pagination}]
 
 Fetch list of scheduled approvals
 
@@ -17,6 +17,7 @@ Fetch list of scheduled approvals
         + author
         + form_instance
         + scheduled_approvals.fields.items
+    <!-- include(../pagination_parameters.md) -->
 
 + Request
     + Headers

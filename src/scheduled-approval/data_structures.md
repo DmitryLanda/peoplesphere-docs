@@ -19,5 +19,5 @@
     - done
     - failed
 + approval_scheduled_date: `2019-04-24 11:47:47` (string, required)
-+ pso (Pso, fixed-type)
++ pso (User, fixed-type)
 + fields (array[FieldForm With Value], fixed-type)

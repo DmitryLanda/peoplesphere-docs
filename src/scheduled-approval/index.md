@@ -7,4 +7,5 @@ Scheduled Approvals items.
 
 <!-- include(list.md) -->
 <!-- include(show.md) -->
+<!-- include(show-item.md) -->
 <!-- include(delete.md) -->
