@@ -1,4 +1,4 @@
-### Delete Batch [DELETE /scheduled-approvals/{uuid}]
+### Delete batch [DELETE /scheduled-approvals/{uuid}]
 
 Delete all scheduled approvals in mass edit batch 
 

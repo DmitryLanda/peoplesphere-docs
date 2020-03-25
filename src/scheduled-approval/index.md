@@ -9,3 +9,4 @@ Scheduled Approvals items.
 <!-- include(show.md) -->
 <!-- include(show-item.md) -->
 <!-- include(delete.md) -->
+<!-- include(delete-item.md) -->
