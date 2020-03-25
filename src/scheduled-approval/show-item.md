@@ -1,6 +1,6 @@
-### Show [GET /scheduled-approvals/{uuid}/{id}{?include}]
+### Show item [GET /scheduled-approvals/{uuid}/items/{id}{?include}]
 
-Fetch single trigger item.
+Fetch single scheduled approval item.
 
 + Parameters
     + uuid: 123 (required, number) - Uuid of the Scheduled Approval batch.

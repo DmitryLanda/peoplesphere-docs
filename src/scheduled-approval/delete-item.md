@@ -1,9 +1,10 @@
-### Delete Batch [DELETE /scheduled-approvals/{uuid}]
+### Delete item [DELETE /scheduled-approvals/{uuid}/items/{id}]
 
-Delete all scheduled approvals in mass edit batch 
+Delete scheduled approval item 
 
 + Parameters
     + uuid: 123 (required, number) - Uuid of the Scheduled Approval batch.
+    + id: 123 (required, number) - Id of the Scheduled Approval item.
 
 + Request
     + Headers

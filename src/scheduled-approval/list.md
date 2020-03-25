@@ -16,7 +16,6 @@ Fetch list of scheduled approvals
         Possible values:
         + author
         + form_instance
-        + scheduled_approvals.fields.items
     <!-- include(../pagination_parameters.md) -->
 
 + Request
