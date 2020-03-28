@@ -25,6 +25,10 @@
     + ios: `http://ios/store/url` (string, required)
 + web_url: `http://web/url` (string, required)
 + icon: `http://image.png` (string, required)
++ permissions (array, optional)
+    + (object, required)
+        + access: true (boolean, required)
+        + synchronisation: true (boolean, required)
 
 ## Brief Pso
 + id: 1 (number, required)

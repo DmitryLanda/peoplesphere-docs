@@ -30,6 +30,7 @@ HOST: https://rest.monportailrh.com
 <!-- include(pso/index.md) -->
 <!-- include(pso-type/index.md) -->
 <!-- include(resources/index.md) -->
+<!-- include(roles/index.md) -->
 <!-- include(search/index.md) -->
 <!-- include(sensitivity/index.md) -->
 <!-- include(triggers/index.md) -->
