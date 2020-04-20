@@ -1,6 +1,6 @@
 ### Delete [DELETE /notifications/{notification}]
 
-## **Delete single notification**
+Delete single notification
 
 + Parameters
     + notification: notification (required, string) - id of notification

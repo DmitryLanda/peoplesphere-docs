@@ -1,6 +1,6 @@
 ### Show [GET /notifications/{notification}]
 
-## **Get details for selected notification**
+Get details for selected notification
 
 + Parameters
     + notification: notification (required, number) - id of the notification

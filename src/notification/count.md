@@ -1,9 +1,11 @@
-### Show [GET /notifications/count/{user_id}]
+### Show [GET /notifications/count{?user_id,actual,not-read}]
 
-## **Get notifications count**
+Get notifications count
 
 + Parameters
     + `user_id`: 1 (number, required) - id of user for filtering
+    + `actual`: true (bool, required) - use only not expired notifications for count
+    + `not-read`: true (bool, required) - use only not read notifications for count
 
 + Request
     + Headers

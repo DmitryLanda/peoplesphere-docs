@@ -1,6 +1,6 @@
 ### Create [POST /notifications]
 
-## **Create notification**
+Create notification
 
 + Request
     + Headers

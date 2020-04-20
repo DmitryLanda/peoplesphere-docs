@@ -10,3 +10,4 @@ Notifications is way to inform users about various types of events
 <!-- include(create.md) -->
 <!-- include(delete.md) -->
 <!-- include(count.md) -->
+<!-- include(update_read_at.md) -->
