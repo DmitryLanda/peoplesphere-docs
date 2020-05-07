@@ -10,9 +10,11 @@
     - validation_in_progress
     - validation_success
     - validation_failed
+    - validation_warning
     - import_in_progress
     - import_success
     - import_failed
+    - import_warning
 + strategies (object, fixed-type, required)
     + list_of (enum[string], required)
         - add

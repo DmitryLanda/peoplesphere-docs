@@ -48,3 +48,6 @@ More details about export process can be got by using `Export Logs` endpoint
 <!-- include(import/create.md) -->
 <!-- include(import/update.md) -->
 <!-- include(import/delete.md) -->
+<!-- include(import/generate.md) -->
+<!-- include(import/validate.md) -->
+<!-- include(import/run.md) -->
