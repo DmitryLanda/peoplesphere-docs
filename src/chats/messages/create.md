@@ -1,7 +1,10 @@
 ### Create [POST /chats/{id}/messages]
+Create a new message into the chat.
 
-Create new message into the chat.
-
++ Parameters
+    + id: 5 (required, number) 
+        Target chat id
+        
 + Request
     + Headers
 

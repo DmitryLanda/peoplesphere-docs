@@ -1,7 +1,10 @@
 ### List [GET /chats/{id}/messages]
 
 Fetch list of chat messages(with attachments, if added). Visiting that url also marks chat as viewed.
-
++ Parameters
+    + id: 5 (required, number) 
+        Chat id
+        
 + Request
     + Headers
 

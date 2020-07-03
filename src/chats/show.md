@@ -3,7 +3,7 @@
 Get single chat item and mark it as viewed.
 
 + Parameters
-    + id: query (required, number) 
+    + id: 5 (required, number) 
         Id of the Chat item.
 
 + Request

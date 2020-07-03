@@ -3,7 +3,9 @@
 Fetch list of chats
 
 + Parameters
-    + `include-empty`: Include new and still empty chats (optional, boolean) 
+    + `include-empty`: false (optional, boolean)
+        Include new and still empty chats. 
+        
         By default API returns only not empty chats. To see empty chats you need add that param.
 
 + Request
