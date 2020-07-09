@@ -29,8 +29,8 @@
 + settings (array[AssignmentFieldSetting], fixed-type)
 
 ## AssignmentData Submit (object)
-+ temporary: true (boolean, optional)
-+ approval_scheduled_date: `2019-01-01 23:34:40` (date-time, optional)
++ temporary: true (boolean, optional) - optional, If presented and positive - workflow will not be updated and data will be saved as temporary
++ approval_scheduled_date: `2019-01-01 23:34:40` (string, optional) - optional datetime string, used for schedule fields updates, values will be stored as Scheduled Approval and applies when the time comes. 
 + data (array[Field Value Data Create], fixed-type)
 
 ## AssignmentData Mass Edit (object)
@@ -44,8 +44,8 @@
 + pso_type: usr (string, required)
 
 ## AssignmentData Mass Edit Submit (object)
-+ temporary: true (boolean, optional)
-+ approval_scheduled_date: `2019-01-01 23:34:40` (date-time, optional)
++ temporary: true (boolean, optional) - optional, If presented and positive - workflow will not be updated and data will be saved as temporary
++ approval_scheduled_date: `2019-01-01 23:34:40` (string, optional) - optional datetime string, used for schedule fields updates, values will be stored as Scheduled Approval and applies when the time comes.
 + data (array[AssignmentData Mass Edit Submit Item], fixed-type)
 
 ## AssignmentData Mass Edit Submit Item (object)

@@ -13,7 +13,7 @@ Submit Form Data for specified `formInstance` that assigned to the `relation`
             X-Application-Version: <client-name>/<version>
             X-App-features: <target permission>
           
-    + Attributes(AssignmentData Submit)
+    + Attributes(AssignmentData Mass Edit Submit)
 
 + Response 202 (application/json)
 

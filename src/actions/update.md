@@ -3,11 +3,11 @@
 ## Update the action
 To update the action user must have `actions.update.*` permissions
 
-#### [DEPRECATED] Approving/rejecting actions
+#### [FORBIDDEN] Approving/rejecting actions
 **Some action types (schedule for example) requires additional actions to be done on Approve/Reject** 
 **Be sure to use [Approve](#actions-actions-post-1) or [Reject](#actions-actions-post-2) endpoints to perform this operation**
 
-**Approval and rejection through PATCH API is _deprecated_ and will be _forbidden_ in next versions**
+**Approval and rejection through PATCH API is _forbidden_**
 
 Approve means changing `status` property to `approved`
 
@@ -17,14 +17,8 @@ Actions that belongs to the `validation` category (see `type.category` property)
 
 Validation means Approve or Reject
 
-In addition to changing status user may leave a comment (`comment` property) with some details. 
-This text will be used on notification that will be sent to the action creator
-
-**Please note**: on action Approve comment is optional, but it is required on Reject
-
 + Parameters
     + id: 1267 (required, number) - ID of the action to be updated
-
 
 + Request
     + Headers
