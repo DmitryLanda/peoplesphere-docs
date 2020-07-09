@@ -1,10 +1,12 @@
-### Show [GET /category/{alias}]
+### Show [GET /category/{alias}{?include}]
 
 Fetch single fields category item
 
 + Parameters
     + alias: somedomain (required, string) 
         Alias of the Category item.
+    + include: pso_type (optional, enum[pso_type])
+        The way to include relations in the response.
 
 + Request
     + Headers

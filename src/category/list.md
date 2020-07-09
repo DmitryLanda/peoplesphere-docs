@@ -1,20 +1,23 @@
-### List [GET /category{?pso-type,active,search,sort-by,sort-direction}]
+### List [GET /category{?pso-type,active,search,include,sort-by,sort-direction,page,per-page,no-pagination}]
 
 Fetch list of fields categories
 
 + Parameters
-    + `pso-type`: 123 (optional, number) 
-        PSO type ID to filtering.
+    + `pso-type`: usr (optional, string) 
+        PSO type alias to filtering. Strict, case-insensitive
     + active: true (optional, boolean)
         To filtering fields categories by active state 
     + search: Category to search (optional, string) 
         Search by fields categories title. Non strict, case-insensitive.
+    + include: pso_type (optional, enum[pso_type])
+        The way to include relations in the response.
     + `sort-by`: name (optional, enum[name, pso-type])
         Field to sort fields categories by.
         + Default: name
     + `sort-direction`: asc (optional, enum[asc, desc]) 
         Direction to order fields categories by.
         + Default: asc
+    <!-- include(../pagination_parameters.md) -->
 
 + Request
     + Headers

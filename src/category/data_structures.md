@@ -8,7 +8,6 @@
 + alias: usr_global (string, optional)
 + position: 5 (number, required)
 + is_active: true (boolean, required)
-+ is_public: true (boolean, required)
 
 ## Category Update (object)
 + name (Translatable Text, optional)
@@ -29,4 +28,4 @@
 + name: Identity (string, required)
 + description: ... (string, required)
 + is_active: true (boolean, required)
-+ pso_type (Pso Type, optional, fixed-type)
++ pso_type (Pso Type, optional, fixed-type) - Presented only if `include` was send 

@@ -1,6 +1,6 @@
 ### Create [POST /category]
 
-Create new fields category item
+Create new field category item
 
 + Request
     + Headers
