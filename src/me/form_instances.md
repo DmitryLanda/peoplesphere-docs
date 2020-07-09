@@ -5,7 +5,6 @@
 + Parameters
     + type: poll (required, string) - type of form instances
 
-
 + Request
     + Headers
     

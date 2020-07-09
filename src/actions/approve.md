@@ -5,6 +5,9 @@ Approve means changing `status` property to `approved`. It may also apply additi
 
 Actions that belongs to the `validation` category (see `type.category` property) must be validated (approved or rejected).
 
+In addition to changing status user may leave a comment (`comment` property) with some details. 
+This text will be used on notification that will be sent to the action creator
+
 **Note:** This endpoint will not apply any changes for actions that do not belongs to `validation` category
 
 + Parameters

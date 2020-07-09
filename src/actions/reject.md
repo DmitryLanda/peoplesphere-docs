@@ -5,6 +5,8 @@ Reject means changing `status` property to `rejected`
 
 Actions that belongs to the `validation` category (see `type.category` property) must be validated (approved or rejected)
 
+**Please note**: on action Reject comment is required.
+
 **Note:** This endpoint will not apply any changes for actions that do not belongs to `validation` category
 
 + Parameters

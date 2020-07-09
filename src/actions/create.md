@@ -91,6 +91,27 @@ Mixed types:
 ]
 ```
 
+### Action Payload
+#### form_assigment type
+`payload` property
+```json
+{
+  "user_id": 123,
+  "form_instance_id": 321,
+  "mass_edit": false,
+  "step": "some_step"
+}
+```
+#### leave type
+`payload` property
+```json
+{
+  "external_id": "some string id",
+  "provider_name": "some name",
+  "company_name": "company name",
+  "approver_id": "some string id"
+}
+```
 ### Action substitutions
 
 Substitutions is an array of variables that presented in `title`, `subtitle` and `details` fields. And used to replace these variables in the text to data from Action recipients (they described at `Population` section).

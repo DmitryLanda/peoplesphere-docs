@@ -10,8 +10,7 @@ To view list of actions user must have `actions.view` permission
     + `expires_after`: `2019-03-21 09:34:58` (date-time)
     + `expires_before`: `2019-03-21 09:34:58` (date-time)
     + `type-alias`: leave (string)
-    + statuses (array[string])
-        - new
+    + statuses (array[string])        
         - active
         - approved
         - pending

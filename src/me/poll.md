@@ -1,4 +1,4 @@
-### Form Instances [GET /me/poll]
+### Poll (Form Instances) [GET /me/poll]
 
 ## Fetch latest poll available to current user
 
