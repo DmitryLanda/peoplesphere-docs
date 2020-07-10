@@ -1,6 +1,9 @@
 ### Create [POST /chats]
 
-Create new chat.
+Create a new chat.
+
+#### Permissions
+ - `hr_request.create.chat`
 
 + Request
     + Headers

@@ -2,6 +2,9 @@
 
 Update chat status
 
+#### Permissions
+ - `hr_request.edit.chat`
+ 
 + Parameters
     + id: 123 (required, number) - Id of the chat.
 

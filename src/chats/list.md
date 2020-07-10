@@ -2,6 +2,9 @@
 
 Fetch list of chats
 
+#### Permissions
+ - `hr_request.view.chat`
+
 + Parameters
     + `include-empty`: false (optional, boolean)
         Include new and still empty chats. 

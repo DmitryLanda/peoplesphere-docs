@@ -1,6 +1,9 @@
 ### Create [POST /chats/{id}/messages]
 Create a new message into the chat.
 
+#### Permissions
+ User should be chat's author or have `hr_request.edit.chat` 
+
 + Parameters
     + id: 5 (required, number) 
         Target chat id
