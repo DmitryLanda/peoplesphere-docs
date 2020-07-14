@@ -1,0 +1,4 @@
+release_dir: /data/vhosts/api/blueprint/releases
+user: customer
+env: develop
+region: EU

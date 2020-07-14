@@ -1,10 +1,10 @@
 version: "3.2"
 
 services:
-    aglio:
-        build: docker
+    node:
+        image: node:latest
         container_name: blueprint-aglio
+        user: node
         working_dir: /application
         volumes:
             - .:/application:delegated
-        command: -i ./src/index.md --theme-full-width -o ./public/index.html

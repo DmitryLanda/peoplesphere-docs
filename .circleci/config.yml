@@ -1,0 +1,187 @@
+version: 2.1
+executors:
+  nodejs-container:
+    docker:
+      - image: circleci/node:latest
+  vpn-machine:
+    machine: true
+
+jobs:
+  build:
+    executor: nodejs-container
+    steps:
+      - checkout
+      - run:
+          name: "Prepare environment"
+          command: |
+            mkdir -p ~/workspace
+            mkdir -p ./build
+      - restore_cache:
+          keys:
+            - api-docs-vendor-v1-{{ checksum "yarn.lock" }}
+      - run:
+          name: "Install vendors"
+          command: yarn install
+      - run:
+          name: "Generate HTML"
+          command: yarn docs:build
+      - run:
+          name: "Prepare release artifacts"
+          command: |
+            tar -czf ~/workspace/api-docs.build.tar.gz ./build/
+            tar -czf ~/workspace/api-docs.ci.tar.gz .circleci/
+            tar -czf ~/workspace/api-docs.ansible.tar.gz .deploy/
+      - persist_to_workspace:
+          root: ~/workspace
+          paths:
+            - api-docs.build.tar.gz    # archived app with all vendors
+            - api-docs.ci.tar.gz       # archived CI configs
+            - api-docs.ansible.tar.gz  # archived ansible configs
+
+  deploy:
+    executor: vpn-machine
+    environment:
+      ANSIBLE_HOST_KEY_CHECKING: False
+    parameters:
+      target_env:
+        type: enum
+        enum:
+          - "develop"
+          - "qa"
+          - "staging"
+          - "production"
+      vpn:
+        type: boolean
+        default: false
+    steps:
+      - run:
+          name: "Prepare environment"
+          command: |
+            mkdir -p ~/workspace
+            mkdir -p ./.circleci/vpn
+      - attach_workspace:
+          at: ~/workspace
+      - run:
+          name: "Apply deployment artifacts"
+          command: |
+            tar xf ~/workspace/api-docs.ci.tar.gz
+            tar xf ~/workspace/api-docs.ansible.tar.gz
+      - add_ssh_keys:
+          fingerprints:
+            - "02:ff:91:35:09:26:df:c3:a1:b3:0c:f2:68:76:4a:76"
+      - when:
+          condition: << parameters.vpn >>
+          steps:
+            - run:
+                name: "Install Open VPN"
+                command: |
+                  sudo apt update
+                  sudo apt install openvpn -y
+            - run:
+                name: "Setup VPN config"
+                command: |
+                  echo -e "$VPN_CONFIG" | base64 --decode > .circleci/vpn/iguana.conf
+                  echo -e $VPN_PASSWORD > .circleci/vpn/password
+            - run:
+                name: "Create VPN connection"
+                command: |
+                  sudo openvpn --config .circleci/vpn/iguana.conf --askpass .circleci/vpn/password
+                  sleep 5
+                  ps aux | grep openvpn
+      - run:
+          name: "Update server dependencies"
+          command: |
+            sudo apt update
+            sudo apt install ssh software-properties-common -y
+            sudo apt-add-repository ppa:ansible/ansible -y
+            sudo apt update
+            sudo apt install ansible -y
+      - run:
+          name: "Setup environment variables"
+          command: |
+            # Build Number will be used as folder name app will be deployed to
+            echo "export BUILD_NUMBER=${CIRCLE_BUILD_NUM}" >> $BASH_ENV
+            # Build artifact - archived app that will be ased as deployment artifact by ansible
+            echo "export BUILD_ARTIFACT=~/workspace/api-docs.build.tar.gz" >> $BASH_ENV
+
+      - run:
+          name: "Deploy with ansible"
+          command: ansible-playbook -i .deploy/<< parameters.target_env >> .deploy/deploy.yml
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - trigger_deployment:
+          name: "Trigger deployment?"
+          type: approval
+          filters:
+            branches:
+              only:
+                - master
+                - /hotfix-.*/
+                - /release-.*/
+      - build:
+          name: "Build with approval"
+          requires:
+            - "Trigger deployment?"
+      - build:
+          name: "Build for Develop"
+          filters:
+            branches:
+              only:
+                - develop
+
+      ############ DEVELOP ############
+      - deploy:
+          name: "Deploy Dev"
+          target_env: "develop"
+          context: VPN_EU
+          vpn: true
+          requires:
+            - "Build for Develop"
+          filters:
+            branches:
+              only:
+                - develop
+
+      ############ QA ############
+      - deploy:
+          name: "Deploy QA"
+          target_env: "qa"
+          context: VPN_EU
+          vpn: true
+          requires:
+            - "Build with approval"
+          filters:
+            branches:
+              only:
+                - /release-.*/
+                - /hotfix-.*/
+
+      ############ Preprod ############
+      - deploy:
+          name: "Deploy Preprod EU"
+          target_env: "staging"
+          context: VPN_EU
+          vpn: true
+          requires:
+            - "Build with approval"
+          filters:
+            branches:
+              only:
+                - master
+                - /hotfix-.*/
+
+      ############ PROD ############
+      - deploy:
+          name: "Deploy Prod EU"
+          target_env: "production"
+          context: VPN_EU
+          vpn: true
+          requires:
+            - "Build with approval"
+          filters:
+            branches:
+              only:
+                - master

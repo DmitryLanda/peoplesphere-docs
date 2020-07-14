@@ -2,18 +2,17 @@
 [Blueprint](https://apiblueprint.org) API docs.
 
 # Installation
-
-Just run `docker-compose up`
-Docker will be installed and docs generated.
+Make sure you have `docker` and `docker-compose` installed 
 
 # Build docs
+1. `mkdir ./build` - create build directory
+2. `docker-compose run --rm node bash -c "yarn install && yarn docs:build"` - install vendors and run doc generation
 
-Just run `docker-compose up` as on installation.
-Generated HTML file will be putted into `./public` folder.
+Generated HTML file will be putted into `./build` folder.
 
 # Adding new docs
 
-+ Create new folder in `./src/` for your doc group, f.e.: `./src/news`
++ Create new folder in `./src/` for your doc group, e.g.: `./src/news`
 + Add core file in the folder, f.e.: `./src/news/news.md`
 + Add new include to `./src/index.md`, f.e.: `<!-- include(news/news.md) -->`
     + Please, note, final output will be generated with includes order

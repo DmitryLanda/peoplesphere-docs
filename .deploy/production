@@ -1,0 +1,16 @@
+[production]
+nsr-api-01.sadm.ig-1.net
+nsr-api-02.sadm.ig-1.net
+nsr-api-03.sadm.ig-1.net
+nsr-api-04.sadm.ig-1.net
+nsr-api-05.sadm.ig-1.net
+nsr-apib-02.sadm.ig-1.net
+nsr-apib-03.sadm.ig-1.net
+
+[cache]
+nsr-api-01.sadm.ig-1.net
+
+[jobs]
+nsr-api-01.sadm.ig-1.net
+nsr-apib-02.sadm.ig-1.net
+nsr-apib-03.sadm.ig-1.net

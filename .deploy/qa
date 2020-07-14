@@ -1,0 +1,10 @@
+[qa]
+nsr-apiqa-01.sadm.ig-1.net
+nsr-apiqa-02.sadm.ig-1.net
+nsr-apiqa-03.sadm.ig-1.net
+
+[cache]
+nsr-apiqa-01.sadm.ig-1.net
+
+[jobs]
+nsr-apiqa-01.sadm.ig-1.net

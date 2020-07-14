@@ -1,0 +1,85 @@
+- hosts: all
+  gather_facts: no
+  remote_user: "{{ user }}"
+  tasks:
+    - name: "Deploy"
+      block:
+        - name: "Scan release dir"
+          shell: ls -Av {{ release_dir }} | egrep '^[0-9]+$' | tail -1
+          register: max_dir
+        - set_fact: current_num="{{ max_dir.stdout|int }}"
+        - set_fact: build_num="{{ lookup('env','BUILD_NUMBER') }}"
+        - set_fact: build_art="{{ lookup('env','BUILD_ARTIFACT') }}"
+
+        - name: "Create new release dir"
+          file:
+            path: "{{ release_dir }}/{{ build_num }}"
+            recurse: yes
+            state: directory
+          when: inventory_hostname not in groups['jobs'] or env == 'develop'
+
+        - name: "Upload release"
+          unarchive:
+            src: "{{ build_art }}"
+            dest: "{{ release_dir }}/{{ build_num }}"
+          when: inventory_hostname not in groups['jobs'] or env == 'develop'
+
+        - name: "Update symlink"
+          file:
+            src: "{{ release_dir }}/{{ build_num }}/build"
+            dest: "{{ release_dir }}/../public"
+            state: link
+            force: yes
+
+        - name: "Restart nginx"
+          shell: "sudo systemctl restart nginx"
+          args:
+            warn: no
+          when: inventory_hostname not in groups['jobs'] or env == 'develop'
+
+        - name: "Clean old releases"
+          shell: |
+            TOTAL=$(find {{ release_dir }}/* -maxdepth 0 -type d | wc -l)
+            LIMIT=5
+            OVER_LIMIT=$((${TOTAL} - ${LIMIT}))
+            for i in $(ls -Av {{ release_dir }} | egrep '^[0-9]+$' | head -${OVER_LIMIT}); do rm -rf {{ release_dir }}/$i; done
+          when: inventory_hostname not in groups['jobs'] or env == 'develop'
+
+        - name: "Notify server updated"
+          slack:
+            username: "deployment-bot"
+            color: good
+            icon_url: http://ng-precision.com/wp-content/uploads/2016/04/images-1.png
+            msg: "`API Docs`: Latest changes successfully deployed to `{{ env }}({{ region }})` environment"
+            token: "T93M3SQRL/BCKB64X28/HxfeuMO0J0kAO12XEvv2ZVSa"
+          run_once: true
+      rescue:
+        - name: "Reset to old release"
+          file:
+            src: "{{ release_dir }}/{{ current_num }}/build"
+            dest: "{{ release_dir }}/../public"
+            state: link
+            force: yes
+          when: inventory_hostname not in groups['jobs'] or env == 'develop'
+
+        - name: "Restart nginx"
+          shell: "sudo systemctl restart nginx"
+          args:
+            warn: no
+          when: inventory_hostname not in groups['jobs'] or env == 'develop'
+
+        - name: "Remove new release"
+          shell: rm -rf {{ release_dir }}/{{ build_num }}
+          when: inventory_hostname not in groups['jobs'] or env == 'develop'
+
+        - name: "Notify server updated"
+          slack:
+            username: "deployment-bot"
+            color: warning
+            icon_url: http://ng-precision.com/wp-content/uploads/2016/04/images-1.png
+            msg: "`API Docs`: Failed to deploy latest changes to `{{ env }}({{ region }})` environment. Release rolled back to latest stable"
+            token: "T93M3SQRL/BCKB64X28/HxfeuMO0J0kAO12XEvv2ZVSa"
+          run_once: true
+
+        - name: "Mark build as failed"
+          command: /bin/false

@@ -1,0 +1,4 @@
+release_dir: /data/vhosts/api/docs/releases
+user: customer
+env: production
+region: EU
