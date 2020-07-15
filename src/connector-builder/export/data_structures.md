@@ -22,6 +22,7 @@
     + can_edit: true (required, boolean)
     + can_delete: false (required, boolean)
     + can_deactivate: true (required, boolean)
++ population (array[Population Item], required, fixed-type)
 + created_at: `2019-01-01 23:34:40` (date-time, required)
 + updated_at: `2019-01-01 23:34:40` (date-time, required)
 
@@ -33,6 +34,7 @@
 + language: en (required, string)
 + mapping (array[Export Map Request], required, fixed-type)
 + conditions (array[Group Condition], fixed-type)
++ population (array[Population Item], required, fixed-type)
 
 ## Update Export (object)
 + name (Translatable Text, optional, fixed-type)
@@ -41,6 +43,7 @@
 + language: en (optional, string)
 + mapping (array[Export Map Request], optional, fixed-type)
 + conditions (array[Group Condition], fixed-type)
++ population (array[Population Item], fixed-type)
 
 ## Export Map (object)
 + internal: 123 (required, number)

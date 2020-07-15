@@ -4,8 +4,9 @@
 On creation alias for mapping will be generated automatically
 
 By default all PSO objects from system will be exported using given mapping. There are few limitations:
- - Only latest record from fields marked as listOf will be used
  - The whole composite field cannot be selected in mapping. You must specify each item explicitly
+ - `population` property is used to "share" created mapping with specified users. Only `all`, `group` and `pso` is supported. 
+    Only items of User Pso Type allowed 
  
 **Note** this endpoint supports partial updates. You may specify ONLY property that need to be changed
 

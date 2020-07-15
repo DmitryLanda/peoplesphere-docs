@@ -14,7 +14,7 @@
         + Default: name
     + order: asc (optional, enum[asc, desc]) - Direction to order export maps by.
         + Default: asc
-    + include: pso_type,language (optional, enum[pso_type, mapping, mapping.root_field, language, owner])
+    + include: pso_type,language (optional, enum[pso_type, mapping, mapping.root_field, language, owner, population])
         The way to include relations in the response. Target relations can be comma separated if you want to get few of them
 
 + Request

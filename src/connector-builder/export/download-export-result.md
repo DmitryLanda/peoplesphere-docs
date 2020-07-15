@@ -18,12 +18,4 @@
     
 + Response 200 (text/csv)
 
-+ Response 200 (application/vnd.ms-excel)
-
-+ Response 200 (application/pdf)
-
-+ Response 400 (application/json)
-              
-    + Attributes (Response 400)
-
 <!-- include(../../error_responses.md) -->
