@@ -65,6 +65,7 @@
     - group
     - pso
     - relation
+    - self
 + details (enum, nullable, required)
     - (object)
         - dynamic (boolean, required)

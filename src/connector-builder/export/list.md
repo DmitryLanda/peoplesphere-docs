@@ -1,4 +1,4 @@
-### List [GET /connector-builder/exports{?name,pso-type,active,sort,order,include}]
+### List [GET /connector-builder/exports{?name,pso-type,active,type,sort,order,include}]
 
 ## Fetch list of export maps
 
@@ -9,6 +9,8 @@
         Pso Type trigram to filter export maps for
     + `active`: true (optional, boolean)
         Field for filter exports by `is_active` column
+    + `type`: shared (optional, enum[shared, owned])
+        If presented will be used to filter mappings by type
     + sort: title (optional, enum[pso-type, name])
         Field to sort export maps by. 
         + Default: name

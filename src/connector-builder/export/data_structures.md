@@ -13,6 +13,9 @@
     - processing
     - done
     - failed
++ type: owned (enum[string], required)
+    - owned
+    - shared
 + report_file: filename.csv (string)    
 + mapping (array[Export Map], required, fixed-type)
 + language (required, Language)
