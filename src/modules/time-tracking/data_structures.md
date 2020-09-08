@@ -20,8 +20,6 @@
 + in_tolerance_radius: true (required, boolean)
 
 ## Time Tracking Status (object)
-+ duration: 123 (required, number)
-    Total time duration for the tracker (in minutes) 
 + last_event (Time Tracking Event, required)
 
 ## Create Time Tracking Event (object)
