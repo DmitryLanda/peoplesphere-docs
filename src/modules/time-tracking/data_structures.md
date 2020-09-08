@@ -11,8 +11,6 @@
 + event: start (required, enum[string])
     - start
     - stop
-    - pause
-    - resume
 + declared_location (required, Location)
     Location specified by User
 + reported_location (required, Location)
@@ -28,8 +26,6 @@
 + event: start (required, enum[string])
     - start
     - stop
-    - pause
-    - resume
 + declared_location (required, number)
     ID of Location PSO that user specified as his current place 
 + reported_location (required, Location)
