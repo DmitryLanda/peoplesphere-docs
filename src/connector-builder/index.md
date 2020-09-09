@@ -24,10 +24,7 @@ More details about export process can be got by using `Export Logs` endpoint
 `Import` is a way to load desired data into system from file (XLS)
 
 **Pso Type specific permissions:** 
-- `connector_builder_imports.view.<trigram>`
-- `connector_builder_imports.create.<trigram>`
-- `connector_builder_imports.edit.<trigram>`
-- `connector_builder_imports.delete.<trigram>`
+- `connector_builder_imports.manage.<trigram>`
 
 
 ## Exports [/connector-builder/exports]
