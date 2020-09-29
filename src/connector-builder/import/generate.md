@@ -1,12 +1,14 @@
-### Generate [POST /connector-builder/imports/{id}/generate]
+### Download template [GET /connector-builder/imports/{form}/template/{language}]
 
-## Generate .xls template for import
+## Generate .xls template for import based by selected form
 
 It returns file stream with generated template file. 
 
 + Parameters
-    + id: 1 (required, number) 
-        Id of the Data Import.
+    + form: 1 (required, number) 
+        Id of the form for template
+    + language: en (required, string) 
+        Language alias for the template generating
 
 + Request
     + Headers

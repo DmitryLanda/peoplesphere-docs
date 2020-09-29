@@ -1,7 +1,7 @@
 ### Run import [POST /connector-builder/imports/{id}/run]
 
 ## Run import process
-It plan import data from last valid(success or warning) file. 
+It plans import data from last valid(success or warning) file. 
 
 + Parameters
     + id: 1 (required, number) 
