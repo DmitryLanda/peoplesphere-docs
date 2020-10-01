@@ -1,4 +1,4 @@
-### Common List [GET /document-generators{?title,pso-type,active,sort-by,sort-direction,page,per-page,no-pagination}]
+### Common List [GET /document-generators{?title,pso-type,active,sort-by,sort-direction,page,per-page,no-pagination,should-be-signed}]
 
 ## **Get list of document generators matches specified filters**
 
@@ -12,6 +12,7 @@
     + `sort-by`: name (enum[name, created_at])
     + `sort-direction`: asc (enum[asc, desc])
     <!-- include(../pagination_parameters.md) -->
+    + `should-be-signed`: false (optional, boolean) Get only signed generated documents
 
 + Request
     + Headers
