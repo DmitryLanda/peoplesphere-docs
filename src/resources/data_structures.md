@@ -81,3 +81,20 @@
 + id: 1 (number, required)
 + alias: `feature_alias` (string, required)
 + name: `Feature Name` (string, required)
+
+## SignatureWorkflow Item (array)
++ (object)
+    + entity_id: 0 (number, required)
+    + title: Self (string, required)
+    + type (enum[string], required)
+        - relation
+        - user
+    + step: 1 (number, required)
++ (object)
+    + entity_id: 123 (number, required)
+    + title: John Snow (string, required)
+    + type (enum[string], required)
+        - user
+        - relation
+    + step: 2 (number, required)
+

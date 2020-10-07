@@ -1,4 +1,4 @@
-### Common List [GET /document-generators{?title,pso-type,active,sort-by,sort-direction,page,per-page,no-pagination}]
+### Common List [GET /document-generators{?title,pso-type,active,sort-by,sort-direction,page,per-page,no-pagination,should-be-signed}]
 
 ## **Get list of document generators matches specified filters**
 
