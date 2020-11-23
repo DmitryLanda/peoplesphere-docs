@@ -27,11 +27,20 @@
 + approval_scheduled_date: `2019-01-01 23:34:40` (date-time)
 + fields (array[AssignmentField], fixed-type)
 + settings (array[AssignmentFieldSetting], fixed-type)
++ workflow_actions (AssignmentDataWorkflowActions, fixed-type)
 
 ## AssignmentData Submit (object)
 + temporary: true (boolean, optional) - optional, If presented and positive - workflow will not be updated and data will be saved as temporary
 + approval_scheduled_date: `2019-01-01 23:34:40` (string, optional) - optional datetime string, used for schedule fields updates, values will be stored as Scheduled Approval and applies when the time comes. 
 + data (array[Field Value Data Create], fixed-type)
+
+## AssigmentData Save (object)
++ data_owner: 1 (number, required) - user that assigned to formInstance.
++ data (array[Field Value Data Create], fixed-type)
+
+## AssigmentData Workflow Action (object)
++ data_owner: 1 (number, required) - user that assigned to formInstance.
++ message: Comment (string, required) - Text that will be send as notification to the user
 
 ## AssignmentData Mass Edit (object)
 + form_instance (array[AssignmentData], fixed-type)
@@ -52,3 +61,8 @@
 + user_id: 1 (number, required)
 + data (array[Field Value Data Create], fixed-type)
 
+## AssignmentDataWorkflowActions (object)
++ submit: true (boolean, required)
++ deny: true (boolean, required)
++ revert: true (boolean, required)
++ save: true (boolean, required)
