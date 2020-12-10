@@ -13,3 +13,4 @@ It may include simple text or data from fields (field aliases wraped by bracers,
 <!-- include(delete.md) -->
 <!-- include(copy.md) -->
 <!-- include(toggle-active.md) -->
+<!-- include(preview.md) -->

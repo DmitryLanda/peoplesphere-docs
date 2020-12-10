@@ -9,6 +9,11 @@
 + id: `block001` (string, required)
 + content: `Some stuff with <b>html</b>` (string, required)
 + conditions (array[Document Template Block Condition], required, fixed)
++ type `common` (enum[string], required)
+    - common
+    - header
+    - footer
++ position: 1 (number, required)
 
 ## Document Template (object)
 + title: `document template name` (string, required)
@@ -28,3 +33,6 @@
 + description (Translatable Text, required)
 + is_active: true (boolean, required)
 + blocks (array[Document Template Block], required, fixed)
+
+## Document Template Preview (object)
++ data (array[Document Template Block], required, fixed)
