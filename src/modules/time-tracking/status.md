@@ -1,6 +1,6 @@
 ### Status [POST /time-tracking/status]
 
-Get actual state of the tracker. It returns last known event and total duration (in minutes) for the tracker
+Get actual state of the tracker. It returns last known event for the tracker
 
 + Request
     + Headers
