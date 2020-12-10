@@ -10,6 +10,7 @@
 + target_population (array[Population Item], fixed-type)
 + template_id (number, required)
 + pso_type (Pso Type, optional, fixed-type)
++ signature_workflow (SignatureWorkflow, required)
 
 ## Document Generator Update
 + title (Translatable Text, required)
@@ -19,6 +20,7 @@
 + storage_field: `alias of field` (string, required)
 + excluded_block_ids: `block001`, `block002` (array[string], optional)
 + target_population (array[Population Item], fixed-type)
++ signature_workflow (SignatureWorkflow, required)
 
 ## Document Generator (object)
 + title: `document generator name` (string, required)
@@ -31,3 +33,4 @@
 + target_population (array[Population Item], fixed-type)
 + storage_field: `alias of field` (string, required)
 + excluded_block_ids: `block001`, `block002` (array[string], optional)
++ signature_workflow (SignatureWorkflow Item, optional)
