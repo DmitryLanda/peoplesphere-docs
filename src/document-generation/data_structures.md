@@ -11,6 +11,7 @@
 + template_id (number, required)
 + pso_type (Pso Type, optional, fixed-type)
 + signature_workflow (SignatureWorkflow, required)
++ blocks (array[Document Generator Block Create], required, fixed)
 
 ## Document Generator Update
 + title (Translatable Text, required)
@@ -21,6 +22,7 @@
 + excluded_block_ids: `block001`, `block002` (array[string], optional)
 + target_population (array[Population Item], fixed-type)
 + signature_workflow (SignatureWorkflow, required)
++ blocks (array[Document Generator Block Create], required, fixed)
 
 ## Document Generator (object)
 + title: `document generator name` (string, required)
@@ -29,8 +31,9 @@
 + should_be_signed: false (boolean, required)
 + is_processing: false (boolean, required)
 + pso_type (Pso Type, optional, fixed-type)
-+ template_id (number, required)
++ template (Document Template, required)
 + target_population (array[Population Item], fixed-type)
 + storage_field: `alias of field` (string, required)
 + excluded_block_ids: `block001`, `block002` (array[string], optional)
 + signature_workflow (SignatureWorkflow Item, optional)
++ blocks (array[Document Template Block], required, fixed)
