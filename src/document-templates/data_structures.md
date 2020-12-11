@@ -9,11 +9,26 @@
 + id: `block001` (string, required)
 + content: `Some stuff with <b>html</b>` (string, required)
 + conditions (array[Document Template Block Condition], required, fixed)
-+ type `common` (enum[string], required)
++ type: `common` (enum[string], required)
     - common
     - header
     - footer
 + position: 1 (number, required)
++ is_customized: false (boolean, required)
+
+## Document Template Block Create (object)
++ id: `block001` (string, required)
++ content: `Some stuff with <b>html</b>` (string, required)
++ conditions (array[Document Template Block Condition], required, fixed)
++ type: `common` (enum[string], required)
+  - common
+  - header
+  - footer
++ position: 1 (number, required)
+
+## Document Generator Block Create (object)
++ original_block_id: `template block id` (string, required)
++ content: `Some stuff with <b>html</b>` (string, required)
 
 ## Document Template (object)
 + title: `document template name` (string, required)
@@ -26,7 +41,7 @@
 + title (Translatable Text, required)
 + description (Translatable Text, required)
 + is_active: true (boolean, required)
-+ blocks (array[Document Template Block], required, fixed)
++ blocks (array[Document Template Block Create], required, fixed)
 
 ## Document Template Create (object)
 + title (Translatable Text, required)
@@ -35,4 +50,4 @@
 + blocks (array[Document Template Block], required, fixed)
 
 ## Document Template Preview (object)
-+ data (array[Document Template Block], required, fixed)
++ data (array[Document Template Block Create], required, fixed)

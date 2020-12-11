@@ -1,5 +1,6 @@
 <!-- include(data_structures.md) -->
 
+
 # Group Document Generators
 Document Generators generate pdf files via specified document templates 
 and store them in specified user profile fields
