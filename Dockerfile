@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:12-alpine
 MAINTAINER Dmitry Landa <dmitry.landa@noveogroup.com>
 
 COPY ./ /application

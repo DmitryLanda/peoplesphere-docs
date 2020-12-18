@@ -15,6 +15,8 @@
     - footer
 + position: 1 (number, required)
 + is_customized: false (boolean, required)
++ substitutions: `Variables, that used in template` (array[string])
++ original_block_id: `redefined block` (string)
 
 ## Document Template Block Create (object)
 + id: `block001` (string, required)
@@ -25,10 +27,12 @@
   - header
   - footer
 + position: 1 (number, required)
++ substitutions: `Variables, that used in template in {var} format` (array[string]) 
 
 ## Document Generator Block Create (object)
 + original_block_id: `template block id` (string, required)
 + content: `Some stuff with <b>html</b>` (string, required)
++ substitutions: `Variables, that used in template` (array[string])
 
 ## Document Template (object)
 + title: `document template name` (string, required)
