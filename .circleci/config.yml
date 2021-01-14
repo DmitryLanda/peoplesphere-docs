@@ -113,6 +113,7 @@ workflows:
           filters:
             branches:
               only:
+                - develop
                 - master
                 - /hotfix-.*/
                 - /release-.*/
@@ -120,12 +121,6 @@ workflows:
           name: "Build with approval"
           requires:
             - "Trigger deployment?"
-      - build:
-          name: "Build for Develop"
-          filters:
-            branches:
-              only:
-                - develop
 
       ############ DEVELOP ############
       - deploy:
@@ -133,7 +128,7 @@ workflows:
           target_env: "develop"
           context: VPN_EU_2
           requires:
-            - "Build for Develop"
+            - "Build with approval"
           filters:
             branches:
               only:
