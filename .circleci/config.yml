@@ -2,7 +2,7 @@ version: 2.1
 executors:
   nodejs-container:
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:12
   vpn-machine:
     machine: true
 
@@ -18,7 +18,7 @@ jobs:
             mkdir -p ./build
       - restore_cache:
           keys:
-            - api-docs-vendor-v1-{{ checksum "yarn.lock" }}
+            - api-docs-vendor-v2-{{ checksum "yarn.lock" }}
       - run:
           name: "Install vendors"
           command: yarn install
@@ -50,9 +50,6 @@ jobs:
           - "qa"
           - "staging"
           - "production"
-      vpn:
-        type: boolean
-        default: false
     steps:
       - run:
           name: "Prepare environment"
@@ -68,34 +65,32 @@ jobs:
             tar xf ~/workspace/api-docs.ansible.tar.gz
       - add_ssh_keys:
           fingerprints:
-            - "02:ff:91:35:09:26:df:c3:a1:b3:0c:f2:68:76:4a:76"
-      - when:
-          condition: << parameters.vpn >>
-          steps:
-            - run:
-                name: "Install Open VPN"
-                command: |
-                  sudo apt update
-                  sudo apt install openvpn -y
-            - run:
-                name: "Setup VPN config"
-                command: |
-                  echo -e "$VPN_CONFIG" | base64 --decode > .circleci/vpn/iguana.conf
-                  echo -e $VPN_PASSWORD > .circleci/vpn/password
-            - run:
-                name: "Create VPN connection"
-                command: |
-                  sudo openvpn --config .circleci/vpn/iguana.conf --askpass .circleci/vpn/password
-                  sleep 5
-                  ps aux | grep openvpn
+            - "d1:15:dc:61:a5:d0:97:2f:c4:ab:86:44:18:26:f8:2b"
       - run:
-          name: "Update server dependencies"
+          name: "Install Open VPN"
           command: |
             sudo apt update
-            sudo apt install ssh software-properties-common -y
-            sudo apt-add-repository ppa:ansible/ansible -y
-            sudo apt update
-            sudo apt install ansible -y
+            sudo apt install openvpn -y
+      - run:
+          name: "Setup VPN config"
+          command: |
+            mkdir -p .circleci/vpn
+            echo $VPN_CONFIG | base64 --decode > .circleci/vpn/iguana.conf
+            echo $VPN_PASSWORD > .circleci/vpn/password
+      - run:
+          name: "Establish VPN connection"
+          command: |
+            sudo openvpn --config .circleci/vpn/iguana.conf --askpass .circleci/vpn/password
+            sleep 5
+            ps aux | grep openvpn
+        - run:
+            name: "Update server dependencies"
+            command: |
+              sudo apt update
+              sudo apt install ssh software-properties-common -y
+              sudo apt-add-repository ppa:ansible/ansible -y
+              sudo apt update
+              sudo apt install ansible -y
       - run:
           name: "Setup environment variables"
           command: |
@@ -136,8 +131,7 @@ workflows:
       - deploy:
           name: "Deploy Dev"
           target_env: "develop"
-          context: VPN_EU
-          vpn: true
+          context: VPN_EU_2
           requires:
             - "Build for Develop"
           filters:
@@ -149,8 +143,7 @@ workflows:
       - deploy:
           name: "Deploy QA"
           target_env: "qa"
-          context: VPN_EU
-          vpn: true
+          context: VPN_EU_2
           requires:
             - "Build with approval"
           filters:
@@ -163,8 +156,7 @@ workflows:
       - deploy:
           name: "Deploy Preprod EU"
           target_env: "staging"
-          context: VPN_EU
-          vpn: true
+          context: VPN_EU_2
           requires:
             - "Build with approval"
           filters:
@@ -177,8 +169,7 @@ workflows:
       - deploy:
           name: "Deploy Prod EU"
           target_env: "production"
-          context: VPN_EU
-          vpn: true
+          context: VPN_EU_2
           requires:
             - "Build with approval"
           filters:

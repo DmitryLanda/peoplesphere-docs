@@ -16,13 +16,11 @@
             path: "{{ release_dir }}/{{ build_num }}"
             recurse: yes
             state: directory
-          when: inventory_hostname not in groups['jobs'] or env == 'develop'
 
         - name: "Upload release"
           unarchive:
             src: "{{ build_art }}"
             dest: "{{ release_dir }}/{{ build_num }}"
-          when: inventory_hostname not in groups['jobs'] or env == 'develop'
 
         - name: "Update symlink"
           file:
@@ -35,7 +33,6 @@
           shell: "sudo systemctl restart nginx"
           args:
             warn: no
-          when: inventory_hostname not in groups['jobs'] or env == 'develop'
 
         - name: "Clean old releases"
           shell: |
@@ -43,7 +40,6 @@
             LIMIT=5
             OVER_LIMIT=$((${TOTAL} - ${LIMIT}))
             for i in $(ls -Av {{ release_dir }} | egrep '^[0-9]+$' | head -${OVER_LIMIT}); do rm -rf {{ release_dir }}/$i; done
-          when: inventory_hostname not in groups['jobs'] or env == 'develop'
 
         - name: "Notify server updated"
           slack:
@@ -60,17 +56,14 @@
             dest: "{{ release_dir }}/../public"
             state: link
             force: yes
-          when: inventory_hostname not in groups['jobs'] or env == 'develop'
 
         - name: "Restart nginx"
           shell: "sudo systemctl restart nginx"
           args:
             warn: no
-          when: inventory_hostname not in groups['jobs'] or env == 'develop'
 
         - name: "Remove new release"
           shell: rm -rf {{ release_dir }}/{{ build_num }}
-          when: inventory_hostname not in groups['jobs'] or env == 'develop'
 
         - name: "Notify server updated"
           slack:
