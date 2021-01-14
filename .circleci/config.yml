@@ -83,14 +83,14 @@ jobs:
             sudo openvpn --config .circleci/vpn/iguana.conf --askpass .circleci/vpn/password
             sleep 5
             ps aux | grep openvpn
-        - run:
-            name: "Update server dependencies"
-            command: |
-              sudo apt update
-              sudo apt install ssh software-properties-common -y
-              sudo apt-add-repository ppa:ansible/ansible -y
-              sudo apt update
-              sudo apt install ansible -y
+      - run:
+          name: "Update server dependencies"
+          command: |
+            sudo apt update
+            sudo apt install ssh software-properties-common -y
+            sudo apt-add-repository ppa:ansible/ansible -y
+            sudo apt update
+            sudo apt install ansible -y
       - run:
           name: "Setup environment variables"
           command: |
