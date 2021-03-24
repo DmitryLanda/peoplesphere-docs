@@ -1,6 +1,6 @@
-### List Management [GET /news-management{?title,published-only,sort,order}]
+### List View [GET /news{?title,published-only,sort,order}]
 
-Fetch list of news for management page. Not use population functional.
+Fetch list of news for main page. Use population functional.
 
 + Parameters
     + `published-only`: Filter by state (optional, boolean) 
@@ -25,7 +25,7 @@ Fetch list of news for management page. Not use population functional.
 
     + Attributes
 
-        + data (array[News Management], fixed-type)
+        + data (array[News View], fixed-type)
         + meta (Meta)
 
 <!-- include(../error_responses.md) -->

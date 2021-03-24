@@ -1,4 +1,4 @@
-### Show [GET /news/{id}]
+### Show [GET /news-management/{id}]
 
 Fetch single news item
 
@@ -18,6 +18,6 @@ Fetch single news item
 
     + Attributes
     
-        + data (News, fixed-type)
+        + data (News Management, fixed-type)
 
 <!-- include(../error_responses.md) -->

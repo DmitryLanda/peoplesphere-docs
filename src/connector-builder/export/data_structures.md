@@ -69,6 +69,6 @@
 + user (User, required)
 
 ## Run Export (object)
-+ output_format: csv (required, enum[string])
++ output_format: csv (enum[string])
     - csv
     - xls

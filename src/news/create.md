@@ -1,4 +1,4 @@
-### Create [POST /news]
+### Create [POST /news-management]
 
 Create news item
 
@@ -16,7 +16,7 @@ Create news item
 
     + Attributes
         
-        + data (News, fixed-type)
+        + data (News Management, fixed-type)
     
 + Response 400 (application/json)
               

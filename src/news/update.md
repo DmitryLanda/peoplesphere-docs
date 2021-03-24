@@ -1,4 +1,4 @@
-### Update [PATCH /news/{id}]
+### Update [PATCH /news-management/{id}]
 
 Update news item
 
@@ -19,7 +19,7 @@ Update news item
 
     + Attributes
     
-        + data (News, fixed-type)
+        + data (News Management, fixed-type)
 
 + Response 400 (application/json)
               

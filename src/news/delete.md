@@ -1,4 +1,4 @@
-### Delete [DELETE /news/{id}]
+### Delete [DELETE /news-management/{id}]
 
 Delete news item
 
