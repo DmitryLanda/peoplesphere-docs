@@ -1,12 +1,19 @@
 # Blueprint
+
 [Blueprint](https://apiblueprint.org) API docs.
 
 # Installation
-Make sure you have `docker` and `docker-compose` installed 
+
+Make sure you have `docker` and `docker-compose` installed
 
 # Build docs
+
+Raw commands
+
 1. `mkdir ./build` - create build directory
 2. `docker-compose run --rm node bash -c "yarn install && yarn docs:build"` - install vendors and run doc generation
+
+On alternate can be run `make` command without arguments.
 
 Generated HTML file will be putted into `./build` folder.
 
@@ -24,7 +31,8 @@ Generated HTML file will be putted into `./build` folder.
 + Run build
 
 For more info and examples see:
+
 + [Blueprint examples](https://github.com/apiaryio/api-blueprint/tree/master/examples)
 + [Blueprint tutorials](https://apiblueprint.org/documentation/tutorial.html)
-+ [Blueprint advanced tutorials](https://apiblueprint.org/documentation/advanced-tutorial.html)  
++ [Blueprint advanced tutorials](https://apiblueprint.org/documentation/advanced-tutorial.html)
 + [Blueprint specification](https://apiblueprint.org/documentation/specification.html)  
