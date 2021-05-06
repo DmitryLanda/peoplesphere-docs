@@ -54,7 +54,9 @@
 + is_active: true (boolean, required)
 + list: false (boolean, required) - whether field can handle collection of values
 + read_only: false (boolean, required) - whether field value can be changed
-+ required: true (boolean, required) - whether field value required by system
++ required: true (boolean, required) - deprecated setting
++ user_required: true (boolean, required) - whether field value required by user
++ system_required: true (boolean, required) - whether field value required by system
 + type (Data Type, optional, fixed-type)
 + category (Category, optional, fixed-type)
 + domains (array[Domain], optional, fixed-type)

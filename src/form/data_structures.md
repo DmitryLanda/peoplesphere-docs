@@ -1,6 +1,7 @@
 # Data Structures
 
 ## Form (object)
+
 + id: 1 (number, required)
 + name: Form Name (string, required)
 + description: Form Description (string, required)
@@ -11,25 +12,38 @@
 + pso_type (Pso Type, optional)
 
 ## Field Form (object)
+
 + field_id: 1 (number, required)
++ field_alias: 1 (string, required)
 + position: 1 (number, required)
 + settings (array[Setting], required)
 + permissions (array[Permission], required)
++ user_required: true (boolean, optional)
++ items (array[Subfield Form], optional)
+
+## Subfield Form (object)
+
++ field_id: 1 (number, required)
++ field_alias: 1 (string, required)
++ user_required: true (boolean, optional)
 
 ## Form Create (object)
+
 + name (Translatable Text, required)
 + description (Translatable Text, required)
 + is_active: true (boolean, required)
 + pso_type: usr (string, required)
-+ fields (Field Form, required)
++ fields (array[Field Form], required)
 
 ## Form Update (object)
+
 + name (Translatable Text, optional)
 + description (Translatable Text, optional)
 + is_active: true (boolean, optional)
-+ fields (Field Form, optional)
++ fields (array[Field Form], optional)
 
 ## Form Assignment (object)
+
 + id: 1 (number, required)
 + name: Form Assignment Name (string, required)
 + description: Form Assignment Description (string, required)
@@ -53,8 +67,9 @@
     + includes: `1`, `2` (array[string], required)
     + excludes: `3`, `4` (array[string], required)
     + specific_psos: 5, 6 (array[number], required)
-    
+
 ## Create Assignment (object)
+
 + name (Translatable Text)
 + description (Translatable Text)
 + rules (object, required)
