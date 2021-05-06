@@ -1,11 +1,12 @@
 # Data Structures
 
 ## Field Create (object)
+
 + name (Translatable Text, required)
 + type: string (string, required)
-+ privacy_level: public (enum[string], required) 
-    - public 
-    - encrypted 
++ privacy_level: public (enum[string], required)
+    - public
+    - encrypted
     - extreme
 + category: usr_first_name (string, required)
 + is_active: true (boolean, required)
@@ -18,14 +19,16 @@
 + position: 5 (number, optional)
 + alias: usr_first_name (string, optional)
 + domains: usr_global (array[string], optional, fixed-type) - array of domain aliases
++ validation (Field Validation, required)
 
 ## Field Update (object)
+
 + id: 1 (number, required)
 + name (Translatable Text, optional)
 + type_id: 123 (string, optional)
-+ privacy_level: public (enum[string], required) 
-    - public 
-    - encrypted 
++ privacy_level: public (enum[string], required)
+    - public
+    - encrypted
     - extreme
 + category: usr_first_name (string, optional)
 + is_active: true (boolean, optional) - for admin users only.
@@ -37,8 +40,10 @@
 + position: 5 (number, optional)
 + alias: usr_first_name (string, optional)
 + domains: usr_global (array[string], optional, fixed-type) - array of domain aliases
++ validation (Field Validation, required)
 
 ## Field (object)
+
 + id: 1 (number, required)
 + name: Field Name (string, required)
 + position: 5 (number, required)
@@ -56,10 +61,12 @@
 + privacy_level (Sensitivity, optional, fixed-type)
 + pso_type (Pso Type, optional, fixed-type)
 + items (array[Field], nullable, fixed-type)
-+ options (array[Field Option], nullable, fixed-type) - List of options with possible (allowed) values. 
++ options (array[Field Option], nullable, fixed-type) - List of options with possible (allowed) values.
 + settings (array[string], optional, fixed-type) - Common field settings
++ validation (Field Validation, required)
 
 ## Field Option (object)
+
 + id: 198 (number, required)
 + name: Chose me! (string, required)
 + position: 9 (number, required)
@@ -67,25 +74,39 @@
 + is_active: true (boolean, required)
 
 ## Field Option Create (object)
+
 + name (Translatable Text, required)
 + position: 1 (number, required)
 + is_active: true (boolean, required)
 
 ## Field Option Update (object)
+
 + id: 123 (number, optional)
 + name (Translatable Text, optional)
 + position: 1 (number, optional)
 + is_active: true (boolean, optional)
 
 ## Field Setting (object)
+
 + setting (Setting, required, fixed-type)
 + value (nullable, string, required)
 
 ## Field Setting Create (object)
+
 + setting_id: 123 (number, required)
 + value: text (string, required)
 
 ## Field Setting Update (object)
+
 + setting_id: 123 (number, optional)
 + setting_alias: setting_alias (string, optional)
 + value: text (string, optional)
+
+## Field Validation (object)
+
++ type: regexp (string, required)
++ attributes (Empty Object)
++ value_example: string (string, required)
++ error_message (Translatable Text, required)
+
+# Empty Object (object)
