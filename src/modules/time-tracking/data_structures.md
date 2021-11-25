@@ -11,9 +11,9 @@
 + event: start (required, enum[string])
     - start
     - stop
-+ declared_location (required, Location)
++ declared_location (Location)
     Location specified by User
-+ reported_location (required, Location)
++ reported_location (Location)
     Real location captured by GPS 
 + in_tolerance_radius: true (required, boolean)
 
@@ -24,8 +24,8 @@
 + event: start (required, enum[string])
     - start
     - stop
-+ declared_location (required, number)
++ declared_location (number)
     ID of Location PSO that user specified as his current place 
-+ reported_location (required, Location)
++ reported_location (Location)
     Real location object captured with help of GPS
 
