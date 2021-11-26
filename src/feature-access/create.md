@@ -1,10 +1,6 @@
-### Delete [DELETE /roles/{alias}]
+### Create [POST /feature-access-rules]
 
-## **Remove specified role**
-
-+ Parameters
-    + alias: role_alias (required, string) - alias of the role
-
+## **Create new Feature Access rule**
 
 + Request
     + Headers
@@ -14,7 +10,13 @@
             X-Application-Version: <client-name>/<version>
             X-App-features: <target feature>
           
-+ Response 204 (application/json)
+    + Attributes(Feature Access Create)
+
++ Response 201 (application/json)
+
+    + Attributes
+        
+        + data (Feature Access, fixed-type)
     
 + Response 400 (application/json)
               
