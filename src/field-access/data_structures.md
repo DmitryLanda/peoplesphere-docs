@@ -1,6 +1,7 @@
 # Data Structures
 
-## Role (object)
+## Field Access (object)
+
 + id: 1 (number, required)
 + alias: `role_alias` (string, required)
 + name: `Role Name` (string, required)
@@ -19,6 +20,7 @@
 + permissions (object, required)
     + `can_edit`: true (boolean, required)
     + `can_delete`: true (boolean, required)
++ `relation`: User (string, required)
 + `relation_type` (object, required)
     + alias: `relation_alias` (string, required)
     + name: `Relation Name` (string, required)
@@ -37,21 +39,20 @@
                 - `user`
                 - `group`
             + details (object, required)
-+ `field_access_rules` (object, optional)
-    + domains (object, required)
-        + includes (array[Domain], required)
-        + excludes (array[Domain], required)
-    + privacy_level (Privacy Level, required)
-+ features (array[Permission], optional)
-+ modules (array[Module], optional)
++ domains (object, required)
+    + includes (array[Domain], required)
+    + excludes (array[Domain], required)
++ privacy_level (Privacy Level, required)
 + `pso_type` (Pso Type, optional)
 
-## Role Create (object)
+## Field Access Create (object)
+
 + name (Translatable Text, required)
 + description (Translatable Text, optional)
++ `pso_type`: `usr` (string, required)
 + `relation_field`: `hr` (string, optional)
 + `relation_type`: `relation_type` (string, optional)
-+ `pso_type`: `usr` (string, required)
++ `is_active`: true (required, boolean)
 + `assignment_rules` (array, required)
     + (object, required)
         + assignee (object, required)
@@ -66,19 +67,13 @@
                 - user
                 - group
             + details (object, required)
-+ `field_access_rules` (required, object)
-    + domains (object, required)
-        + includes: `domain_alias` (array[string], required)
-        + excludes: `domain_alias` (array[string], required)
-    + privacy_level: public (string, required)
-+ modules (array, required)
-    + (object, required)
-        + id: 1 (number, required)
-        + permissions (object, required)
-            + access: true (boolean, required)
-            + synchronisation (boolean, required)
-         
-## Role Update (object)
++ domains (object, required)
+    + includes: `domain_alias` (array[string], required)
+    + excludes: `domain_alias` (array[string], required)
++ privacy_level: public (string, required)
+
+## Field Access Update (object)
+
 + name (Translatable Text, optional)
 + description (Translatable Text, optional)
 + `pso_type`: `usr` (string, required)
