@@ -20,6 +20,7 @@
 + alias: usr_first_name (string, optional)
 + domains: usr_global (array[string], optional, fixed-type) - array of domain aliases
 + validation (Field Validation, required)
++ autocomplete_settings (Field Autocomplete Object, required)
 
 ## Field Update (object)
 
@@ -41,6 +42,20 @@
 + alias: usr_first_name (string, optional)
 + domains: usr_global (array[string], optional, fixed-type) - array of domain aliases
 + validation (Field Validation, required)
++ autocomplete_settings (Field Autocomplete Object, required)
+
+## Short field (object)
+
++ id: 1 (number, required)
++ name: Field Name (string, required)
++ alias: usr_first_name (string, required)
++ value: RU (string, required)
++ root_field (object, nullable)
+    + id: 1 (number, required)
+    + name: Field Name (string, required)
+    + alias: usr_first_name (string, required)
+    + value: RU (string, required)
+    + root_field: null (nullable)
 
 ## Field (object)
 
@@ -66,6 +81,18 @@
 + options (array[Field Option], nullable, fixed-type) - List of options with possible (allowed) values.
 + settings (array[string], optional, fixed-type) - Common field settings
 + validation (Field Validation, required)
++ has_autocomplete_settings: true (boolean, required)
++ autocomplete_settings (object, required)
+    + allow_extra_values: true (boolean, required)
+    + autofill: true (boolean, required)
+    + provider (Autocomplete provider, required)
+    + parameters (array, required)
+        + (object)
+            + name: Name (string, required)
+            + key: alias (string, required)
+            + required: true (boolean, required)
+            + value: value (string)
+            + field (Short field, required)
 
 ## Field Option (object)
 
@@ -110,5 +137,18 @@
 + attributes (Empty Object)
 + value_example: string (string, required)
 + error_message (Translatable Text, required)
+
+## Field Autocomplete Object (object)
+
++ allow_extra_values: true (boolean, required)
++ autofill: true (boolean, required)
++ provider: provider_alias (string, required)
++ parameters (array, required)
+    + (object)
+        + name: Name (string, required)
+        + key: alias (string, required)
+        + required: true (boolean, required)
+        + value: value (string, nullable)
+        + field: field_alias (string, nullable)
 
 # Empty Object (object)
