@@ -1,10 +1,10 @@
 ### Delete [DELETE /fields/{id}]
 
-Delete field item
+Delete field after check where field using. 
 
 + Parameters
-    + id: 123 (required, string)
-        Alias of the Field item.
+    + id: 123 (required, number)
+        Alias of the Field.
 
 + Request
     + Headers
@@ -16,4 +16,10 @@ Delete field item
 
 + Response 204 (application/json)
 
-<!-- include(../error_responses.md) -->
++ Response 422 (application/json)
+
+    + Attributes (Response 422 Field)
+
++ Response 500 (application/json)
+
+    + Attributes (Response 500)

@@ -2,6 +2,8 @@
 
 Update field item
 
+Permission required: `fields.edit`
+
 + Parameters
     + id: 123 (required, string)
         Alias of the Category item.

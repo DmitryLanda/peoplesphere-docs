@@ -50,6 +50,12 @@
 + status_code: 422 (number)
 + errors (array)
     + Error message (string)
+    + 
+## Response 422 Field (object)
++ message: Descriptive error message (string)
++ status_code: 422 (number)
++ errors (array)
+    + Error message (array[string])
 
 ## Response 500 (object)
 + message: Internal Error (string)
