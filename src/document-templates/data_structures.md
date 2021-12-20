@@ -30,7 +30,10 @@
 + substitutions: `Variables, that used in template in {var} format` (array[string]) 
 
 ## Document Generator Block Create (object)
-+ original_block_id: `template block id` (string, required)
++ id: `template block id` (number)
++ is_active: (boolean, required)
++ is_customized: (boolean, required)
++ original_block_id: `template block id` (number)
 + content: `Some stuff with <b>html</b>` (string, required)
 + substitutions: `Variables, that used in template` (array[string])
 
@@ -52,6 +55,7 @@
 + description (Translatable Text, required)
 + is_active: true (boolean, required)
 + blocks (array[Document Template Block], required, fixed)
++ pso_type (Pso Type, required, fixed-type)
 
 ## Document Template Preview (object)
 + data (array[Document Template Block Create], required, fixed)
