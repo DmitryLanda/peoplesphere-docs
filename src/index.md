@@ -4,6 +4,7 @@ HOST: https://rest.monportailrh.com
 <!-- include(introduction.md) -->
 
 <!-- include(action-groups/index.md) -->
+<!-- include(autocomplete-settings/index.md) -->
 <!-- include(actions/index.md) -->
 <!-- include(assignment-data/index.md) -->
 <!-- include(category/index.md) -->
