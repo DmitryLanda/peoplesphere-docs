@@ -94,17 +94,10 @@
 + alias: en (string, required)
 + name: English (string, required)
 
-## SignatureWorkflow (array)
-+ (object)
-    + entity_id: 0 (number, required)
-    + type (enum[string], required)
-        - relation
-        - user
-    + step: 1 (number, required)
-+ (object)
-    + entity_id: 123 (number, required)
-    + type (enum[string], required)
-        - user
-        - relation
-    + step: 2 (number, required)
+## SignatureWorkflow (object)
++ entity_id: 0 (number, required)
++ type (enum[string], required)
+    - relation
+    - user
++ step: 1 (number, required)
 
