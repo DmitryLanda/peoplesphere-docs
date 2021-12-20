@@ -1,6 +1,8 @@
 ### Create [POST /fields]
 
-Create new field item
+Create new field item.
+
+Permission required: `fields.create`
 
 + Request
     + Headers
@@ -16,7 +18,7 @@ Create new field item
 
     + Attributes
         
-        + data (Category, fixed-type)
+        + data (Field Option Show, fixed-type)
     
 + Response 400 (application/json)
               

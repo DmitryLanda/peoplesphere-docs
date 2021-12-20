@@ -2,22 +2,22 @@
 
 ## Field Create (object)
 
-+ name (Translatable Text, required)
-+ type: string (string, required)
-+ privacy_level: public (enum[string], required)
++ name (Translatable Text, required) - Name of field
++ type: string (string, required) - Data Type of field
++ privacy_level: public (enum[string], required) - Privacy Level of field
     - public
     - encrypted
     - extreme
-+ category: usr_first_name (string, required)
-+ is_active: true (boolean, required)
++ category: usr_first_name (string, required)  - Category alias of field
++ is_active: true (boolean, required)  - Active flag of field
 + list: true (boolean, required) - should it be "list of" field
-+ read_only: false (boolean, required)
-+ pso_type: usr (string, required)
-+ options (array[Field Option Create], optional, fixed-type)
-+ items (array[Field Create], optional, fixed-type)
-+ settings (array[Field Setting Create], optional, fixed-type)
-+ position: 5 (number, optional)
-+ alias: usr_first_name (string, optional)
++ read_only: false (boolean, required) - Read Only flag of field
++ pso_type: usr (string, required) - Pso Type of field
++ options (array[Field Option Create], optional, fixed-type)  - Options of field
++ items (array[Field Create], optional, fixed-type) - Children fields of composite field
++ settings (array[Field Setting Create], optional, fixed-type)  - Settings of composite
++ position: 5 (number, optional) - Positions of field
++ alias: usr_first_name (string, optional)  - Unique alias of field
 + domains: usr_global (array[string], optional, fixed-type) - array of domain aliases
 + validation (Field Validation, required)
 + autocomplete_settings (Field Autocomplete Object, required)
@@ -97,10 +97,12 @@
 ## Field Option (object)
 
 + id: 198 (number, required)
-+ name: Chose me! (string, required)
++ name: Choose me! (string, required)
 + position: 9 (number, required)
 + value: 198 (string, required)
 + is_active: true (boolean, required)
++ is_selectable: true (boolean, required) - Can select on front this option (Using only in Hierarchy field))
+
 
 ## Field Option Create (object)
 
@@ -159,3 +161,11 @@
 + is_selectable: true (boolean, optional)
 
 # Empty Object (object)
+
+
+## Get Field Option Filter (object)
+
++ pso-id (number) - Filter options by Pso 
++ parent: string (string) - Filter options by Parent Field Option ID 
++ name: string (string) - Filter options by name
++ values: string (array[string])

@@ -4,11 +4,11 @@
 For conditional fields, preliminary values can be passed, otherwise the values are taken from the database
 
 + Parameters
-    + field: 123 (required, number) - ID of the field
+    + `field`: 123 (required, number) - ID of the field
     + `pso-id`: 321 (optional, number) - ID of the pso. Needed to get the options of a conditional field for a specific pso
-    + name: `some-option-name` (optional, string) - String for search by option name
-    + parent: 123 (optional, number) - ID of the parent field (available for field with hierarchy type)
-    + values: (array, optional) - Associative array, where key is the alias of the field, value is the new value of this field. Used for conditional fields, where the set of options depends on the value of other fields.
+    + `name`: `some-option-name` (optional, string) - String for search by option name
+    + `parent`: 123 (optional, number) - ID of the parent field (available for field with hierarchy type)
+    + `values`: (array, optional) - Associative array, where key is the alias of the field, value is the new value of this field. Used for conditional fields, where the set of options depends on the value of other fields.
 
 + Request
     + Headers

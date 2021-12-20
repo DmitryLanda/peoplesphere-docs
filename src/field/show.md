@@ -2,6 +2,8 @@
 
 Fetch single field item
 
+Permission required: `fields.view`
+
 + Parameters
     + id: 123 (required, string) 
         Alias of the Category item.
