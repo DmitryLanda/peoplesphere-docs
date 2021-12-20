@@ -151,4 +151,11 @@
         + value: value (string, nullable)
         + field: field_alias (string, nullable)
 
+## Field Option (object)
+
++ id: 123 (number, optional)
++ name: Some option (string, required)
++ has_children: false (boolean, required)
++ is_selectable: true (boolean, optional)
+
 # Empty Object (object)
