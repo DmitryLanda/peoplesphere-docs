@@ -28,6 +28,7 @@ HOST: https://rest.monportailrh.com
 <!-- include(news/index.md) -->
 <!-- include(notification/index.md) -->
 <!-- include(operators/index.md) -->
+<!-- include(org-chart/index.md) -->
 <!-- include(poll/index.md) -->
 <!-- include(pso/index.md) -->
 <!-- include(pso-type/index.md) -->
