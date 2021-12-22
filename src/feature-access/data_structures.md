@@ -4,6 +4,10 @@
 
 + id: 1 (number, required)
 + alias: `role_alias` (string, required)
++ pso_type (object, required)
+  + id: 1 (number, required)
+  + alias: usr (string, required)
+  + name: User (string required)
 + name: `Role Name` (string, required)
 + description: Role Description (string, required)
 + `is_active`: true (boolean, required)
@@ -13,10 +17,6 @@
     - processing
     - conflict
     - failed
-+ `assignment_mode`: `role_driven` (enum[string], required)
-    - `user_driven`
-    - `role_driven`
-    - `system_driven`
 + permissions (object, required)
     + `can_edit`: true (boolean, required)
     + `can_delete`: true (boolean, required)
@@ -53,11 +53,33 @@
                 + name: Action Name (string)
                 + alias: action_alias (string)
 
+## Feature Access List (object)
+
++ id: 1 (number, required)
++ alias: `role_alias` (string, required)
++ name: `Role Name` (string, required)
++ description: Role Description (string, required)
++ `is_active`: true (boolean, required)
++ status: `ok` (enum[string], required)
+    - ok
+    - pending
+    - processing
+    - conflict
+    - failed
++ permissions (object, required)
+    + `can_edit`: true (boolean, required)
+    + `can_delete`: true (boolean, required)
++ population (object, required)
+    + type: `all` (enum[string], required)
+        - `all`
+        - `user`
+        - `group`
+    + details (object, required)
+
 ## Feature Access Create (object)
 
-+ name (Translatable Text, required)
-+ description (Translatable Text, optional)
-+ `pso_type`: `usr` (string, required)
++ name: (Translatable Text, required)
++ description: (Translatable Text, optional)
 + `is_active`: true (required, boolean)
 + population (object, required)
     + type (enum[string], required)
@@ -97,4 +119,3 @@
                     + includes: `domain_alias` (array[string], required)
                     + excludes: `domain_alias` (array[string], required)
                 + pso_types (array[string])
-+ privacy_level: public (string, required)

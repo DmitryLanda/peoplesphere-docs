@@ -11,7 +11,7 @@ Feature access provide users with access permissions (features) to different par
 - `roles.edit` - ability to edit existing in system roles
 - `roles.delete` - ability to remove existing in system roles
 
-## Feature Access Rules [/feature-access-rules]
+## Feature Access Rules [/management/feature-access-rules]
 
 <!-- include(list.md) -->
 <!-- include(create.md) -->
