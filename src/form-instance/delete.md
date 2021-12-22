@@ -2,6 +2,8 @@
 
 Delete Form instance
 
+Permissions: `form_assignments.delete`, `form_assignments.view`
+
 + Parameters
     + id: 123 (required, number) - Id of the Form instance.
 

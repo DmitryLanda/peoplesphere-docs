@@ -2,19 +2,35 @@
 
 Fetch list of Form instances
 
+Permissions: `form_assignments.view`
+
 + Parameters
-    + `name`: 'Some name' (string, required)
-    + `active`: true (boolean, required)
-    + `with-hidden`: true (boolean, required)
-    + `assignment-type`: 'Some name' (required, enum[string])
-        Possible values: `poll`, `permanent`, `unique`, `periodic`
-    + `pso-type`: some_type (string, required)
-    + `include`: settings, access_rules, workflow_steps (string, optional)
-    + `sort-by`: 'name' (required, enum[string])
-        Field to sort by. Possible values:
-        `name`
-    + `sort-direction`: 'asc' (required, enum[string])
-        Direction to order results by. Possible values: `asc`, `desc`
+    + `name`: `Some name` (string, optional)
+    + `active`: true (boolean, optional)
+    + `with-hidden`: true (boolean, optional)
+        + Default: false 
+    + `assignment-type`: `unique` (enum[string], optional)
+        + Members
+            + `poll`
+            + `permanent`
+            + `unique`
+            + `periodic`
+    + `pso-type`: `some_type` (string, optional)
+    + `include`: `settings,access_rules`(string, optional)
+        + Members
+            + `settings`
+            + `access_rules`
+            + `workflow_steps`
+            + `pso_type`
+    + `sort-by`: `name` (enum[string], optional)
+        + Default: `name`
+        + Members
+            + `name`
+    + `sort-direction`: `asc` (enum[string], optional)
+        + Default: `asc`
+        + Members
+            + `asc`
+            + `desc`
     <!-- include(../pagination_parameters.md) -->
         
 + Request
@@ -29,7 +45,7 @@ Fetch list of Form instances
 
     + Attributes
 
-        + data (array[FormInstance], fixed-type)
+        + data (array[FormInstance ListItem], fixed-type)
         + meta (Meta)
 
 <!-- include(../error_responses.md) -->
