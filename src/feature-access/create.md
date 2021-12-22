@@ -16,7 +16,8 @@
 
     + Attributes
         
-        + data (Feature Access, fixed-type)
+        + id: 1 (number, required)
+        + alias: feature (string, required)
     
 + Response 400 (application/json)
               
