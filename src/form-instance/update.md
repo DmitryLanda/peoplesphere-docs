@@ -2,6 +2,8 @@
 
 Update Form instance
 
+Permissions: `form_assignments.edit`, `form_assignments.view`
+
 + Parameters
     + id: 123 (required, number) - Id of the Form instance.
 
@@ -15,7 +17,7 @@ Update Form instance
           
     + Attributes(FormInstance Update)
 
-+ Response 200 (application/json)
++ Response 202 (application/json)
 
     + Attributes
                 

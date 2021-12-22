@@ -2,8 +2,10 @@
 
 Fetch single Form instance
 
+Permissions: `form_assignments.view`
+
 + Parameters
-    + id: 123 (required, number) - Id of the Idea.
+    + id: 123 (required, number) - Id of the Form instance.
 
 + Request
     + Headers
