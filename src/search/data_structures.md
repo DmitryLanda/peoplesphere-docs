@@ -4,6 +4,8 @@
 + name: John Doe (string, optional) - filter PSOs by full name.
 + `pso-type`: usr (string, required) - if you need to get only single PSO type fata.
 + active: true (boolean, required) - if need to get only active PSOs.
++ values: string (array[string])- preliminary values for field conditions. list of values of fields on which our relation field depends
++ field: string (string, optional)- using field conditions for pso_relation. alias of relation field for whom we search values. and from which we will get conditional settings
 + formula: {usr_first_name} not_empty (string, optional) - search formula to filter PSOs by fields.
 
 ## Global Search Response (object)
@@ -16,6 +18,7 @@
 + status: default (string, required)
 + profile_form (Global Search Form, fixed-type)
 + fields (array[Global Search Field Summary], fixed-type)
++ display_value (array[string])
 
 ## Global Search Form (object)
 + id: 1 (number, required) - PSO Type Profile Form ID
