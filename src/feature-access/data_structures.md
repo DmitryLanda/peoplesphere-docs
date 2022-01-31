@@ -7,7 +7,7 @@
 + pso_type (object, required)
   + id: 1 (number, required)
   + alias: usr (string, required)
-  + name: User (string required)
+  + name: User (string, required)
 + name: `Role Name` (string, required)
 + description: Role Description (string, required)
 + `is_active`: true (boolean, required)
