@@ -11,3 +11,4 @@ Access permissions:
 <!-- include(show.md) -->
 <!-- include(fields.md) -->
 <!-- include(status.md) -->
+<!-- include(document_generation.md) -->

@@ -95,3 +95,8 @@
 
 ## Store Token (object)
 + token (string, required)
+
+## Document Generator Index Data (object)
++ id: 1 (number, required)
++ name: Field Name (string, required)
++ storage_field: null ([Field], nullable)
