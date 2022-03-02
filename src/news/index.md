@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group News
 News articles. Can be presented in 2 ways:
@@ -7,9 +7,9 @@ News articles. Can be presented in 2 ways:
 
 ## News [/news-management]
 
-<!-- include(list-view.md) -->
-<!-- include(list.md) -->
-<!-- include(create.md) -->
-<!-- include(show.md) -->
-<!-- include(delete.md) -->
-<!-- include(update.md) -->
+:[](list-view.md)
+:[](list.md)
+:[](create.md)
+:[](show.md)
+:[](delete.md)
+:[](update.md)

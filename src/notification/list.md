@@ -8,7 +8,7 @@ Get list of notifications matches specified filters
     + `effective-date`: `2020-01-01 30:30:30` (date-time, optional) - format YYYY-MM-DD HH:II:SS
     + `actual`: true (bool, required) - get only not expired notifications
     + `not-read`: true (bool, required) - get only not read notifications
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -22,4 +22,4 @@ Get list of notifications matches specified filters
         + data (array[Notification], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

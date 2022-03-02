@@ -23,4 +23,4 @@ Toggle active of the Document Template
               
     + Attributes (Response 400)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

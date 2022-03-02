@@ -1,3 +1,3 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Pso Types

@@ -23,4 +23,4 @@ Chat can be showed only for the author or user with  `hr_request.edit.chat` perm
     
         + data (Chat, fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

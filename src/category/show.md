@@ -22,4 +22,4 @@ Fetch single fields category item
     
         + data (Category, fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

@@ -3,7 +3,7 @@
 ## **Get list of settings**
 
 + Parameters
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -17,4 +17,4 @@
         + data (array[Setting], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

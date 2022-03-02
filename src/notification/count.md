@@ -18,4 +18,4 @@ Get notifications count
     + Attributes
         + data (Notification Count)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

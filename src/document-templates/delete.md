@@ -15,4 +15,4 @@ Delete Document Template
 
 + Response 204 (application/json)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Feature access
 
@@ -13,8 +13,8 @@ Feature access provide users with access permissions (features) to different par
 
 ## Feature Access Rules [/management/feature-access-rules]
 
-<!-- include(list.md) -->
-<!-- include(create.md) -->
-<!-- include(show.md) -->
-<!-- include(update.md) -->
-<!-- include(delete.md) -->
+:[](list.md)
+:[](create.md)
+:[](show.md)
+:[](update.md)
+:[](delete.md)

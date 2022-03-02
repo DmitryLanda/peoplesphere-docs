@@ -1,45 +1,45 @@
 FORMAT: 1A
 HOST: https://rest.monportailrh.com
 
-<!-- include(introduction.md) -->
+:[](introduction.md)
 
-<!-- include(action-groups/index.md) -->
-<!-- include(autocomplete-settings/index.md) -->
-<!-- include(actions/index.md) -->
-<!-- include(assignment-data/index.md) -->
-<!-- include(category/index.md) -->
-<!-- include(chats/index.md) -->
-<!-- include(company/index.md) -->
-<!-- include(connector-builder/index.md) -->
-<!-- include(document-generation/index.md) -->
-<!-- include(document-templates/index.md) -->
-<!-- include(domain/index.md) -->
-<!-- include(field/index.md) -->
-<!-- include(field-value/index.md) -->
-<!-- include(file/index.md) -->
-<!-- include(form/index.md) -->
-<!-- include(form-instance/index.md) -->
-<!-- include(group/index.md) -->
-<!-- include(idea/index.md) -->
-<!-- include(history/index.md) -->
-<!-- include(language/index.md) -->
-<!-- include(me/index.md) -->
-<!-- include(modules/index.md) -->
-<!-- include(news/index.md) -->
-<!-- include(notification/index.md) -->
-<!-- include(operators/index.md) -->
-<!-- include(org-chart/index.md) -->
-<!-- include(poll/index.md) -->
-<!-- include(pso/index.md) -->
-<!-- include(pso-type/index.md) -->
-<!-- include(resources/index.md) -->
-<!-- include(field-access/index.md) -->
-<!-- include(feature-access/index.md) -->
-<!-- include(features/index.md) -->
-<!-- include(search/index.md) -->
-<!-- include(sensitivity/index.md) -->
-<!-- include(triggers/index.md) -->
-<!-- include(scheduled-approval/index.md) -->
-<!-- include(delegation-center/index.md) -->
+:[](action-groups/index.md)
+:[](autocomplete-settings/index.md)
+:[](actions/index.md)
+:[](assignment-data/index.md)
+:[](category/index.md)
+:[](chats/index.md)
+:[](company/index.md)
+:[](connector-builder/index.md)
+:[](document-generation/index.md)
+:[](document-templates/index.md)
+:[](domain/index.md)
+:[](field/index.md)
+:[](field-value/index.md)
+:[](file/index.md)
+:[](form/index.md)
+:[](form-instance/index.md)
+:[](group/index.md)
+:[](idea/index.md)
+:[](history/index.md)
+:[](language/index.md)
+:[](me/index.md)
+:[](modules/index.md)
+:[](news/index.md)
+:[](notification/index.md)
+:[](operators/index.md)
+:[](org-chart/index.md)
+:[](poll/index.md)
+:[](pso/index.md)
+:[](pso-type/index.md)
+:[](resources/index.md)
+:[](field-access/index.md)
+:[](feature-access/index.md)
+:[](features/index.md)
+:[](search/index.md)
+:[](sensitivity/index.md)
+:[](triggers/index.md)
+:[](scheduled-approval/index.md)
+:[](delegation-center/index.md)
 
-<!-- include(data_structures.md) -->
+:[](data_structures.md)

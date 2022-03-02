@@ -22,4 +22,4 @@ List of user with statistic by action statuses
         + data (array[ActionGroupUserStats], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

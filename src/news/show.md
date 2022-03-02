@@ -20,4 +20,4 @@ Fetch single news item
     
         + data (News Management, fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

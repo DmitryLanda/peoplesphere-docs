@@ -10,7 +10,7 @@ The widget list will be filtered based on permissions (Features) user has access
 
 + Parameters
     + `view-mode`: tab (enum[inline, tab])
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 
 + Request
@@ -25,4 +25,4 @@ The widget list will be filtered based on permissions (Features) user has access
         + data (array[Widget], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

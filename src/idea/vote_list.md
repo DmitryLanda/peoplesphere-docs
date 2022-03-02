@@ -15,4 +15,4 @@ Fetch list of Idea votes (likes).
 
 + Response 200 (application/json)
     
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

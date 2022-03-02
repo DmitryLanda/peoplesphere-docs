@@ -16,4 +16,4 @@ Fetch list of languages
 
         + data (array[Language], fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

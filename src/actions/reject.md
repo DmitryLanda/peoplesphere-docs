@@ -29,4 +29,4 @@ Actions that belongs to the `validation` category (see `type.category` property)
               
     + Attributes (Response 400)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

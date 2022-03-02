@@ -21,4 +21,4 @@
         + data (array[Export Log], fixed-type)
         + meta (Meta)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

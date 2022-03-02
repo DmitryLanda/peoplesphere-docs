@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Polls
 
@@ -7,4 +7,4 @@ Access permissions:
 
 ## Polls [/polls]
 
-<!-- include(show.md) -->
+:[](show.md)

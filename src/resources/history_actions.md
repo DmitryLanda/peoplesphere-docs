@@ -3,7 +3,7 @@
 ## **Get list of history actions**
 
 + Parameters
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -17,4 +17,4 @@
         + data (array[Log Action], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

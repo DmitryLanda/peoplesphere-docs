@@ -16,4 +16,4 @@ Cancel Form progress for specified `formInstance` and reset first step with clea
 
 + Response 202 (application/json)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

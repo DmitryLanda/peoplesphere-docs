@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Field access
 
@@ -13,8 +13,8 @@ Field access provide users with access permissions to psos fields.
 
 ## Field Access Rules [/field-access-rules]
 
-<!-- include(list.md) -->
-<!-- include(create.md) -->
-<!-- include(show.md) -->
-<!-- include(update.md) -->
-<!-- include(delete.md) -->
+:[](list.md)
+:[](create.md)
+:[](show.md)
+:[](update.md)
+:[](delete.md)

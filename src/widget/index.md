@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group HTML Widgets
 HTML Widgets it is a way to customize Welcome Page screen by adding blocks with custom content.
@@ -17,9 +17,9 @@ Widget specific permissions:
 
 ## HTML Widgets [/widgets]
 
-<!-- include(list.md) -->
-<!-- include(personal_list.md) -->
-<!-- include(show.md) -->
-<!-- include(create.md) -->
-<!-- include(update.md) -->
-<!-- include(delete.md) -->
+:[](list.md)
+:[](personal_list.md)
+:[](show.md)
+:[](create.md)
+:[](update.md)
+:[](delete.md)

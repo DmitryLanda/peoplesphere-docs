@@ -20,4 +20,4 @@ Fetch information about changes in group. Supports pagination
     
         + data (array[Group], fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

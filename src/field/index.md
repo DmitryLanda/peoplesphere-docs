@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Fields
 
@@ -45,9 +45,9 @@ Fields can handle basic data validation via attribute `validation`. System can h
 
 ## Fields [/fields]
 
-<!-- include(list.md) -->
-<!-- include(create.md) -->
-<!-- include(show.md) -->
-<!-- include(delete.md) -->
-<!-- include(update.md) -->
-<!-- include(options.md) -->
+:[](list.md)
+:[](create.md)
+:[](show.md)
+:[](delete.md)
+:[](update.md)
+:[](options.md)

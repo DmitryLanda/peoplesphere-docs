@@ -31,4 +31,4 @@ Fetch list of groups
         + data (array[Group], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

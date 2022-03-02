@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Actions
 Actions it is a way to interact with users and provide them tasks that need to be completed.
@@ -72,11 +72,11 @@ Assignment creator will be used as action author.
 Form name will be used as action title. Hardcoded message will be used as subtitle.
 Lifetime will be 100 years (almost eternity)
 
-<!-- include(list.md) -->
-<!-- include(show.md) -->
-<!-- include(count.md) -->
-<!-- include(create.md) -->
-<!-- include(update.md) -->
-<!-- include(approve.md) -->
-<!-- include(reject.md) -->
-<!-- include(delete.md) -->
+:[](list.md)
+:[](show.md)
+:[](count.md)
+:[](create.md)
+:[](update.md)
+:[](approve.md)
+:[](reject.md)
+:[](delete.md)

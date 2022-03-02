@@ -1,12 +1,12 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Scheduled Approvals
 Scheduled Approvals items.
 
 ## Scheduled Approvals [/scheduled-approvals]
 
-<!-- include(list.md) -->
-<!-- include(show.md) -->
-<!-- include(show-item.md) -->
-<!-- include(delete.md) -->
-<!-- include(delete-item.md) -->
+:[](list.md)
+:[](show.md)
+:[](show-item.md)
+:[](delete.md)
+:[](delete-item.md)

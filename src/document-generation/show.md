@@ -20,4 +20,4 @@ Fetch single document generator
     
         + data (Document Generator, fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

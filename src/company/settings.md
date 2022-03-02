@@ -16,4 +16,4 @@
     
         + data (Company settings, fixed)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

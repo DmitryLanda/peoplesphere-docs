@@ -16,4 +16,4 @@ Get company language. System default language will return if company language no
     
         + data (Language, fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

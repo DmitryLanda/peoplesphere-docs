@@ -27,4 +27,4 @@
         + data (array[ActionGroupOwner], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

@@ -10,7 +10,7 @@
         The way to include relations in the response. Target relations can be comma separated if you want to get few of them
     + `sort-by`: name (enum[name, pso-type, relation, privacy-level, status])
     + `sort-direction`: asc (enum[asc, desc])
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -24,4 +24,4 @@
         + data (array[Field Access], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

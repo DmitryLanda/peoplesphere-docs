@@ -30,4 +30,4 @@ This text will be used on notification that will be sent to the action creator
               
     + Attributes (Response 400)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

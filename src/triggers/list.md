@@ -40,4 +40,4 @@ Fetch list of triggers
         + data (array[Trigger], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

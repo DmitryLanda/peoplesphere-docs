@@ -19,4 +19,4 @@ To get action details user must have `actions.view.*` permissions
     + Attributes
         + data (Action)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

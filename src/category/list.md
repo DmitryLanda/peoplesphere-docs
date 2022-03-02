@@ -17,7 +17,7 @@ Fetch list of fields categories
     + `sort-direction`: asc (optional, enum[asc, desc]) 
         Direction to order fields categories by.
         + Default: asc
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -34,4 +34,4 @@ Fetch list of fields categories
         + data (array[Category], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Forms
 
@@ -14,11 +14,11 @@ Management Permissions:
 
 ## Forms [/forms]
 
-<!-- include(list.md) -->
-<!-- include(show.md) -->
-<!-- include(create.md) -->
-<!-- include(update.md) -->
-<!-- include(delete.md) -->
-<!-- include(detach_one_field.md) -->
-<!-- include(detach_fields.md) -->
-<!-- include(create_assignment.md) -->
+:[](list.md)
+:[](show.md)
+:[](create.md)
+:[](update.md)
+:[](delete.md)
+:[](detach_one_field.md)
+:[](detach_fields.md)
+:[](create_assignment.md)

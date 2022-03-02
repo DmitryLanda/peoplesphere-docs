@@ -20,4 +20,4 @@ Fetch single Idea comment.
     
         + data (IdeaComment, fixed-type)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

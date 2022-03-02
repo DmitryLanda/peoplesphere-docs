@@ -20,4 +20,4 @@ It returns file stream with generated template file.
 
 + Response 200 (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

@@ -16,4 +16,4 @@
 
         + data (array[DataType Operator], fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

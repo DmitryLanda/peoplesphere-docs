@@ -21,4 +21,4 @@
 + Response 200 (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
 + Response 200 (text/plain)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

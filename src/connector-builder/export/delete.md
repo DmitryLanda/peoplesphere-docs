@@ -25,4 +25,4 @@ On creation alias for mapping will be generated automatically
               
     + Attributes (Response 400)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

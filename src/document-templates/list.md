@@ -11,7 +11,7 @@
         Field for filter exports by `is_active` column
     + `sort-by`: name (enum[name, created_at])
     + `sort-direction`: asc (enum[asc, desc])
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -27,4 +27,4 @@
         + data (array[Document Template], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

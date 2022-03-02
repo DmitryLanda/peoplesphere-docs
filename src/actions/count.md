@@ -20,7 +20,7 @@ To view number of actions user must have `actions.view` permission
         - rejected
     + actual: true (boolean)
         Predefined set of filter. Same as `effective-before=<now>&statuses[]=active&statuses[]=pending`
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -34,4 +34,4 @@ To view number of actions user must have `actions.view` permission
         + data (object, fixed-type)
             - count: 34 (number, required)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

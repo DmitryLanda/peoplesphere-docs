@@ -31,4 +31,4 @@ But anyway following fields data will always presented in response:
 
         + data (array[Global Search Response], fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

@@ -28,4 +28,4 @@ Create a new message into the chat.
               
     + Attributes (Response 400)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

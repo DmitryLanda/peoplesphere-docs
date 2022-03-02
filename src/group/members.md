@@ -20,4 +20,4 @@ Fetch information about group members. Supports pagination
     
         + data (array[User], fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

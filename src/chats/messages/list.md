@@ -24,4 +24,4 @@ Fetch list of chat messages(with attachments, if added). Visiting that url also 
         + data (array[Chat Message], fixed-type)
         + meta (Meta)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

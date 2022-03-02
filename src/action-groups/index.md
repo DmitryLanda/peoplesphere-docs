@@ -1,9 +1,9 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Action Groups
 
-<!-- include(list.md) -->
-<!-- include(action-group.md) -->
-<!-- include(action-users.md) -->
-<!-- include(user-list.md) -->
-<!-- include(user-actions.md) -->
+:[](list.md)
+:[](action-group.md)
+:[](action-users.md)
+:[](user-list.md)
+:[](user-actions.md)

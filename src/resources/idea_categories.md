@@ -3,7 +3,7 @@
 ## **Get list of idea categories**
 
 + Parameters
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -17,4 +17,4 @@
         + data (array[Idea Category], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

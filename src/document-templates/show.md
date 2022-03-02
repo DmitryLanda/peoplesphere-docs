@@ -20,4 +20,4 @@ Fetch single document template
     
         + data (Document Template, fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

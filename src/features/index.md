@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Features
 
@@ -10,4 +10,4 @@ Field access provide users with access permissions to psos fields.
 
 ## Field Access Rules [/features]
 
-<!-- include(list.md) -->
+:[](list.md)

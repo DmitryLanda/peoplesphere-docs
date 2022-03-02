@@ -37,4 +37,4 @@ By default all PSO objects from system will be exported using given mapping. The
               
     + Attributes (Response 400)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

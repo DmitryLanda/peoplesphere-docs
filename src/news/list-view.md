@@ -28,4 +28,4 @@ Fetch list of news for main page. Use population functional.
         + data (array[News View], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

@@ -17,4 +17,4 @@ Permissions: `form_assignments.delete`, `form_assignments.view`
 
 + Response 204 (application/json)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

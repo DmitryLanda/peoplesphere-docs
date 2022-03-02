@@ -18,4 +18,4 @@ Create Idea
         
         + data (Idea, fixed-type)
     
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

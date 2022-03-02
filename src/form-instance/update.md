@@ -27,4 +27,4 @@ Permissions: `form_assignments.edit`, `form_assignments.view`
               
     + Attributes (Response 400)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

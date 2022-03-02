@@ -15,4 +15,4 @@ Delete all scheduled approvals in mass edit batch
 
 + Response 204 (application/json)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

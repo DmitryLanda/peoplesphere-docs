@@ -28,4 +28,4 @@ Fetch time tracking events
         + data (array[Time Tracking Event], fixed-type)
         + meta (Meta)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

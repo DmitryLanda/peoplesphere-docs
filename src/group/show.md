@@ -20,4 +20,4 @@ Fetch single group item
     
         + data (Group, fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

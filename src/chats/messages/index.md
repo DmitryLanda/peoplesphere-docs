@@ -1,4 +1,4 @@
 ## Messages [/chats/{id}/messages]
 
-<!-- include(list.md) -->
-<!-- include(create.md) -->
+:[](list.md)
+:[](create.md)

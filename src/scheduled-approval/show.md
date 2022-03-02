@@ -45,4 +45,4 @@ Fetch batch of scheduled approvals items.
     
         + data (ScheduledApproval, fixed-type)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

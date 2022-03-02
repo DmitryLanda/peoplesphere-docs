@@ -1,5 +1,5 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Organizational chart
 
-<!-- include(chart.md) -->
+:[](chart.md)

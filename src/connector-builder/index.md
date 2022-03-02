@@ -1,5 +1,5 @@
-<!-- include(export/data_structures.md) -->
-<!-- include(import/data_structures.md) -->
+:[](export/data_structures.md)
+:[](import/data_structures.md)
 
 # Group Connector Builder
 Connector builder consists from few parts.
@@ -29,23 +29,23 @@ More details about export process can be got by using `Export Logs` endpoint
 
 ## Exports [/connector-builder/exports]
 
-<!-- include(export/list.md) -->
-<!-- include(export/show.md) -->
-<!-- include(export/run-export.md) -->
-<!-- include(export/download-export-result.md) -->
-<!-- include(export/export-logs.md) -->
-<!-- include(export/create.md) -->
-<!-- include(export/update.md) -->
-<!-- include(export/delete.md) -->
+:[](export/list.md)
+:[](export/show.md)
+:[](export/run-export.md)
+:[](export/download-export-result.md)
+:[](export/export-logs.md)
+:[](export/create.md)
+:[](export/update.md)
+:[](export/delete.md)
  
 ## Imports [/connector-builder/imports]
 
-<!-- include(import/list.md) -->
-<!-- include(import/show.md) -->
-<!-- include(import/create.md) -->
-<!-- include(import/update.md) -->
-<!-- include(import/delete.md) -->
-<!-- include(import/generate.md) -->
-<!-- include(import/validate.md) -->
-<!-- include(import/run.md) -->
-<!-- include(import/download.md) -->
+:[](import/list.md)
+:[](import/show.md)
+:[](import/create.md)
+:[](import/update.md)
+:[](import/delete.md)
+:[](import/generate.md)
+:[](import/validate.md)
+:[](import/run.md)
+:[](import/download.md)

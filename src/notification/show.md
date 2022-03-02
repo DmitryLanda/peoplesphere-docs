@@ -17,4 +17,4 @@ Get details for selected notification
     + Attributes
         + data (Notification)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

@@ -4,7 +4,7 @@
 
 + Parameters
     + name: `name of role to search by` (string, optional)
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -18,4 +18,4 @@
         + data (array[Feature], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

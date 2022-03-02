@@ -9,7 +9,7 @@
     + name: form name to search on (string, optional)
     + `include-standard`: true (boolean, optional) - Include creation and profile forms 
     + `pso-type`: usr (string, optional) - PSO type alias to filtering
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -23,4 +23,4 @@
         + data (array[Form], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

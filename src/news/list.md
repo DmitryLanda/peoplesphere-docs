@@ -28,4 +28,4 @@ Fetch list of news for management page. Not use population functional.
         + data (array[News Management], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

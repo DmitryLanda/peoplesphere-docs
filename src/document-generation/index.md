@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 
 # Group Document Generators
@@ -7,11 +7,11 @@ and store them in specified user profile fields
 
 ## Document Generators [/document-generators]
 
-<!-- include(list.md) -->
-<!-- include(show.md) -->
-<!-- include(create.md) -->
-<!-- include(update.md) -->
-<!-- include(delete.md) -->
-<!-- include(generate.md) -->
-<!-- include(copy.md) -->
-<!-- include(toggle-active.md) -->
+:[](list.md)
+:[](show.md)
+:[](create.md)
+:[](update.md)
+:[](delete.md)
+:[](generate.md)
+:[](copy.md)
+:[](toggle-active.md)

@@ -16,7 +16,7 @@ Fetch list of scheduled approvals
         Possible values:
         + author
         + form_instance
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -33,4 +33,4 @@ Fetch list of scheduled approvals
         + data (array[ScheduledApproval], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

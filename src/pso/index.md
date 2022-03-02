@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Pso
 
@@ -8,7 +8,7 @@ Access permissions:
 
 ## Pso [/psos]
 
-<!-- include(show.md) -->
-<!-- include(fields.md) -->
-<!-- include(status.md) -->
-<!-- include(document_generation.md) -->
+:[](show.md)
+:[](fields.md)
+:[](status.md)
+:[](document_generation.md)

@@ -36,4 +36,4 @@ Validation means Approve or Reject
               
     + Attributes (Response 400)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

@@ -19,7 +19,7 @@ To view list of actions user must have `actions.view` permission
         - rejected
     + actual: true (boolean)
         Predefined set of filter. Same as `effective-before=<now>&statuses[]=active&statuses[]=pending`
-    <!-- include(../pagination_parameters.md) -->
+    :[](../pagination_parameters.md)
 
 + Request
     + Headers
@@ -33,4 +33,4 @@ To view list of actions user must have `actions.view` permission
         + data (array[Action], fixed-type)
         + meta (Meta)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

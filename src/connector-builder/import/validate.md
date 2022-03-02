@@ -23,4 +23,4 @@ Upload filled .xls template and plan it to validate. It not available if any oth
         
         + data (Data Import, fixed-type)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

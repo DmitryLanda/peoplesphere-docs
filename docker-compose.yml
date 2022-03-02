@@ -8,3 +8,5 @@ services:
         working_dir: /application
         volumes:
             - .:/application:delegated
+        ports:
+            - "3000:3000"

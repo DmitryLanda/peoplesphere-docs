@@ -23,4 +23,4 @@ Add new answer value on field in form by user.
               
     + Attributes (Response 400)
 
-<!-- include(../error_responses.md) -->
+:[](../error_responses.md)

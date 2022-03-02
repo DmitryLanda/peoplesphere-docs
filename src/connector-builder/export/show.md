@@ -22,4 +22,4 @@
     
         + data (Export, fixed-type)
 
-<!-- include(../../error_responses.md) -->
+:[](../../error_responses.md)

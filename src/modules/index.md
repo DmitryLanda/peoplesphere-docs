@@ -1,1 +1,1 @@
-<!-- include(time-tracking/index.md) -->
+:[](time-tracking/index.md)

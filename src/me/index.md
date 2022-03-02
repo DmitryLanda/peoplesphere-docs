@@ -1,4 +1,4 @@
-<!-- include(data_structures.md) -->
+:[](data_structures.md)
 
 # Group Me
 
@@ -9,7 +9,7 @@ Management Permissions:
 
 ## Me [/me]
 
-<!-- include(show.md) -->
-<!-- include(team.md) -->
-<!-- include(form_instances.md) -->
-<!-- include(poll.md) -->
+:[](show.md)
+:[](team.md)
+:[](form_instances.md)
+:[](poll.md)
